@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base{
+    .base-bg{
+        background-color: rgb(114 121 116);
+    }
+    .content-bg{
+        background-color: #e6e6e6;
+    }
+    .name-bg{
+        color: rgb(231 237 235);
+    }
+    .text-color{
+        color: rgb(10 27 18);
+    }
+    .poppins-light {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+    .italic{
+        font-style: italic;
+    }
+    .faded-color{
+        color: #bfc3c2;
+    }
+    .line-bg{
+        background-color: #e2ece8;
+    }
+    .input{
+        border: 1.5px solid #e2ece8;
+        padding: 4px;
+        outline: none;
+        width: 17pc;
+    }
+    .input-field:focus {
+        border-color: #177449;
+    }
+    .text-hovereffect {
+        color: #177449;
+        cursor: pointer;
+        transition: all 0.7s ease-in-out;
+    }
+    .btn-bg{
+        background-image: linear-gradient(to right, #081d13, #257351);
+    }
+    .btn-effect{
+        background-image: linear-gradient(to right, #257351, #081d13);
+    }
+    .signup-color{
+        color: #f9faf9;
+    }
+    .card-color{
+        color: #cee6dd;
+    }
+    .text-5{
+        font-size: 45px;
+        line-height: 1;
+    }
+    .case-color{
+        background-color: #f1f6f3;
+    }
+    .caseText-color{
+        color: #0a1c13;
+    }
+    .balance-color{
+        color: #a0b5aa;
+    }
+    .btn-bgcolor{
+        background-color: #d3e2db;
+    }
+    .view-effect{
+        background-image: linear-gradient(to right, #081d13, #257351);
+        color: #f9faf9;
+        transition: all 0.5s ease-in-out;
+    }
+}
