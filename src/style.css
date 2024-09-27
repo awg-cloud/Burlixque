@@ -17,6 +17,9 @@
     .text-color{
         color: rgb(10 27 18);
     }
+    .date-input{
+        width: 8pc;
+    }
     .poppins-light {
         font-family: "Poppins", sans-serif;
         font-weight: 300;
@@ -32,6 +35,11 @@
         background-color: #e2ece8;
     }
     .input{
+        border: 1.5px solid #e2ece8;
+        padding: 4px;
+        outline: none;
+    }
+    .singleInput{
         border: 1.5px solid #e2ece8;
         padding: 4px;
         outline: none;
