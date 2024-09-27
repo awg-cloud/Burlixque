@@ -630,6 +630,13 @@ video {
   background-color: #d3e2db;
 }
 
+.card{
+  background-image: url(/dist/img/green-gradient-abstract-background-empty-room-with-space-your-text-picture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -655,6 +662,10 @@ video {
 
 .-mt-\[78px\] {
   margin-top: -78px;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-4 {
