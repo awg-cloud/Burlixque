@@ -59,7 +59,7 @@
     .btn-effect{
         background-image: linear-gradient(to right, #257351, #081d13);
     }
-    .signup-color{
+    .white{
         color: #f9faf9;
     }
     .card-color{
@@ -92,4 +92,80 @@
         background-size: cover; 
         background-position: center;
     }
+    .dropdown-box {
+        position: relative;
+    }
+    
+    .dropdown-box input {
+        width: 100%;
+        border: 1px solid #177449;
+        outline: none;
+        border-radius: 5px;
+        padding: 3px 5px;
+        color: rgb(113, 113, 113);
+    }
+    
+    .selected-item {
+        position: relative;
+    }
+    
+    .selected-item::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border: 2px solid;
+        border-color: transparent rgb(129, 129, 129) rgb(129, 129, 129) transparent;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-70%) rotate(45deg);
+    }
+    
+    .selected-item,
+    .selected-item input {
+        cursor: pointer;
+    }
+    
+    .dropdown-content {
+        box-shadow: 0 5px 15px rgb(0 0 0 / 15%);
+        border-radius: 5px;
+        max-height: 231px;
+        overflow: auto;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+    }
+    
+    .dropdown-box.active .dropdown-content {
+        display: block;
+    }
+    
+    .search-input {
+        padding: 5px;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    li {
+        font-size: 0.8rem;
+        padding: 9px 6px;
+    }
+    
+    li.hide {
+        display: none;
+    }
+    
+    li:hover {
+        background-color: rgb(245, 245, 245);
+    }
+    
+    li.active {
+        background-image: linear-gradient(to right, #081d13, #257351);
+        color: #f9faf9;
+    }
+    
 }

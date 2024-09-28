@@ -28,10 +28,29 @@
             <label for="" class="text-sm mt-6 font-semibold opacity-90"
               >Vehicle Type</label
             >
-            <input
-              type="text"
-              class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
-            />
+            <div class="mt-[2px] selected-item">
+              <input
+                type="text"
+                class="singleInput rounded-md px-2 py-[5px] font-semibold text-color input-field"
+                readonly
+              />
+            </div>
+
+            <div class="dropdown-box">
+              <div class="dropdown-content">
+                <div class="search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <ul class="cursor-pointer ml-1">
+                  <li class="dropdown-item active">Toyota Hiace Bus</li>
+                  <li class="dropdown-item">Coaster Bus</li>
+                  <li class="dropdown-item">Luxurious Bus</li>
+                  <li class="dropdown-item">Mini Bus</li>
+                  <li class="dropdown-item">Car</li>
+                  <li class="dropdown-item">Jeep</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <!-- Preset value -->
           <div class="flex flex-col">
@@ -51,10 +70,32 @@
             <label for="" class="text-sm mt-6 font-semibold opacity-90"
               >Destination</label
             >
-            <input
-              type="text"
-              class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
-            />
+
+            <div class="mt-[2px] selected-item">
+              <input
+                type="text"
+                class="singleInput rounded-md px-2 py-[5px] font-semibold input-field"
+                readonly
+              />
+            </div>
+
+            <div class="dropdown-box">
+              <div class="dropdown-content">
+                <div class="search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <ul class="cursor-pointer ml-1">
+                  <li class="dropdown-item active">Lagos</li>
+                  <li class="dropdown-item">Abuja</li>
+                  <li class="dropdown-item">Kaduna</li>
+                  <li class="dropdown-item">Portharcourt</li>
+                  <li class="dropdown-item">Imo</li>
+                  <li class="dropdown-item">Delta</li>
+                  <li class="dropdown-item">Kogi</li>
+                </ul>
+              </div>
+            </div>
+
           </div>
           <!-- Preset value -->
           <div class="flex flex-col">
@@ -82,7 +123,7 @@
         </div>
         <!-- Next btn -->
         <button
-          class="btn-bg h-9 w-full signup-color text-sm rounded-md mt-7 mb-2 hover:btn-effect opacity-90"
+          class="btn-bg h-9 w-full white text-sm rounded-md mt-7 mb-2 hover:btn-effect opacity-90"
         >
           Next
         </button>
@@ -145,5 +186,7 @@
         </div>
       </div>
     </div>
+
+    <script src="./burlixque.js"></script>
   </body>
 </html>
