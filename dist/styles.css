@@ -598,7 +598,7 @@ video {
 }
 
 .btn-bg{
-  background-image: linear-gradient(to right, #081d13, #257351);
+  background-image: linear-gradient(to right, #081d13, #257351) !important;
 }
 
 .white{
@@ -631,7 +631,6 @@ video {
 }
 
 .card{
-  background-image: url(/dist/img/green-gradient-abstract-background-empty-room-with-space-your-text-picture.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -650,11 +649,11 @@ video {
   color: rgb(113, 113, 113);
 }
 
-.selected-item {
+.selected-item, .destination-item {
   position: relative;
 }
 
-.selected-item::after {
+.selected-item::after, .destination-item::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -666,8 +665,8 @@ video {
   transform: translateY(-70%) rotate(45deg);
 }
 
-.selected-item,
-    .selected-item input {
+.selected-item, .destination-item,
+    .selected-item input, .destination-item input {
   cursor: pointer;
 }
 
@@ -738,10 +737,6 @@ li.active {
 
 .-mt-\[78px\] {
   margin-top: -78px;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 
 .mb-4 {

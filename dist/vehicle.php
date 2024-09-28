@@ -1,13 +1,28 @@
+<?php 
+  include ('get_details.php'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vehicle and Destination</title>
+    <!-- <style>
+      .card{
+        background-image: url(/dist/img/green-gradient-abstract-background-empty-room-with-space-your-text-picture.jpg);
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-position: center;
+      }
+    </style> -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="antialiased poppins-light m-0">
-    <div class="mx-5 my-7 px-2 py-2 flex justify-center">
+    <div
+      class="mx-5 my-7 px-2 py-2 flex justify-center"
+      action="get_details.php"
+      method="POST"
+    >
       <p class="name-bg text-xl ml-4 mt-2 font-Noto">Burlixque</p>
       <div class="mt-20">
         <div>
@@ -25,7 +40,9 @@
         <div class="flex gap-4 mt-2">
           <!-- Vehicle Type -->
           <div class="flex flex-col">
-            <label for="" class="text-sm mt-6 font-semibold opacity-90"
+            <label
+              for="vehicleName"
+              class="text-sm mt-6 font-semibold opacity-90"
               >Vehicle Type</label
             >
             <div class="mt-[2px] selected-item">
@@ -41,7 +58,11 @@
                 <div class="search-input">
                   <input type="text" placeholder="Search" />
                 </div>
-                <ul class="cursor-pointer ml-1">
+                <ul
+                  class="cursor-pointer ml-1"
+                  id="vehicleName"
+                  name="vehicleName"
+                >
                   <li class="dropdown-item active">Toyota Hiace Bus</li>
                   <li class="dropdown-item">Coaster Bus</li>
                   <li class="dropdown-item">Luxurious Bus</li>
@@ -54,12 +75,17 @@
           </div>
           <!-- Preset value -->
           <div class="flex flex-col">
-            <label for="" class="text-sm mt-6 font-semibold opacity-90"
+            <label
+              for="vehiclePrice"
+              class="text-sm mt-6 font-semibold opacity-90"
               >Preset Value</label
             >
             <input
               type="text"
               class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+              readonly
+              id="vehiclePrice"
+              name="vehiclePrice"
             />
           </div>
         </div>
@@ -67,11 +93,13 @@
         <div class="flex gap-4 mt-2">
           <!-- Destination dropdown -->
           <div class="flex flex-col">
-            <label for="" class="text-sm mt-6 font-semibold opacity-90"
+            <label
+              for="destinationName"
+              class="text-sm mt-6 font-semibold opacity-90"
               >Destination</label
             >
 
-            <div class="mt-[2px] selected-item">
+            <div class="mt-[2px] destination-item">
               <input
                 type="text"
                 class="singleInput rounded-md px-2 py-[5px] font-semibold input-field"
@@ -84,7 +112,11 @@
                 <div class="search-input">
                   <input type="text" placeholder="Search" />
                 </div>
-                <ul class="cursor-pointer ml-1">
+                <ul
+                  class="cursor-pointer ml-1"
+                  id="destinationName"
+                  name="destinationName"
+                >
                   <li class="dropdown-item active">Lagos</li>
                   <li class="dropdown-item">Abuja</li>
                   <li class="dropdown-item">Kaduna</li>
@@ -95,16 +127,20 @@
                 </ul>
               </div>
             </div>
-
           </div>
           <!-- Preset value -->
           <div class="flex flex-col">
-            <label for="" class="text-sm mt-6 font-semibold opacity-90"
+            <label
+              for="destinationPrice"
+              class="text-sm mt-6 font-semibold opacity-90"
               >Preset Value</label
             >
             <input
               type="text"
               class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+              readonly
+              id="destinationPrice"
+              name="destinationPrice"
             />
           </div>
         </div>
@@ -122,15 +158,19 @@
           </div>
         </div>
         <!-- Next btn -->
-        <button
-          class="btn-bg h-9 w-full white text-sm rounded-md mt-7 mb-2 hover:btn-effect opacity-90"
-        >
-          Next
-        </button>
+        <a href="./index.html">
+          <button
+            class="btn-bg h-9 w-full white text-sm rounded-md mt-7 mb-2 hover:btn-effect opacity-90"
+          >
+            Next
+          </button>
+        </a>
       </div>
 
       <!--  -->
-      <div class="h-[510px] w-[380px] card rounded-lg ml-24 pl-7">
+      <!-- <div
+        class="h-[510px] card w-[380px] rounded-lg ml-24 pl-7"
+      >
         <div class="text-5 font-Noto italic mt-10 card-color">
           <p>Enter</p>
           <p>the Future</p>
@@ -184,7 +224,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <script src="./burlixque.js"></script>

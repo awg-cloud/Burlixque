@@ -54,7 +54,7 @@
         transition: all 0.7s ease-in-out;
     }
     .btn-bg{
-        background-image: linear-gradient(to right, #081d13, #257351);
+        background-image: linear-gradient(to right, #081d13, #257351) !important;
     }
     .btn-effect{
         background-image: linear-gradient(to right, #257351, #081d13);
@@ -87,7 +87,6 @@
         transition: all 0.5s ease-in-out;
     }
     .card{
-        background-image: url(/dist/img/green-gradient-abstract-background-empty-room-with-space-your-text-picture.jpg);
         background-repeat: no-repeat;
         background-size: cover; 
         background-position: center;
@@ -105,11 +104,11 @@
         color: rgb(113, 113, 113);
     }
     
-    .selected-item {
+    .selected-item, .destination-item {
         position: relative;
     }
     
-    .selected-item::after {
+    .selected-item::after, .destination-item::after {
         content: "";
         width: 7px;
         height: 7px;
@@ -121,8 +120,8 @@
         transform: translateY(-70%) rotate(45deg);
     }
     
-    .selected-item,
-    .selected-item input {
+    .selected-item, .destination-item,
+    .selected-item input, .destination-item input {
         cursor: pointer;
     }
     
