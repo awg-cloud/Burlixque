@@ -247,13 +247,14 @@
     font-size: 14px;
     position: relative;
     outline: none;
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    /* background-color: rgba(80, 78, 78, 0.3) !important; */
     /* background: rgba(0, 0, 0, 0.3) !important; */
   }
   .inputGroupDiv input:focus {
    top: 10px;
    border: 0.1px solid #ccc;
    z-index: 20;
+   /* background-color: rgba(80, 78, 78, 0.3) !important; */
   }
   .signup-form form{
     margin-top: 60px;

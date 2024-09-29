@@ -64,12 +64,24 @@ function SignUpPage() {
                             </motion.div>
                             <motion.h2 variants={itemVariants}>GET STARTED</motion.h2>
                             <motion.p variants={itemVariants}>
-                                Don't have an account? <a href="/">Sign up</a>
+                                Already have an account? <a href="/">Log In</a>
                             </motion.p>
                         </motion.div>
 
                         <form action=''>
-                            <motion.div className="inputGroupDiv" variants={itemVariants}>
+                        <motion.div className="inputGroupDivSign" variants={itemVariants}>
+                                <motion.label htmlFor="email" variants={itemVariants}>Full Name</motion.label>
+                                <motion.input 
+                                    type="text" 
+                                    id="name" 
+                                    placeholder="Enter your full name" 
+                                    required 
+                                    variants={itemVariants}
+                                />
+                                <motion.img src={name} alt='' variants={itemVariants} />
+                            </motion.div>
+
+                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
                                 <motion.label htmlFor="email" variants={itemVariants}>Email</motion.label>
                                 <motion.input 
                                     type="email" 
@@ -81,8 +93,26 @@ function SignUpPage() {
                                 <motion.img src={name} alt='' variants={itemVariants} />
                             </motion.div>
 
-                            <motion.div className="inputGroupDiv" variants={itemVariants}>
+                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
                                 <motion.label htmlFor="password" variants={itemVariants}>Password</motion.label>
+                                <motion.input 
+                                    type={showPassword ? 'text' : 'password'} 
+                                    id="password" 
+                                    placeholder="Enter your password" 
+                                    required 
+                                    variants={itemVariants}
+                                />
+                                <motion.p 
+                                    className='imgRep22'
+                                    onClick={togglePasswordVisibility}
+                                    variants={itemVariants}
+                                >
+                                    {showPassword ? <GoEyeClosed /> : <RxEyeOpen />}
+                                </motion.p>
+                            </motion.div>
+                            
+                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
+                                <motion.label htmlFor="password" variants={itemVariants}>Confirm Password</motion.label>
                                 <motion.input 
                                     type={showPassword ? 'text' : 'password'} 
                                     id="password" 
@@ -105,7 +135,7 @@ function SignUpPage() {
                                 onClick={handleNext}
                                 variants={itemVariants}
                             >
-                                Log In
+                                Sign Up
                             </motion.button>
                         </form>
                     </motion.div>

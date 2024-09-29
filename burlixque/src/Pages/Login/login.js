@@ -62,7 +62,7 @@ function LoginPage() {
                                 />
                                 <motion.p variants={itemVariants}>Burlixque</motion.p>
                             </motion.div>
-                            <motion.h2 variants={itemVariants}>GET STARTED</motion.h2>
+                            <motion.h2 variants={itemVariants}>WELCOME BACK</motion.h2>
                             <motion.p variants={itemVariants}>
                                 Don't have an account? <a href="/sign_up">Sign up</a>
                             </motion.p>

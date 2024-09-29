@@ -190,11 +190,11 @@
     text-decoration: none;
   }
   
-  .inputGroupDiv {
-    margin-bottom: 30px;
+  .inputGroupDivSign {
+    margin-bottom: 15px;
     position: relative;
   }
-  .inputGroupDiv .imgRep{
+  .inputGroupDivSign .imgRep{
     font-size: 27px;
     margin: 0;
     margin-left: -52px;
@@ -203,7 +203,7 @@
     z-index: 1;
     /* color: rgb(0, 0, 0); */
   }
-  .inputGroupDiv .imgRep22{
+  .inputGroupDivSign .imgRep22{
     font-size: 27px;
     margin: 0 !important;
     /* margin-left: 0px; */
@@ -216,14 +216,14 @@
     /* color: rgb(0, 0, 0); */
     color: #000000;
   }
-  .inputGroupDiv img{
+  .inputGroupDivSign img{
     margin-left: -50px;
     margin-top: 17px;
     position: absolute;
     z-index: 1;
   }
   
-  .inputGroupDiv label {
+  .inputGroupDivSign label {
     display: block;
     font-size: 16px;
     /* margin-bottom: 5px; */
@@ -239,7 +239,7 @@
     font-weight: 550;
   }
   
-  .inputGroupDiv input {
+  .inputGroupDivSign input {
     width: 80%;
     padding: 20px;
     border: 0;
@@ -247,13 +247,14 @@
     font-size: 14px;
     position: relative;
     outline: none;
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    /* background-color: rgba(80, 78, 78, 0.3) !important; */
     /* background: rgba(0, 0, 0, 0.3) !important; */
   }
-  .inputGroupDiv input:focus {
+  .inputGroupDivSign input:focus {
    top: 10px;
    border: 0.1px solid #ccc;
    z-index: 20;
+   /* background-color: rgba(80, 78, 78, 0.3) !important; */
   }
   .signup-form form{
     margin-top: 60px;
@@ -339,7 +340,7 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .inputGroupDiv {
+    .inputGroupDivSign {
       margin-bottom: 30px;
       position: relative;
     }
