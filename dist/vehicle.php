@@ -99,7 +99,7 @@
               >Destination</label
             >
 
-            <div class="mt-[2px] destination-item">
+            <div class="mt-[2px] selected-destination">
               <input
                 type="text"
                 class="singleInput rounded-md px-2 py-[5px] font-semibold input-field"
@@ -146,15 +146,25 @@
         </div>
         <!-- Stops -->
         <div class="flex gap-4 mt-2">
-          <!-- Vehicle Type -->
           <div class="flex flex-col">
             <label for="" class="text-sm mt-6 font-semibold opacity-90"
               >Stop(s)</label
             >
-            <input
-              type="text"
-              class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
-            />
+            <div class="mt-[2px] selected-stop">
+              <input
+                type="text"
+                class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+              />
+            </div>
+
+            <div class="dropdown-box" id="stopName">
+              <div class="dropdown-content">
+                <div class="search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <!-- stops will be populated here -->
+              </div>
+            </div>
           </div>
         </div>
         <!-- Next btn -->

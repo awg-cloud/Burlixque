@@ -4,7 +4,9 @@ window.addEventListener("load", () => {
   dropdowns.forEach((dropdown) => {
     const selectedItem = dropdown
       .closest(".flex")
-      .querySelector(".selected-item input, .destination-item input"); // Correctly select input fields based on your HTML structure
+      .querySelector(
+        ".selected-item input, .selected-destination input, .selected-stop input"
+      ); // Correctly select input fields based on your HTML structure
     const dropdownContent = dropdown.querySelector(".dropdown-content");
     const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
     const searchInput = dropdown.querySelector(".search-input input");
@@ -61,6 +63,7 @@ function closeDropdown(dropdown) {
 window.addEventListener("load", () => {
   const vehicleDropdown = document.querySelector("#vehicleName");
   const destinationDropdown = document.querySelector("#destinationName");
+  const stopsDropdown = document.querySelector("#stopName");
 
   // Vehicle dropdown logic
   if (vehicleDropdown) {
@@ -104,7 +107,7 @@ window.addEventListener("load", () => {
   // Destination dropdown logic
   if (destinationDropdown) {
     const destinationInput = document.querySelector(
-      ".destination-item input[type='text']"
+      ".selected-destination input[type='text']"
     );
     const destinationPriceField = document.getElementById("destinationPrice");
 
@@ -148,4 +151,132 @@ function clearVehiclePriceField() {
 
 function clearDestinationPriceField() {
   document.getElementById("destinationPrice").value = "";
+}
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const destinationItems = document.querySelectorAll(
+//     "#destinationName .dropdown-item"
+//   );
+
+//   destinationItems.forEach(function (item) {
+//     item.addEventListener("click", function () {
+//       const selectedDestinationName = item.textContent;
+//       const destinationInput = document.querySelector(
+//         ".destination-item input[type='text']"
+//       );
+//       destinationInput.value = selectedDestinationName;
+
+//       // Send AJAX request to the PHP backend for destination stops
+//       const xhrStops = new XMLHttpRequest();
+//       xhrStops.open("POST", "get_stops.php", true);
+//       xhrStops.setRequestHeader(
+//         "Content-type",
+//         "application/x-www-form-urlencoded"
+//       );
+
+//       xhrStops.onload = function () {
+//         if (xhrStops.status === 200) {
+//           const response = JSON.parse(xhrStops.responseText);
+//           if (response.stops.length > 0) {
+//             updateStopsDropdown(response.stops);
+//           } else {
+//             clearStopsDropdown(); // Clear dropdown if no stops are available
+//           }
+//         }
+//       };
+
+//       xhrStops.send(
+//         "destinationName=" + encodeURIComponent(selectedDestinationName)
+//       );
+//     });
+//   });
+// });
+
+// // Function to update the stops dropdown
+// function updateStopsDropdown(stops) {
+//   const stopsDropdown = document.querySelector("#stopsName .dropdown-content");
+//   stopsDropdown.innerHTML = ""; // Clear existing stops
+
+//   stops.forEach(function (stop) {
+//     const stopItem = document.createElement("div");
+//     stopItem.classList.add("dropdown-item");
+//     stopItem.textContent = stop.stop_name;
+//     stopItem.addEventListener("click", function () {
+//       // When a stop is selected, update the stop input field
+//       const stopInput = document.querySelector(".stop-item input[type='text']");
+//       stopInput.value = stop.stop_name;
+//     });
+//     stopsDropdown.appendChild(stopItem);
+//   });
+// }
+
+// // Function to clear the stops dropdown if no stops are found
+// function clearStopsDropdown() {
+//   const stopsDropdown = document.querySelector("#stopsName .dropdown-content");
+//   stopsDropdown.innerHTML =
+//     "<div class='dropdown-item'>No stops available</div>";
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const destinationItems = document.querySelectorAll(
+    "#destinationName .dropdown-item"
+  );
+
+  destinationItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      const selectedDestinationName = item.textContent;
+      const destinationInput = document.querySelector(
+        ".selected-destination input[type='text']"
+      );
+      destinationInput.value = selectedDestinationName;
+
+      // Send AJAX request to the PHP backend for destination stops
+      const xhrStops = new XMLHttpRequest();
+      xhrStops.open("POST", "get_details.php", true);
+      xhrStops.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+
+      xhrStops.onload = function () {
+        if (xhrStops.status === 200) {
+          const response = JSON.parse(xhrStops.responseText);
+          if (response.stops && response.stops.length > 0) {
+            updateStopsDropdown(response.stops); 
+          } else {
+            clearStopsDropdown(); 
+          }
+        }
+      };
+
+      xhrStops.send(
+        "destinationName=" + encodeURIComponent(selectedDestinationName)
+      );
+    });
+  });
+});
+
+// Function to update the stops dropdown
+function updateStopsDropdown(stops) {
+  const stopsDropdown = document.querySelector("#stopName .dropdown-content"); // Target the dropdown content
+  stopsDropdown.innerHTML = ""; // Clear existing stops
+
+  stops.forEach(function (stop) {
+    const stopItem = document.createElement("div");
+    stopItem.classList.add("dropdown-item");
+    stopItem.textContent = stop.stop_name;
+    stopItem.addEventListener("click", function () {
+      // When a stop is selected, update the stop input field
+      const stopInput = document.querySelector(".selected-stop input[type='text']");
+      stopInput.value = stop.stop_name;
+    });
+    stopsDropdown.appendChild(stopItem);
+  });
+}
+
+// Function to clear the stops dropdown if no stops are found
+function clearStopsDropdown() {
+  const stopsDropdown = document.querySelector("#stopName .dropdown-content"); // Ensure targeting the content div
+  stopsDropdown.innerHTML =
+    "<div class='dropdown-item no-items'>No stops available</div>";
 }

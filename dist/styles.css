@@ -649,11 +649,11 @@ video {
   color: rgb(113, 113, 113);
 }
 
-.selected-item, .destination-item {
+.selected-item, .selected-destination, .selected-stop {
   position: relative;
 }
 
-.selected-item::after, .destination-item::after {
+.selected-item::after, .selected-destination::after, .selected-stop::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -665,8 +665,8 @@ video {
   transform: translateY(-70%) rotate(45deg);
 }
 
-.selected-item, .destination-item,
-    .selected-item input, .destination-item input {
+.selected-item, .selected-destination, .selected-stop,
+    .selected-item input, .selected-destination input, .selected-stop input {
   cursor: pointer;
 }
 
