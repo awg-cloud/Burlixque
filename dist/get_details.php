@@ -47,31 +47,6 @@ if (isset($_POST['destinationName']) && empty($_POST['vehicleName']) && empty($_
     exit();
 }
 
-// Handle AJAX request for stops based on destination
-// if (isset($_POST['destinationName']) && !empty($_POST['destinationName'])) {
-//     $destinationName = mysqli_real_escape_string($conn, $_POST['destinationName']);
-    
-//     // Query to fetch stops related to the selected destination
-//     $sqlStops = "SELECT stop_name FROM destination_stops WHERE destination_name = '$destinationName'";
-//     $stopsResult = mysqli_query($conn, $sqlStops);
-
-//     $stops = [];
-
-//     if (mysqli_num_rows($stopsResult) > 0) {
-//         // Fetch all stops for the destination
-//         while ($row = mysqli_fetch_assoc($stopsResult)) {
-//             $stops[] = $row;
-//         }
-//     }
-
-//     // Return the stops as a JSON response
-//     echo json_encode(['stops' => $stops]);
-
-//     // Free result set
-//     mysqli_free_result($stopsResult);
-//     exit();
-// }
-
 // Close the connection
 mysqli_close($conn);
 ?>
