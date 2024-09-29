@@ -649,11 +649,11 @@ video {
   color: rgb(113, 113, 113);
 }
 
-.selected-item, .selected-destination, .selected-stop {
+.selected-item, .selected-destination, .selectedStop {
   position: relative;
 }
 
-.selected-item::after, .selected-destination::after, .selected-stop::after {
+.selected-item::after, .selected-destination::after, .selectedStop::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -665,8 +665,8 @@ video {
   transform: translateY(-70%) rotate(45deg);
 }
 
-.selected-item, .selected-destination, .selected-stop,
-    .selected-item input, .selected-destination input, .selected-stop input {
+.selected-item, .selected-destination, .selectedStop,
+    .selected-item input, .selected-destination input, .selectedStop input {
   cursor: pointer;
 }
 
@@ -710,6 +710,40 @@ li:hover {
 li.active {
   background-image: linear-gradient(to right, #081d13, #257351);
   color: #f9faf9;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
 }
 
 .m-0 {
@@ -833,6 +867,10 @@ li.active {
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-10 {

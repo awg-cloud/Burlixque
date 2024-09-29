@@ -5,8 +5,8 @@ window.addEventListener("load", () => {
     const selectedItem = dropdown
       .closest(".flex")
       .querySelector(
-        ".selected-item input, .selected-destination input, .selected-stop input"
-      ); 
+        ".selected-item input, .selected-destination input, .selectedStop input"
+      );
     const dropdownContent = dropdown.querySelector(".dropdown-content");
     const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
     const searchInput = dropdown.querySelector(".search-input input");
@@ -63,7 +63,6 @@ function closeDropdown(dropdown) {
 window.addEventListener("load", () => {
   const vehicleDropdown = document.querySelector("#vehicleName");
   const destinationDropdown = document.querySelector("#destinationName");
-  const stopsDropdown = document.querySelector("#stopName");
 
   // Vehicle dropdown logic
   if (vehicleDropdown) {
@@ -154,65 +153,72 @@ function clearDestinationPriceField() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const destinationItems = document.querySelectorAll(
-    "#destinationName .dropdown-item"
-  );
+  const destinationItems = document.querySelectorAll(".dropdown-item");
 
   destinationItems.forEach(function (item) {
     item.addEventListener("click", function () {
-      const selectedDestinationName = item.textContent;
-      const destinationInput = document.querySelector(
-        ".selected-destination input[type='text']"
-      );
-      destinationInput.value = selectedDestinationName;
+      const selectedDestination = item.getAttribute("data-destination");
 
-      // Send AJAX request to the PHP backend for destination stops
-      const xhrStops = new XMLHttpRequest();
-      xhrStops.open("POST", "get_details.php", true);
-      xhrStops.setRequestHeader(
-        "Content-type",
-        "application/x-www-form-urlencoded"
+      const selectedStopInput = document.querySelector(
+        ".selectedStop input[type='text']"
       );
+      if (selectedStopInput) {
+        selectedStopInput.value = "";
+      }
 
-      xhrStops.onload = function () {
-        if (xhrStops.status === 200) {
-          const response = JSON.parse(xhrStops.responseText);
-          if (response.stops && response.stops.length > 0) {
-            updateStopsDropdown(response.stops); 
-          } else {
-            clearStopsDropdown(); 
-          }
-        }
-      };
-
-      xhrStops.send(
-        "destinationName=" + encodeURIComponent(selectedDestinationName)
-      );
+      // Function to update stops based on the selected destination
+      updateStopsDropdown(selectedDestination);
     });
   });
 });
 
-// Function to update the stops dropdown
-function updateStopsDropdown(stops) {
-  const stopsDropdown = document.querySelector("#stopName .dropdown-content"); // Target the dropdown content
-  stopsDropdown.innerHTML = ""; // Clear existing stops
+// Function to update stops dropdown based on selected destination
+function updateStopsDropdown(destination) {
+  const stopsDropdown = document.querySelector("#stops");
+  const selectedStopInput = document.querySelector(
+    ".selectedStop input[type='text']"
+  );
 
-  stops.forEach(function (stop) {
-    const stopItem = document.createElement("div");
-    stopItem.classList.add("dropdown-item");
-    stopItem.textContent = stop.stop_name;
-    stopItem.addEventListener("click", function () {
-      // When a stop is selected, update the stop input field
-      const stopInput = document.querySelector(".selected-stop input[type='text']");
-      stopInput.value = stop.stop_name;
+  fetch("./destinations.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      const stops = data[destination];
+
+      let out = "";
+      out += `<li class="dropdown-item active">Select from below</li>`; // First option with active class
+
+      // Populate the dropdown with stops
+      if (stops && stops.length > 0) {
+        stops.forEach(function (selectedStop) {
+          out += `<li class="dropdown-item" value="${selectedStop}">${selectedStop}</li>`;
+        });
+      } else {
+        out = `<li class="dropdown-item no-items">No stops available</li>`;
+      }
+
+      stopsDropdown.innerHTML = out;
+
+      stopsDropdown.removeAttribute("disabled");
+
+      // Add event listener to each stop item to handle the selection
+      const stopItems = stopsDropdown.querySelectorAll(".dropdown-item");
+      stopItems.forEach(function (stopItem) {
+        stopItem.addEventListener("click", function () {
+          const selectedStop = stopItem.textContent;
+
+          selectedStopInput.value = selectedStop;
+
+          stopItems.forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          stopItem.classList.add("active");
+        });
+      });
+    })
+    .catch(function (error) {
+      console.error("Error fetching stops:", error);
     });
-    stopsDropdown.appendChild(stopItem);
-  });
-}
-
-// Function to clear the stops dropdown if no stops are found
-function clearStopsDropdown() {
-  const stopsDropdown = document.querySelector("#stopName .dropdown-content"); // Ensure targeting the content div
-  stopsDropdown.innerHTML =
-    "<div class='dropdown-item no-items'>No stops available</div>";
 }

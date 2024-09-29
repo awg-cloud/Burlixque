@@ -7,14 +7,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vehicle and Destination</title>
-    <!-- <style>
-      .card{
-        background-image: url(/dist/img/green-gradient-abstract-background-empty-room-with-space-your-text-picture.jpg);
-        background-repeat: no-repeat;
-        background-size: cover; 
-        background-position: center;
-      }
-    </style> -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="antialiased poppins-light m-0">
@@ -117,13 +109,13 @@
                   id="destinationName"
                   name="destinationName"
                 >
-                  <li class="dropdown-item active">Lagos</li>
-                  <li class="dropdown-item">Abuja</li>
-                  <li class="dropdown-item">Kaduna</li>
-                  <li class="dropdown-item">Portharcourt</li>
-                  <li class="dropdown-item">Imo</li>
-                  <li class="dropdown-item">Delta</li>
-                  <li class="dropdown-item">Kogi</li>
+                  <li class="dropdown-item active" data-destination="Lagos">Lagos</li>
+                  <li class="dropdown-item" data-destination="Abuja">Abuja</li>
+                  <li class="dropdown-item" data-destination="Kaduna">Kaduna</li>
+                  <li class="dropdown-item" data-destination="Portharcourt">Portharcourt</li>
+                  <li class="dropdown-item" data-destination="Imo">Imo</li>
+                  <li class="dropdown-item" data-destination="Delta">Delta</li>
+                  <li class="dropdown-item" data-destination="Kogi">Kogi</li>
                 </ul>
               </div>
             </div>
@@ -150,7 +142,7 @@
             <label for="" class="text-sm mt-6 font-semibold opacity-90"
               >Stop(s)</label
             >
-            <div class="mt-[2px] selected-stop">
+            <div class="mt-[2px] selectedStop">
               <input
                 type="text"
                 class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
@@ -162,7 +154,10 @@
                 <div class="search-input">
                   <input type="text" placeholder="Search" />
                 </div>
-                <!-- stops will be populated here -->
+                <ul class="cursor-pointer ml-1" id="stops" name="stops" disabled>
+                  <li class="dropdown-item active" readonly>Select a destination</li>
+                  <!-- stops will be populated here -->
+                </ul>
               </div>
             </div>
           </div>
@@ -176,65 +171,6 @@
           </button>
         </a>
       </div>
-
-      <!--  -->
-      <!-- <div
-        class="h-[510px] card w-[380px] rounded-lg ml-24 pl-7"
-      >
-        <div class="text-5 font-Noto italic mt-10 card-color">
-          <p>Enter</p>
-          <p>the Future</p>
-          <div class="poppins-light text-[39px] ml-10 mt-3">
-            <p>of Transport,</p>
-            <p>today</p>
-          </div>
-        </div>
-
-        <div class="flex mt-52 gap-2 ml-[60px]">
-          <img
-            class="h-[42px] w-[43px] rounded-lg"
-            src="./img/green logo - white bg.png"
-            alt=""
-          />
-          <div
-            class="case-color caseText-color h-[120px] w-10 -mt-[78px] rounded-md"
-          >
-            <div class="ml-[13px] mt-4">
-              <img class="h-[18px] mb-4" src="./img/house.png" alt="" />
-              <img class="h-[18px] mb-4" src="./img/four-dot.png" alt="" />
-              <img class="h-[18px]" src="./img/screw.png" alt="" />
-            </div>
-          </div>
-          <div class="case-color h-auto w-[170px] -mt-[185px] rounded-md pl-3">
-            <img class="h-6 mt-5" src="./img/faded-logo.png" alt="" />
-            <p
-              class="font-semibold text-[16px] poppins-light tracking-tight mt-[42px] opacity-90"
-            >
-              12,347.23 <span>₦</span>
-            </p>
-            <p class="text-[8px] balance-color tracking-wide mt-[2px]">
-              Combined balance
-            </p>
-            <div
-              class="caseText-color flex font-semibold gap-7 mt-5 opacity-90"
-            >
-              <p class="text-[9px]">Primary card</p>
-              <p class="text-[10px]">2,546.64 <span>₦</span></p>
-            </div>
-            <p class="caseText-color mt-1 text-[8px] font-semibold opacity-90">
-              3495 **** **** 6917
-            </p>
-            <div class="flex gap-11">
-              <img class="h-[18px] my-4" src="./img/visa.png" alt="" />
-              <button
-                class="h-6 w-16 text-[10px] font-semibold caseText-color btn-bgcolor rounded-full mt-3 hover:view-effect opacity-90"
-              >
-                View All
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
 
     <script src="./burlixque.js"></script>
