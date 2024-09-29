@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
       .closest(".flex")
       .querySelector(
         ".selected-item input, .selected-destination input, .selected-stop input"
-      ); // Correctly select input fields based on your HTML structure
+      ); 
     const dropdownContent = dropdown.querySelector(".dropdown-content");
     const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
     const searchInput = dropdown.querySelector(".search-input input");
