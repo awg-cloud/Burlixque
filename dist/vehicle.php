@@ -109,13 +109,13 @@
                   id="destinationName"
                   name="destinationName"
                 >
-                  <li class="dropdown-item active" data-destination="Lagos">Lagos</li>
-                  <li class="dropdown-item" data-destination="Abuja">Abuja</li>
-                  <li class="dropdown-item" data-destination="Kaduna">Kaduna</li>
-                  <li class="dropdown-item" data-destination="Portharcourt">Portharcourt</li>
-                  <li class="dropdown-item" data-destination="Imo">Imo</li>
-                  <li class="dropdown-item" data-destination="Delta">Delta</li>
-                  <li class="dropdown-item" data-destination="Kogi">Kogi</li>
+                  <li class="dropdownItem active" data-destination="Lagos">Lagos</li>
+                  <li class="dropdownItem" data-destination="Abuja">Abuja</li>
+                  <li class="dropdownItem" data-destination="Kaduna">Kaduna</li>
+                  <li class="dropdownItem" data-destination="Portharcourt">Portharcourt</li>
+                  <li class="dropdownItem" data-destination="Imo">Imo</li>
+                  <li class="dropdownItem" data-destination="Delta">Delta</li>
+                  <li class="dropdownItem" data-destination="Kogi">Kogi</li>
                 </ul>
               </div>
             </div>
@@ -146,6 +146,7 @@
               <input
                 type="text"
                 class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+                readonly
               />
             </div>
 
@@ -157,6 +158,44 @@
                 <ul class="cursor-pointer ml-1" id="stops" name="stops" disabled>
                   <li class="dropdown-item active" readonly>Select a destination</li>
                   <!-- stops will be populated here -->
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transportation rate -->
+          <div class="flex flex-col">
+            <label
+              for="transportRate"
+              class="text-sm mt-6 font-semibold opacity-90"
+              >Transportation Rate</label
+            >
+            <input
+              type="text"
+              class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+            />
+          </div>
+        </div>
+
+        <!-- Slot subscription -->
+        <div class="flex gap-4 mt-2">
+          <div class="flex flex-col">
+            <label for="" class="text-sm mt-6 font-semibold opacity-90"
+              >Slot Subscription</label
+            >
+            <div class="mt-[2px] selected-slot">
+              <input
+                type="text"
+                class="singleInput rounded-md mt-[2px] px-2 py-[5px] font-semibold input-field"
+              />
+            </div>
+
+            <div class="dropdown-box">
+              <div class="dropdown-content mt-[2px]">
+                <ul class="cursor-pointer ml-1">
+                  <li class="dropdown-item active" readonly>Monthly: 2500₦</li>
+                  <li class="dropdown-item" readonly>Weekly: 1000₦</li>
+                  <li class="dropdown-item" readonly>Daily: 250₦</li>
                 </ul>
               </div>
             </div>

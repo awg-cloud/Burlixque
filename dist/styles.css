@@ -631,6 +631,8 @@ video {
 }
 
 .card{
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -649,11 +651,11 @@ video {
   color: rgb(113, 113, 113);
 }
 
-.selected-item, .selected-destination, .selectedStop {
+.selected-item, .selected-destination, .selectedStop, .selected-slot {
   position: relative;
 }
 
-.selected-item::after, .selected-destination::after, .selectedStop::after {
+.selected-item::after, .selected-destination::after, .selectedStop::after, .selected-slot::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -665,8 +667,8 @@ video {
   transform: translateY(-70%) rotate(45deg);
 }
 
-.selected-item, .selected-destination, .selectedStop,
-    .selected-item input, .selected-destination input, .selectedStop input {
+.selected-item, .selected-destination, .selectedStop, .selected-slot,
+    .selected-item input, .selected-destination input, .selectedStop input, .selected-slot input{
   cursor: pointer;
 }
 
@@ -710,40 +712,6 @@ li:hover {
 li.active {
   background-image: linear-gradient(to right, #081d13, #257351);
   color: #f9faf9;
-}
-
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
 }
 
 .m-0 {
@@ -857,20 +825,12 @@ li.active {
   margin-top: 42px;
 }
 
-.mt-\[44px\] {
-  margin-top: 44px;
-}
-
 .mt-\[6px\] {
   margin-top: 6px;
 }
 
 .flex {
   display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-10 {
@@ -899,10 +859,6 @@ li.active {
 
 .h-\[42px\] {
   height: 42px;
-}
-
-.h-\[44px\] {
-  height: 44px;
 }
 
 .h-\[510px\] {

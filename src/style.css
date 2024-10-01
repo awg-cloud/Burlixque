@@ -87,6 +87,8 @@
         transition: all 0.5s ease-in-out;
     }
     .card{
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%);
         background-repeat: no-repeat;
         background-size: cover; 
         background-position: center;
@@ -104,11 +106,11 @@
         color: rgb(113, 113, 113);
     }
     
-    .selected-item, .selected-destination, .selectedStop {
+    .selected-item, .selected-destination, .selectedStop, .selected-slot {
         position: relative;
     }
     
-    .selected-item::after, .selected-destination::after, .selectedStop::after {
+    .selected-item::after, .selected-destination::after, .selectedStop::after, .selected-slot::after {
         content: "";
         width: 7px;
         height: 7px;
@@ -120,8 +122,8 @@
         transform: translateY(-70%) rotate(45deg);
     }
     
-    .selected-item, .selected-destination, .selectedStop,
-    .selected-item input, .selected-destination input, .selectedStop input {
+    .selected-item, .selected-destination, .selectedStop, .selected-slot,
+    .selected-item input, .selected-destination input, .selectedStop input, .selected-slot input{
         cursor: pointer;
     }
     
@@ -165,6 +167,5 @@
     li.active {
         background-image: linear-gradient(to right, #081d13, #257351);
         color: #f9faf9;
-    }
-    
+    }   
 }

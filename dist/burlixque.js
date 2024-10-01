@@ -5,10 +5,10 @@ window.addEventListener("load", () => {
     const selectedItem = dropdown
       .closest(".flex")
       .querySelector(
-        ".selected-item input, .selected-destination input, .selectedStop input"
+        ".selected-item input, .selected-destination input, .selectedStop input, .selected-slot input"
       );
     const dropdownContent = dropdown.querySelector(".dropdown-content");
-    const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
+    const dropdownItems = dropdown.querySelectorAll(".dropdown-item, .dropdownItem");
     const searchInput = dropdown.querySelector(".search-input input");
 
     // Open and close dropdown on click
@@ -110,7 +110,7 @@ window.addEventListener("load", () => {
     );
     const destinationPriceField = document.getElementById("destinationPrice");
 
-    destinationDropdown.querySelectorAll(".dropdown-item").forEach((item) => {
+    destinationDropdown.querySelectorAll(".dropdownItem").forEach((item) => {
       item.addEventListener("click", function () {
         const selectedDestinationName = item.textContent;
         destinationInput.value = selectedDestinationName;
@@ -153,7 +153,7 @@ function clearDestinationPriceField() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const destinationItems = document.querySelectorAll(".dropdown-item");
+  const destinationItems = document.querySelectorAll(".dropdownItem");
 
   destinationItems.forEach(function (item) {
     item.addEventListener("click", function () {
