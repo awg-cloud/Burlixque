@@ -8,9 +8,9 @@
     .base-bg{
         background-color: rgb(114 121 116);
     }
-    .content-bg{
+    /* .content-bg{
         background-color: #e6e6e6;
-    }
+    } */
     .name-bg{
         color: rgb(231 237 235);
     }
@@ -36,11 +36,13 @@
     }
     .input{
         border: 1.5px solid #e2ece8;
+        background-color: transparent;
         padding: 4px;
         outline: none;
     }
     .singleInput{
         border: 1.5px solid #e2ece8;
+        background-color: transparent;
         padding: 4px;
         outline: none;
         width: 17pc;
@@ -54,10 +56,12 @@
         transition: all 0.7s ease-in-out;
     }
     .btn-bg{
-        background-image: linear-gradient(to right, #081d13, #257351) !important;
+        background: rgb(0,0,0) !important;
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
     }
     .btn-effect{
-        background-image: linear-gradient(to right, #257351, #081d13);
+        background: rgb(0,0,0) !important;
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
     }
     .white{
         color: #f9faf9;
@@ -167,5 +171,5 @@
     li.active {
         background-image: linear-gradient(to right, #081d13, #257351);
         color: #f9faf9;
-    }   
+    }  
 }

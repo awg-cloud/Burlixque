@@ -8,7 +8,9 @@ window.addEventListener("load", () => {
         ".selected-item input, .selected-destination input, .selectedStop input, .selected-slot input"
       );
     const dropdownContent = dropdown.querySelector(".dropdown-content");
-    const dropdownItems = dropdown.querySelectorAll(".dropdown-item, .dropdownItem");
+    const dropdownItems = dropdown.querySelectorAll(
+      ".dropdown-item, .dropdownItem"
+    );
     const searchInput = dropdown.querySelector(".search-input input");
 
     // Open and close dropdown on click
@@ -88,7 +90,8 @@ window.addEventListener("load", () => {
           if (xhrVehicle.status === 200) {
             const response = JSON.parse(xhrVehicle.responseText);
             if (response.vehicle_price) {
-              vehiclePriceField.value = response.vehicle_price;
+              vehiclePriceField.value = response.vehicle_price +=
+                " per vehicle";
             } else {
               clearVehiclePriceField();
             }

@@ -5,15 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: auto;
+      }
+
+      #vanta-bg {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+      #vanta-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+      #vanta-bg > * {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
   </head>
-  <body class="antialiased poppins-light m-0">
-    <div class="mx-5 my-7 px-2 py-2 flex justify-center">
+  <body class="antialiased poppins-light" id="animate-bg">
+    <div class="mx-5 px-2 py-2 flex justify-center">
       <p class="name-bg text-xl ml-4 mt-2 font-Noto">Burlixque</p>
       <div class="mt-20">
         <div>
           <img class="h-[53px]" src="./img/white logo - green bg.png" alt="" />
           <p
-            class="font-semibold text-[15px] mt-[12px] text-color tracking-normal opacity-90"
+            class="font-semibold text-[15px] mt-[12px] white tracking-normal opacity-90"
           >
             Get Started
           </p>
@@ -24,21 +60,21 @@
         </div>
         <!-- Row 1 -->
         <div class="flex gap-4 mt-2">
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Full Name</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] input-field text-[15px]"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Date of Birth (DDMMYY)</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] text-[15px] input-field"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6"
               >School Registration Number</label
             >
@@ -50,7 +86,7 @@
         </div>
         <!-- Row 2 -->
         <div class="flex gap-4">
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Matriculation Number</label>
             <input
               type="text"
@@ -58,14 +94,14 @@
             />
           </div>
           <!--  -->
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Preferred Username</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] text-[15px] input-field"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Availability</label>
             <input
               type="text"
@@ -75,7 +111,7 @@
         </div>
         <!-- Row 3 -->
         <div class="flex gap-4">
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Password</label>
             <input
               type="text"
@@ -83,14 +119,14 @@
             />
           </div>
           <!--  -->
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Confirm Password</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] text-[15px] input-field"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Home Address</label>
             <input
               type="text"
@@ -100,7 +136,7 @@
         </div>
         <!-- Row 4 -->
         <div class="flex gap-4">
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Hostel Room Number</label>
             <input
               type="text"
@@ -108,14 +144,14 @@
             />
           </div>
           <!--  -->
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Course</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] text-[15px] input-field"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Department</label>
             <input
               type="text"
@@ -125,7 +161,7 @@
         </div>
         <!-- Row 5 -->
         <div class="flex gap-4">
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Email</label>
             <input
               type="text"
@@ -133,14 +169,14 @@
             />
           </div>
           <!--  -->
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Phone Number</label>
             <input
               type="text"
               class="input rounded-md mt-[6px] px-2 py-[5px] text-[15px] input-field"
             />
           </div>
-          <div class="flex flex-col text-color font-semibold opacity-90">
+          <div class="flex flex-col white font-semibold opacity-90">
             <label for="" class="text-sm mt-6">Socials (Give any)</label>
             <input
               type="text"
@@ -167,7 +203,7 @@
         </a>
 
         <div
-          class="flex text-[12px] text-color justify-center mt-3 tracking-wide"
+          class="flex text-[12px] white justify-center mt-3 tracking-wide"
         >
           <p class="opacity-70">Already have an account?</p>
           <p
@@ -178,5 +214,26 @@
         </div>
       </div>
     </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <!-- Vanta.js NET Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+    <script>
+      VANTA.NET({
+        el: "#animate-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0xe8308,
+        backgroundColor: 0xa0a0a,
+        points: 11.0,
+      });
+    </script>
   </body>
 </html>
