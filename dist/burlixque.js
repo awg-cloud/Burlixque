@@ -90,8 +90,11 @@ window.addEventListener("load", () => {
           if (xhrVehicle.status === 200) {
             const response = JSON.parse(xhrVehicle.responseText);
             if (response.vehicle_price) {
-              vehiclePriceField.value = response.vehicle_price +=
-                " per vehicle";
+              vehiclePriceField.value = response.vehicle_price;
+
+              // Store the vehicle price in session for checkout page
+              sessionStorage.setItem("vehiclePrice", response.vehicle_price);
+
             } else {
               clearVehiclePriceField();
             }
@@ -131,6 +134,12 @@ window.addEventListener("load", () => {
             const response = JSON.parse(xhrDestination.responseText);
             if (response.destination_price) {
               destinationPriceField.value = response.destination_price;
+
+              // Store the destination price in session for checkout page
+              sessionStorage.setItem(
+                "destinationPrice",
+                response.destination_price
+              );
             } else {
               clearDestinationPriceField();
             }
@@ -225,3 +234,19 @@ function updateStopsDropdown(destination) {
       console.error("Error fetching stops:", error);
     });
 }
+
+const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+const slotInput = document.getElementById("slotInput");
+
+dropdownItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    const itemText = this.textContent;
+
+    // Regular expression to extract the numeric price from the text
+    const priceValue = itemText.match(/\d+/)[0]; // Matches the first numeric value
+
+    // Store the slot price in session for checkout page
+    sessionStorage.setItem("slotPrice", priceValue);
+  });
+});

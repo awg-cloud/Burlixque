@@ -172,4 +172,7 @@
         background-image: linear-gradient(to right, #081d13, #257351);
         color: #f9faf9;
     }  
+    .checkoutCard{
+        border: 2px solid #e2ece8;
+    }
 }

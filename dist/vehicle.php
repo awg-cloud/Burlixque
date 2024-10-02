@@ -154,7 +154,7 @@
             <label
               for="vehiclePrice"
               class="text-sm mt-6 white font-semibold opacity-90"
-              >Preset Value</label
+              >Preset Value (per vehicle)</label
             >
             <input
               type="text"
@@ -277,6 +277,7 @@
             <div class="mt-[2px] selected-slot">
               <input
                 type="text"
+                id="slotInput"
                 class="singleInput rounded-md mt-[2px] white px-2 py-[5px] font-semibold input-field"
               />
             </div>
@@ -310,11 +311,11 @@
           </div>
         </div>
         <!-- Next btn -->
-        <a href="./index.html">
+        <a href="./checkout.html">
           <button
             class="btn-bg h-9 w-full white text-sm rounded-md mt-7 mb-2 hover:btn-effect opacity-90"
           >
-            Next
+            Proceed To Checkout
           </button>
         </a>
       </div>
