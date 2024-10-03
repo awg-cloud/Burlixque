@@ -139,7 +139,7 @@
 }
 
   
-  .signup-form {
+  .signup-forms {
     flex: 1;
     max-width: 500px;
     padding-left: 40px;
@@ -171,12 +171,12 @@
     width: 50px;
   }
   
-  .headertop h2 {
+  .headertop .h222 {
     font-size: 58px;
     font-weight: 9000;
     margin-bottom: 10px;
     margin: 0;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   
   .headertop p {
@@ -234,7 +234,7 @@
     left: 30px;
     pointer-events: none;
     transform: translateY(-50%);
-    transition: 0.3s ease all;
+    transition: 0.8s ease all;
     color: #5c5b5b;
     font-weight: 550;
   }
@@ -247,6 +247,7 @@
     font-size: 14px;
     position: relative;
     outline: none;
+    transition: 0.8s ease all;
     /* background-color: rgba(80, 78, 78, 0.3) !important; */
     /* background: rgba(0, 0, 0, 0.3) !important; */
   }
@@ -256,8 +257,8 @@
    z-index: 20;
    /* background-color: rgba(80, 78, 78, 0.3) !important; */
   }
-  .signup-form form{
-    margin-top: 60px;
+  .signup-forms form{
+    margin-top: 30px;
   }
 
   .signup-btn {
@@ -358,7 +359,31 @@
     position: relative;
     /* box-shadow: 0 0 5px 2px #3a3939; */
 }
-  
+.role-toggle-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.role-toggle {
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.role-toggle.selected {
+  background-color: #4A00E0;
+  color: white;
+  border-color: #4A00E0;
+}
+
+
+
+
+
 
 
 @media (max-width: 860px) {
@@ -379,13 +404,13 @@
   .signup-container {
       padding: 30px;  
   }
-  .signup-form {
+  .signup-forms {
       flex: 1;
       width: 100%;
       margin: auto;
       padding-left: 0px;
     }
-  .signup-form form{
+  .signup-forms form{
      margin-top: 40px;
     }
     .signup-btn {

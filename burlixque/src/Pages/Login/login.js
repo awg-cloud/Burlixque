@@ -6,9 +6,8 @@ import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import logo from './newlogo.svg';
-// import logo from './Logo Img copy.png';
-import name from './user.png';
 import photoImg from './darkSunset3.jpg';
+import { RiUser3Line } from "react-icons/ri";
 
 function LoginPage() {
 
@@ -79,7 +78,7 @@ function LoginPage() {
                                     required
                                     variants={itemVariants}
                                 />
-                                <motion.img src={name} alt='' variants={itemVariants} />
+                                 <p className='imgRep22'><RiUser3Line /></p>
                             </motion.div>
 
                             <motion.div className="inputGroupDiv" variants={itemVariants}>
