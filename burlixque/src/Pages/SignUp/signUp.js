@@ -88,7 +88,7 @@ function SignUpPage() {
 
                         <form action=''>
                             <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="email" variants={itemVariants}>Full Name</motion.label>
+                                <motion.label htmlFor="name" variants={itemVariants}>Full Name</motion.label>
                                 <motion.input
                                     type="text"
                                     id="name"
@@ -114,10 +114,10 @@ function SignUpPage() {
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="password" variants={itemVariants}>Password</motion.label>
+                                <motion.label htmlFor="password1" variants={itemVariants}>Password</motion.label>
                                 <motion.input
                                     type={showPassword1 ? 'text' : 'password'}
-                                    id="password"
+                                    id="password1"
                                     placeholder="Enter your password"
                                     required
                                     variants={itemVariants}
@@ -150,12 +150,12 @@ function SignUpPage() {
                             </motion.div>
 
                             <motion.div className="role-toggle-container">
-                                <label className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
+                                <motion.label  variants={itemVariants} className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
                                     Student Passenger
-                                </label>
-                                <label className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
+                                </motion.label>
+                                <motion.label  variants={itemVariants} className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
                                     Transport Organizer
-                                </label>
+                                </motion.label>
                             </motion.div>
 
                             <motion.button
