@@ -5,7 +5,7 @@ import './signUp.css';
 import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
-import logo from './Logo Img copy.png';
+import logo from './newlogo.svg';
 import name from './user.png';
 import photoImg from './darkSunset3.jpg';
 
@@ -142,6 +142,18 @@ function SignUpPage() {
 
                     <motion.div className="signup-illustration" variants={itemVariants}>
                         <motion.img src={photoImg} alt="Illustration" variants={itemVariants} />
+                        <motion.div className='disvting'>
+                            <div className='replaceSpan'>
+                                <motion.p className='fonstSiveGroup'>Smartest </motion.p>
+                                <motion.p>way</motion.p>
+                            </div>
+
+                            <div className='replaceSpan' style={{marginLeft: '50px' }}>
+                                <motion.p> to
+                                </motion.p><motion.p className='fonstSiveGroup'>Move</motion.p>
+                            </div>
+                            <p style={{textAlign: 'center', marginTop: '10%', fontWeight: 700}}>Burli<span style={{color: '#4A00E0', fontSize: 70, marginTop: 30, }}>x</span>que</p>
+                        </motion.div>
                     </motion.div>
 
                 </motion.div>
