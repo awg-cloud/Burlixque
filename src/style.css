@@ -8,9 +8,9 @@
     .base-bg{
         background-color: rgb(114 121 116);
     }
-    .content-bg{
+    /* .content-bg{
         background-color: #e6e6e6;
-    }
+    } */
     .name-bg{
         color: rgb(231 237 235);
     }
@@ -36,11 +36,13 @@
     }
     .input{
         border: 1.5px solid #e2ece8;
+        background-color: transparent;
         padding: 4px;
         outline: none;
     }
     .singleInput{
         border: 1.5px solid #e2ece8;
+        background-color: transparent;
         padding: 4px;
         outline: none;
         width: 17pc;
@@ -54,10 +56,12 @@
         transition: all 0.7s ease-in-out;
     }
     .btn-bg{
-        background-image: linear-gradient(to right, #081d13, #257351) !important;
+        background: rgb(0,0,0) !important;
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
     }
     .btn-effect{
-        background-image: linear-gradient(to right, #257351, #081d13);
+        background: rgb(0,0,0) !important;
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
     }
     .white{
         color: #f9faf9;
@@ -87,6 +91,8 @@
         transition: all 0.5s ease-in-out;
     }
     .card{
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%);
         background-repeat: no-repeat;
         background-size: cover; 
         background-position: center;
@@ -104,11 +110,11 @@
         color: rgb(113, 113, 113);
     }
     
-    .selected-item, .selected-destination, .selectedStop {
+    .selected-item, .selected-destination, .selectedStop, .selected-slot {
         position: relative;
     }
     
-    .selected-item::after, .selected-destination::after, .selectedStop::after {
+    .selected-item::after, .selected-destination::after, .selectedStop::after, .selected-slot::after {
         content: "";
         width: 7px;
         height: 7px;
@@ -120,8 +126,8 @@
         transform: translateY(-70%) rotate(45deg);
     }
     
-    .selected-item, .selected-destination, .selectedStop,
-    .selected-item input, .selected-destination input, .selectedStop input {
+    .selected-item, .selected-destination, .selectedStop, .selected-slot,
+    .selected-item input, .selected-destination input, .selectedStop input, .selected-slot input{
         cursor: pointer;
     }
     
@@ -165,6 +171,8 @@
     li.active {
         background-image: linear-gradient(to right, #081d13, #257351);
         color: #f9faf9;
+    }  
+    .checkoutCard{
+        border: 2px solid #e2ece8;
     }
-    
 }

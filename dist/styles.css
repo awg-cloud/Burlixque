@@ -554,6 +554,10 @@ video {
   display: none;
 }
 
+/* .content-bg{
+        background-color: #e6e6e6;
+    } */
+
 .name-bg{
   color: rgb(231 237 235);
 }
@@ -582,12 +586,14 @@ video {
 
 .input{
   border: 1.5px solid #e2ece8;
+  background-color: transparent;
   padding: 4px;
   outline: none;
 }
 
 .singleInput{
   border: 1.5px solid #e2ece8;
+  background-color: transparent;
   padding: 4px;
   outline: none;
   width: 17pc;
@@ -598,7 +604,8 @@ video {
 }
 
 .btn-bg{
-  background-image: linear-gradient(to right, #081d13, #257351) !important;
+  background: rgb(0,0,0) !important;
+  background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
 }
 
 .white{
@@ -631,6 +638,8 @@ video {
 }
 
 .card{
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -649,11 +658,11 @@ video {
   color: rgb(113, 113, 113);
 }
 
-.selected-item, .selected-destination, .selectedStop {
+.selected-item, .selected-destination, .selectedStop, .selected-slot {
   position: relative;
 }
 
-.selected-item::after, .selected-destination::after, .selectedStop::after {
+.selected-item::after, .selected-destination::after, .selectedStop::after, .selected-slot::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -665,8 +674,8 @@ video {
   transform: translateY(-70%) rotate(45deg);
 }
 
-.selected-item, .selected-destination, .selectedStop,
-    .selected-item input, .selected-destination input, .selectedStop input {
+.selected-item, .selected-destination, .selectedStop, .selected-slot,
+    .selected-item input, .selected-destination input, .selectedStop input, .selected-slot input{
   cursor: pointer;
 }
 
@@ -712,38 +721,16 @@ li.active {
   color: #f9faf9;
 }
 
-.container {
-  width: 100%;
+.checkoutCard{
+  border: 2px solid #e2ece8;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
+.absolute {
+  position: absolute;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
+.relative {
+  position: relative;
 }
 
 .m-0 {
@@ -753,6 +740,11 @@ li.active {
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .my-4 {
@@ -781,16 +773,20 @@ li.active {
   margin-left: 0.25rem;
 }
 
-.ml-10 {
-  margin-left: 2.5rem;
+.ml-14 {
+  margin-left: 3.5rem;
 }
 
-.ml-24 {
-  margin-left: 6rem;
+.ml-36 {
+  margin-left: 9rem;
 }
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
 }
 
 .ml-\[13px\] {
@@ -857,20 +853,20 @@ li.active {
   margin-top: 42px;
 }
 
-.mt-\[44px\] {
-  margin-top: 44px;
-}
-
 .mt-\[6px\] {
   margin-top: 6px;
 }
 
-.flex {
-  display: flex;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
-.hidden {
-  display: none;
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
 }
 
 .h-10 {
@@ -899,10 +895,6 @@ li.active {
 
 .h-\[42px\] {
   height: 42px;
-}
-
-.h-\[44px\] {
-  height: 44px;
 }
 
 .h-\[510px\] {
@@ -943,6 +935,10 @@ li.active {
 
 .w-full {
   width: 100%;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -993,14 +989,33 @@ li.active {
   border-radius: 0.375rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .py-\[5px\] {
@@ -1018,6 +1033,11 @@ li.active {
 
 .font-Noto {
   font-family: Noto Serif Display, serif;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-\[10px\] {
@@ -1110,7 +1130,8 @@ li.active {
 }
 
 .hover\:btn-effect:hover{
-  background-image: linear-gradient(to right, #257351, #081d13);
+  background: rgb(0,0,0) !important;
+  background: radial-gradient(circle, rgba(0,0,0,1) 24%, rgba(9,121,64,1) 97%) !important;
 }
 
 .hover\:view-effect:hover{

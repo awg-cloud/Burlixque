@@ -5,10 +5,12 @@ window.addEventListener("load", () => {
     const selectedItem = dropdown
       .closest(".flex")
       .querySelector(
-        ".selected-item input, .selected-destination input, .selectedStop input"
+        ".selected-item input, .selected-destination input, .selectedStop input, .selected-slot input"
       );
     const dropdownContent = dropdown.querySelector(".dropdown-content");
-    const dropdownItems = dropdown.querySelectorAll(".dropdown-item");
+    const dropdownItems = dropdown.querySelectorAll(
+      ".dropdown-item, .dropdownItem"
+    );
     const searchInput = dropdown.querySelector(".search-input input");
 
     // Open and close dropdown on click
@@ -89,6 +91,10 @@ window.addEventListener("load", () => {
             const response = JSON.parse(xhrVehicle.responseText);
             if (response.vehicle_price) {
               vehiclePriceField.value = response.vehicle_price;
+
+              // Store the vehicle price in session for checkout page
+              sessionStorage.setItem("vehiclePrice", response.vehicle_price);
+
             } else {
               clearVehiclePriceField();
             }
@@ -110,7 +116,7 @@ window.addEventListener("load", () => {
     );
     const destinationPriceField = document.getElementById("destinationPrice");
 
-    destinationDropdown.querySelectorAll(".dropdown-item").forEach((item) => {
+    destinationDropdown.querySelectorAll(".dropdownItem").forEach((item) => {
       item.addEventListener("click", function () {
         const selectedDestinationName = item.textContent;
         destinationInput.value = selectedDestinationName;
@@ -128,6 +134,12 @@ window.addEventListener("load", () => {
             const response = JSON.parse(xhrDestination.responseText);
             if (response.destination_price) {
               destinationPriceField.value = response.destination_price;
+
+              // Store the destination price in session for checkout page
+              sessionStorage.setItem(
+                "destinationPrice",
+                response.destination_price
+              );
             } else {
               clearDestinationPriceField();
             }
@@ -153,7 +165,7 @@ function clearDestinationPriceField() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const destinationItems = document.querySelectorAll(".dropdown-item");
+  const destinationItems = document.querySelectorAll(".dropdownItem");
 
   destinationItems.forEach(function (item) {
     item.addEventListener("click", function () {
@@ -222,3 +234,19 @@ function updateStopsDropdown(destination) {
       console.error("Error fetching stops:", error);
     });
 }
+
+const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+const slotInput = document.getElementById("slotInput");
+
+dropdownItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    const itemText = this.textContent;
+
+    // Regular expression to extract the numeric price from the text
+    const priceValue = itemText.match(/\d+/)[0]; // Matches the first numeric value
+
+    // Store the slot price in session for checkout page
+    sessionStorage.setItem("slotPrice", priceValue);
+  });
+});

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100vh;
+        padding-top: 75px;
+        padding-bottom: 75px;
+      }
+
+      #vanta-bg {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+      #vanta-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+
+      #vanta-bg > * {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body class="antialiased poppins-light" id="animate-bg">
+    <div class="flex justify-center">
+      <p class="name-bg text-xl ml-4 font-Noto">Burlixque</p>
+      <div class="checkoutCard ml-6 mt-20 px-4 py-5 rounded-lg">
+        <p class="font-semibold text-3xl white font-Noto mx-8 mb-4">
+          Price Breakdown
+        </p>
+
+        <div class="flex font-semibold text-[15px] white mb-4 justify-between">
+          <p>Destination Price</p>
+          <p><span id="destinationPriceDisplay"></span> ₦</p>
+        </div>
+
+        <div class="flex font-semibold text-[15px] white mb-4 justify-between">
+          <p>Slot Subscription</p>
+          <p><span id="slotPriceDisplay"></span> ₦</p>
+        </div>
+
+        <div class="h-[1px] w-auto bg-white mt-6"></div>
+
+        <div class="flex font-semibold text-[15px] white mt-4 justify-between">
+          <p>TOTAL</p>
+          <p><span id="totalAmount"></span> ₦</p>
+        </div>
+
+        <a href="./index.html">
+          <button
+            class="btn-bg h-9 w-full white text-sm rounded-md mt-7 hover:btn-effect opacity-90"
+          >
+            Confirm and Pay
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <!-- Vanta.js BIRDS Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
+    <script>
+      VANTA.BIRDS({
+        el: "#animate-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        backgroundColor: 0x0a0a0a,
+        color1: 0x158615,
+        color2: 0x113511,
+        separation: 46.0,
+      });
+    </script>
+
+    <script>
+      // Retrieve and display destination price
+      const storedDestinationPrice = sessionStorage.getItem("destinationPrice");
+      if (storedDestinationPrice) {
+        document.getElementById("destinationPriceDisplay").textContent =
+          storedDestinationPrice;
+      }
+
+      // Retrieve and display slot price
+      const storedSlotPrice = sessionStorage.getItem("slotPrice");
+      if (storedSlotPrice) {
+        document.getElementById("slotPriceDisplay").textContent =
+        storedSlotPrice;
+      }
+
+    //  Total 
+      const destinationPrice = storedDestinationPrice ? parseFloat(storedDestinationPrice) : 0;
+      const slotPrice = storedSlotPrice ? parseFloat(storedSlotPrice) : 0;
+
+      const totalPrice = destinationPrice + slotPrice;
+      document.getElementById("totalAmount").textContent = totalPrice;
+
+    </script>
+    
+
+    <script src="./burlixque.js"></script>
+  </body>
+</html>
