@@ -250,3 +250,25 @@ dropdownItems.forEach((item) => {
     sessionStorage.setItem("slotPrice", priceValue);
   });
 });
+
+const popup = document.getElementById("popup");
+const signUpText = document.getElementById("signUp");
+const closePopup = document.getElementById("closePopupBtn");
+
+// open popup
+signUpText.addEventListener("click", function() {
+  popup.style.display = "flex";
+});
+
+// close popup
+closePopup.addEventListener("click", function() {
+  popup.style.display = "none";
+});
+
+document.getElementById("option1").addEventListener("click", function() {
+  window.location.href = "sign up.html";
+});
+
+document.getElementById("option2").addEventListener("click", function() {
+  window.location.href = "student_passenger.html";
+});
