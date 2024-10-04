@@ -725,6 +725,10 @@ li.active {
   border: 2px solid #e2ece8;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -763,6 +767,10 @@ li.active {
 
 .-mt-\[78px\] {
   margin-top: -78px;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-4 {
@@ -857,16 +865,16 @@ li.active {
   margin-top: 6px;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .block {
   display: block;
 }
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-10 {
