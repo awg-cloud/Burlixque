@@ -1,22 +1,15 @@
 import React from 'react';
 // import './regisPage.css';
 // import Sidebar from '../SideBar for Registeration/registeration';
-import SidebarOrg from '../SideBar/SideBar';
-import classes from './regisPage.module.css'
+// import SidebarOrg from '../SideBar/SideBar';
+import SidebarPass from '../SideBar Passenger/SideBarPassenger';
+import classes from './regisPagePass.module.css'
 
-function RegisPage() {
+function RegisPagePass() {
   return (
     <div className={classes.container}>
-      <SidebarOrg />
+      <SidebarPass />
       <div className={classes.contentSpace}>
-        {/* <section className={classes.skip}>
-          <Link to="/education">
-            <a href="">
-              Skip
-              <BiRightArrowAlt className={classes.arrowIcon} />
-            </a>
-          </Link>
-        </section> */}
         <div className={classes.heading}>
           <h3>Personal details</h3>
           <p>Enter your personal details</p>
@@ -153,4 +146,4 @@ function RegisPage() {
     </div>
   );
 }
-export default RegisPage;
+export default RegisPagePass;
