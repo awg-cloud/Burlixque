@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import classes from './SideBar.module.css';
+import classes from './SideBarPassenger.module.css';
 import { BiLeftArrowAlt } from "react-icons/bi";
 import HRM from './X_image.svg';
 import user from './user.png';
@@ -11,7 +11,7 @@ import orgaddActive from './orgaddActive.svg';
 import personalInactive from './personalInactive.svg'; 
 import personalActive from './personalActive.svg';     
 
-const SidebarOrg = ({ show, handleClose }) => {
+const SidebarPass = ({ show, handleClose }) => {
   const [activeSection, setActiveSection] = useState('personal');
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,7 +36,7 @@ const SidebarOrg = ({ show, handleClose }) => {
 
         <div
           className={`${classes.personal1} ${activeSection === 'personal' ? classes.active : ''}`}
-          onClick={() => handleSectionClick('personal', '/register/transport_organizer')}
+          onClick={() => handleSectionClick('personal', '/register/passenger')}
           style={{ cursor: 'pointer' }}
         >
           <div className={classes.iconContainer}>
@@ -54,7 +54,7 @@ const SidebarOrg = ({ show, handleClose }) => {
 
         <div
           className={`${classes.personal1} ${activeSection === 'organization' ? classes.active : ''}`}
-          onClick={() => handleSectionClick('organization', '/register/transport_vehicle')}
+          onClick={() => handleSectionClick('organization', '/register/preference')}
           style={{ cursor: 'pointer' }}
         >
           <div className={classes.iconContainer}>
@@ -65,13 +65,13 @@ const SidebarOrg = ({ show, handleClose }) => {
             />
           </div>
           <div className={classes.personalText}>
-            <h5 className={activeSection === 'organization' ? classes.activeText : ''}>Vehicle and Destination Details</h5>
-            <div className={classes.personal}>Enter your Vehicle/vehicles details</div>
+            <h5 className={activeSection === 'organization' ? classes.activeText : ''}>Travel Preferences</h5>
+            <div className={classes.personal}>Enter your travel preferences</div>
           </div>
         </div>
         <div
           className={`${classes.personal1} ${activeSection === 'Address' ? classes.active : ''}`}
-          onClick={() => handleSectionClick('Address', '/register/transport_checkout')}
+          onClick={() => handleSectionClick('Address', '/register/preference')}
           style={{ cursor: 'pointer' }}
         >
           <div className={classes.iconContainer}>
@@ -101,4 +101,4 @@ const SidebarOrg = ({ show, handleClose }) => {
   );
 };
 
-export default SidebarOrg;
+export default SidebarPass;
