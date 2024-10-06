@@ -38,15 +38,21 @@ function SignUpPage() {
     };
 
     // Define a common animation for all items (images, text, inputs, etc.)
-    const itemVariants = {
-        hidden: { opacity: 0, scale: 0, rotate: 360, x: 0, y: 0 },  // Start small and rotated
+    const leftSlideIn = {
+        hidden: { opacity: 0, x: 200 }, // Start off-screen (right)
         visible: {
             opacity: 1,
-            scale: 1,
-            rotate: 0,
             x: 0,
-            y: 0,
             transition: { duration: 1.4 }
+        }
+    };
+
+    const rightSlideIn = {
+        hidden: { opacity: 0, x: -500 }, // Start off-screen (left)
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1.9 }
         }
     };
 
@@ -61,99 +67,98 @@ function SignUpPage() {
                 className="login-container"
                 initial="hidden"
                 animate="visible"
-                variants={itemVariants}
                 transition={{ staggerChildren: 0.2 }}  // Stagger the appearance of the form fields
             >
                 <motion.div className="signup-container22">
                     <motion.div
                         className="signup-forms"
-                        variants={itemVariants}  // Apply the animation to this block
+                        variants={rightSlideIn}  // Apply the animation to this block
                     >
-                        <motion.div className="headertop" variants={itemVariants}>
-                            <motion.div className='imgaeflex' variants={itemVariants}>
+                        <motion.div className="headertop" variants={rightSlideIn} >
+                            <motion.div className='imgaeflex' variants={rightSlideIn} >
                                 <motion.img
                                     src={logo}
                                     alt="Pela Design"
                                     className="logo"
-                                    variants={itemVariants}
+                                    variants={rightSlideIn} 
                                 />
-                                <motion.p variants={itemVariants}>Burlixque</motion.p>
+                                <motion.p variants={rightSlideIn}>Burlixque</motion.p>
                             </motion.div>
-                            <motion.h2 className='h222' variants={itemVariants}>GET STARTED</motion.h2>
-                            <motion.p variants={itemVariants}>
+                            <motion.h2 className='h222' variants={rightSlideIn}>GET STARTED</motion.h2>
+                            <motion.p variants={rightSlideIn}>
                                 Already have an account? <a href="/">Log In</a>
                             </motion.p>
                         </motion.div>
 
 
                         <form action=''>
-                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="name" variants={itemVariants}>Full Name</motion.label>
+                            <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
+                                <motion.label htmlFor="name" variants={rightSlideIn}>Full Name</motion.label>
                                 <motion.input
                                     type="text"
                                     id="name"
                                     placeholder="Enter your full name"
                                     required
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 />
-                                {/* <motion.img src={name} alt='' variants={itemVariants} /> */}
+                                {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><RiUser3Line /></p>
                             </motion.div>
 
-                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="email" variants={itemVariants}>Email</motion.label>
+                            <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
+                                <motion.label htmlFor="email" variants={rightSlideIn}>Email</motion.label>
                                 <motion.input
                                     type="email"
                                     id="email"
                                     placeholder="Enter your email"
                                     required
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 />
-                                {/* <motion.img src={name} alt='' variants={itemVariants} /> */}
+                                {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><CiMail /></p>
                             </motion.div>
 
-                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="password1" variants={itemVariants}>Password</motion.label>
+                            <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
+                                <motion.label htmlFor="password1" variants={rightSlideIn}>Password</motion.label>
                                 <motion.input
                                     type={showPassword1 ? 'text' : 'password'}
                                     id="password1"
                                     placeholder="Enter your password"
                                     required
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 />
                                 <motion.p
                                     className='imgRep22'
                                     onClick={togglePasswordVisibility}
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 >
                                     {showPassword1 ? <GoEyeClosed /> : <RxEyeOpen />}
                                 </motion.p>
                             </motion.div>
 
-                            <motion.div className="inputGroupDivSign" variants={itemVariants}>
-                                <motion.label htmlFor="password" variants={itemVariants}>Confirm Password</motion.label>
+                            <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
+                                <motion.label htmlFor="password" variants={rightSlideIn}>Confirm Password</motion.label>
                                 <motion.input
                                     type={showPassword2 ? 'text' : 'password'}
                                     id="password"
                                     placeholder="Enter your password"
                                     required
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 />
                                 <motion.p
                                     className='imgRep22'
                                     onClick={togglePassword2Visibility}
-                                    variants={itemVariants}
+                                    variants={rightSlideIn}
                                 >
                                     {showPassword2 ? <GoEyeClosed /> : <RxEyeOpen />}
                                 </motion.p>
                             </motion.div>
 
                             <motion.div className="role-toggle-container">
-                                <motion.label  variants={itemVariants} className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
+                                <motion.label  variants={rightSlideIn} className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
                                     Student Passenger
                                 </motion.label>
-                                <motion.label  variants={itemVariants} className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
+                                <motion.label  variants={rightSlideIn} className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
                                     Transport Organizer
                                 </motion.label>
                             </motion.div>
@@ -162,15 +167,15 @@ function SignUpPage() {
                                 type="submit"
                                 className="signup-btn"
                                 onClick={handleNext}
-                                variants={itemVariants}
+                                variants={rightSlideIn}
                             >
                                 Sign Up
                             </motion.button>
                         </form>
                     </motion.div>
 
-                    <motion.div className="signup-illustration" variants={itemVariants}>
-                        <motion.img src={photoImg} alt="Illustration" variants={itemVariants} />
+                    <motion.div className="signup-illustration" variants={leftSlideIn}>
+                        <motion.img src={photoImg} alt="Illustration" variants={leftSlideIn} />
                         <motion.div className='disvting'>
                             <div className='replaceSpan'>
                                 <motion.p className='fonstSiveGroup'>Smartest </motion.p>
