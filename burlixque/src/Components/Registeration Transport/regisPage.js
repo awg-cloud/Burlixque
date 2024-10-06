@@ -1,22 +1,21 @@
 import React from 'react';
-// import './regisPage.css';
-// import Sidebar from '../SideBar for Registeration/registeration';
 import SidebarOrg from '../SideBar/SideBar';
-import classes from './regisPage.module.css'
+import classes from './regisPage.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function RegisPage() {
+
+  const navigate = useNavigate();
+  const handleNext = () => {
+    navigate('/register/transport_vehicle');
+  } 
+
   return (
     <div className={classes.container}>
       <SidebarOrg />
       <div className={classes.contentSpace}>
-        {/* <section className={classes.skip}>
-          <Link to="/education">
-            <a href="">
-              Skip
-              <BiRightArrowAlt className={classes.arrowIcon} />
-            </a>
-          </Link>
-        </section> */}
+        <div className={classes.newDivCnt}>
+        
         <div className={classes.heading}>
           <h3>Personal details</h3>
           <p>Enter your personal details</p>
@@ -145,9 +144,12 @@ function RegisPage() {
           <button
             className={`btn btn-success ${classes.btn}`}
             style={{ textAlign: "center", border: 0  }}
+            onClick={handleNext}
           >
             Next
           </button>
+          
+        </div>
         </div>
       </div>
     </div>

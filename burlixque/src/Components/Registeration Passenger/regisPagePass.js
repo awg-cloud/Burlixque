@@ -4,12 +4,19 @@ import React from 'react';
 // import SidebarOrg from '../SideBar/SideBar';
 import SidebarPass from '../SideBar Passenger/SideBarPassenger';
 import classes from './regisPagePass.module.css'
+import { useNavigate } from 'react-router-dom';
 
 function RegisPagePass() {
+
+  const navigate = useNavigate();
+  const handleNext = () => {
+    navigate('/register/preference');
+  } 
   return (
     <div className={classes.container}>
       <SidebarPass />
       <div className={classes.contentSpace}>
+        <div className={classes.newDivCnt}>
         <div className={classes.heading}>
           <h3>Personal details</h3>
           <p>Enter your personal details</p>
@@ -138,9 +145,11 @@ function RegisPagePass() {
           <button
             className={`btn btn-success ${classes.btn}`}
             style={{ textAlign: "center", border: 0  }}
+            onClick={handleNext}
           >
             Next
           </button>
+        </div>
         </div>
       </div>
     </div>

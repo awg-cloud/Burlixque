@@ -16,10 +16,16 @@ const SidebarPass = ({ show, handleClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Updated useEffect to properly capture and set the active section based on the path
   useEffect(() => {
-    // Set active section based on current path
-    const path = location.pathname.split('/')[1];
-    setActiveSection(path);
+    const path = location.pathname;
+    if (path.includes('/passenger_checkout')) {
+      setActiveSection('Address');
+    } else if (path.includes('/preference')) {
+      setActiveSection('organization');
+    } else if (path.includes('/passenger')) {
+      setActiveSection('personal');
+    }
   }, [location]);
 
   const handleSectionClick = (section, path) => {
@@ -41,7 +47,7 @@ const SidebarPass = ({ show, handleClose }) => {
         >
           <div className={classes.iconContainer}>
             <img 
-              src={activeSection === 'Address' ? personalInactive : user} 
+              src={activeSection === 'personal' ? personalActive : personalInactive} 
               className={classes.iconImage} 
               alt="Personal Icon" 
             />
@@ -71,7 +77,7 @@ const SidebarPass = ({ show, handleClose }) => {
         </div>
         <div
           className={`${classes.personal1} ${activeSection === 'Address' ? classes.active : ''}`}
-          onClick={() => handleSectionClick('Address', '/register/preference')}
+          onClick={() => handleSectionClick('Address', '/register/passenger_checkout')}
           style={{ cursor: 'pointer' }}
         >
           <div className={classes.iconContainer}>
@@ -83,7 +89,7 @@ const SidebarPass = ({ show, handleClose }) => {
           </div>
           <div className={classes.personalText}>
             <h5 className={activeSection === 'Address' ? classes.activeText : ''}>Checkout</h5>
-            <div className={classes.personal}>Monthly/ Weekly subscrition</div>
+            <div className={classes.personal}>Monthly/ Weekly subscription</div>
           </div>
         </div>
         
@@ -94,9 +100,6 @@ const SidebarPass = ({ show, handleClose }) => {
         <span><a href='/'>Home</a></span>
       </div>
 
-      {/* <div className={classes.footer}>
-        <img src={HRM} alt="HRM" className={classes.hrmImage}/>
-      </div> */}
     </div>
   );
 };

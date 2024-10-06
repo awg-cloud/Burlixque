@@ -22,6 +22,17 @@ const SidebarOrg = ({ show, handleClose }) => {
     setActiveSection(path);
   }, [location]);
 
+  useEffect(() => {
+    const path = location.pathname;
+    if (path.includes('/transport_checkout')) {
+      setActiveSection('Address');
+    } else if (path.includes('/register/transport_vehicle')) {
+      setActiveSection('organization');
+    } else if (path.includes('/register/transport_organizer')) {
+      setActiveSection('personal');
+    }
+  }, [location]);
+
   const handleSectionClick = (section, path) => {
     if (section !== activeSection) {
       setActiveSection(section);

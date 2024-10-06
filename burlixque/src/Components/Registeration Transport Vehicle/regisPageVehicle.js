@@ -3,20 +3,19 @@ import React from 'react';
 // import Sidebar from '../SideBar for Registeration/registeration';
 import SidebarOrg from '../SideBar/SideBar';
 import classes from './regisPageVehicle.module.css'
+import { useNavigate } from 'react-router-dom';
 
 function RegisPageVehicle() {
+
+  const navigate = useNavigate();
+  const handleNext = () => {
+    navigate('/register/transport_checkout');
+  } 
   return (
     <div className={classes.container}>
       <SidebarOrg />
       <div className={classes.contentSpace}>
-        {/* <section className={classes.skip}>
-          <Link to="/education">
-            <a href="">
-              Skip
-              <BiRightArrowAlt className={classes.arrowIcon} />
-            </a>
-          </Link>
-        </section> */}
+        <div className={classes.newDivCntS}>
         <div className={classes.heading}>
           <h3>Vehicle and Destination Details</h3>
           <p>Enter your Vehicle and Destination details</p>
@@ -97,9 +96,11 @@ function RegisPageVehicle() {
           <button
             className={`btn btn-success ${classes.btn}`}
             style={{ textAlign: "center", border: 0 }}
+            onClick={handleNext}
           >
             Next
           </button>
+        </div>
         </div>
       </div>
     </div>
