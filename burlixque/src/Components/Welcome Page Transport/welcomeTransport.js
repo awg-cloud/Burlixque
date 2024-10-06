@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './WelcomePageTransport.module.css'; // Importing the CSS Module
-import SidebarPass from '../SideBar Passenger/SideBarPassenger';
+// import SidebarPass from '../SideBar Passenger/SideBarPassenger';
+import SidebarOrg from '../SideBar/SideBar';
 import welcomeImg from '../../Assets/OfficeWelcome.jpg'
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ const WelcomePageTransport = () => {
   } 
   return (
     <div className={styles.container}>
-      <SidebarPass />
+      <SidebarOrg />
     <div className={styles.containerClassName}>
       <div className={styles.content}>
         <h2 className={styles.h2ClassName}>Welcome to Burlixque</h2>

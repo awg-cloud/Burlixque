@@ -7,11 +7,11 @@ a, link{
     height: 100vh;
     overflow-y: hidden;
   }
-  .newDivCntS{
+  .newDivCntSe{
     width: 85%;
     background-color: #f1f0f0;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     border-radius: 5px;
     padding: 20px;
   }

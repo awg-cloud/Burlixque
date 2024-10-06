@@ -15,7 +15,7 @@ function RegisPageVehicle() {
     <div className={classes.container}>
       <SidebarOrg />
       <div className={classes.contentSpace}>
-        <div className={classes.newDivCntS}>
+        <div className={classes.newDivCntSe}>
         <div className={classes.heading}>
           <h3>Vehicle and Destination Details</h3>
           <p>Enter your Vehicle and Destination details</p>

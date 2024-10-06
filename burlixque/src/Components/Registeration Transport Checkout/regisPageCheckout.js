@@ -8,7 +8,7 @@ const RegisPageCheckout = () => {
 
   const navigate = useNavigate();
   const handleNext = () => {
-    navigate('/welcome_passenger');
+    navigate('/welcome_transport');
   }
   return (
     <div className={styles.container}>

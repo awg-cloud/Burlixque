@@ -12,7 +12,7 @@ import personalInactive from './personalInactive.svg';
 import personalActive from './personalActive.svg';     
 
 const SidebarPass = ({ show, handleClose }) => {
-  const [activeSection, setActiveSection] = useState('personal');
+  const [activeSection, setActiveSection] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
