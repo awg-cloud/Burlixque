@@ -53,13 +53,16 @@
   }
   
   .finishButton {
-    background-color: #28a745;
+    background-color: #0058ff;
     color: white;
     font-size: 18px;
     padding: 12px 24px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+  }
+  .finishButton:hover{
+    background-color: #05338a;
   }
   
   .progress {

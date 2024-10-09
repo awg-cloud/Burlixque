@@ -48,7 +48,7 @@ function SignUpPage() {
     };
 
     const rightSlideIn = {
-        hidden: { opacity: 0, x: -500 }, // Start off-screen (left)
+        hidden: { opacity: 0, x: -200 }, // Start off-screen (left)
         visible: {
             opacity: 1,
             x: 0,
@@ -82,73 +82,67 @@ function SignUpPage() {
                                     className="logo"
                                     variants={rightSlideIn} 
                                 />
-                                <motion.p variants={rightSlideIn}>Burlixque</motion.p>
+                                <motion.p className='burlixtype' variants={rightSlideIn}>Burlixque</motion.p>
                             </motion.div>
                             <motion.h2 className='h222' variants={rightSlideIn}>GET STARTED</motion.h2>
-                            <motion.p variants={rightSlideIn}>
-                                Already have an account? <a href="/">Log In</a>
+                            <motion.p className='atypeshii' variants={rightSlideIn}>
+                                Already have an account? <a  style={{color:'#ffffff'}} href="/">Log In</a>
                             </motion.p>
                         </motion.div>
 
 
                         <form action=''>
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="name" variants={rightSlideIn}>Full Name</motion.label>
+                                <motion.label htmlFor="name">Full Name</motion.label>
                                 <motion.input
                                     type="text"
                                     id="name"
                                     placeholder="Enter your full name"
                                     required
-                                    variants={rightSlideIn}
                                 />
                                 {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><RiUser3Line /></p>
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="email" variants={rightSlideIn}>Email</motion.label>
+                                <motion.label htmlFor="email">Email</motion.label>
                                 <motion.input
                                     type="email"
                                     id="email"
                                     placeholder="Enter your email"
                                     required
-                                    variants={rightSlideIn}
                                 />
                                 {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><CiMail /></p>
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="password1" variants={rightSlideIn}>Password</motion.label>
+                                <motion.label htmlFor="password1">Password</motion.label>
                                 <motion.input
                                     type={showPassword1 ? 'text' : 'password'}
                                     id="password1"
                                     placeholder="Enter your password"
                                     required
-                                    variants={rightSlideIn}
                                 />
                                 <motion.p
                                     className='imgRep22'
                                     onClick={togglePasswordVisibility}
-                                    variants={rightSlideIn}
                                 >
                                     {showPassword1 ? <GoEyeClosed /> : <RxEyeOpen />}
                                 </motion.p>
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="password" variants={rightSlideIn}>Confirm Password</motion.label>
+                                <motion.label htmlFor="password">Confirm Password</motion.label>
                                 <motion.input
                                     type={showPassword2 ? 'text' : 'password'}
                                     id="password"
                                     placeholder="Enter your password"
                                     required
-                                    variants={rightSlideIn}
                                 />
                                 <motion.p
                                     className='imgRep22'
                                     onClick={togglePassword2Visibility}
-                                    variants={rightSlideIn}
                                 >
                                     {showPassword2 ? <GoEyeClosed /> : <RxEyeOpen />}
                                 </motion.p>
@@ -178,15 +172,15 @@ function SignUpPage() {
                         <motion.img src={photoImg} alt="Illustration" variants={leftSlideIn} />
                         <motion.div className='disvting'>
                             <div className='replaceSpan'>
-                                <motion.p className='fonstSiveGroup'>Smartest </motion.p>
-                                <motion.p>way</motion.p>
+                                <motion.p className='fonstSiveGroup'>SMARTEST </motion.p>
+                                <motion.p>WAY</motion.p>
                             </div>
 
                             <div className='replaceSpan' style={{ marginLeft: '50px' }}>
-                                <motion.p> to
-                                </motion.p><motion.p className='fonstSiveGroup'>Move</motion.p>
+                                <motion.p> TO
+                                </motion.p><motion.p className='fonstSiveGroup'>MOVE</motion.p>
                             </div>
-                            <p style={{ textAlign: 'center', marginTop: '10%', fontWeight: 700 }}>Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30, }}>x</span>que</p>
+                            <p style={{ textAlign: 'center', marginTop: '13%', fontWeight: 900 }}>Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30, }}>X</span>que</p>
                         </motion.div>
                     </motion.div>
 

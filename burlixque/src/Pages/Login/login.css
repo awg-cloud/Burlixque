@@ -72,9 +72,16 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Londrina+Sketch&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 .signup-container2 {
-  font-family: 'Lobster' !important;
+  /* font-family: 'Lobster' !important; */
+  /* font-family: "Playfair Display", serif !important; */
+  /* font-family: "Playfair Display SC", serif !important; */
+  /* font-family: "Josefin Sans", sans-serif !important; */
+  font-family: "Londrina Sketch", sans-serif;
     display: flex;
     /* flex-direction: row-reverse; */
     justify-content: space-between;
@@ -94,15 +101,6 @@
 .flower-container{
     position: relative;
 }
-/* .flower {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: url('../../Assets/flower12-removebg-preview.png') no-repeat center center;
-    background-size: contain;
-    opacity: 0.8;
-    animation: fall 5s linear infinite;
-} */
 
 
 @keyframes fall {
@@ -141,7 +139,7 @@
   
   .signup-form {
     flex: 1;
-    max-width: 500px;
+    max-width: 550px;
     padding-left: 40px;
     transform-origin: center;
   }
@@ -160,6 +158,14 @@
     margin: 0;
     line-height: 0.8;
     color: rgb(255, 255, 255) !important;
+     font-family: "Playfair Display DC",
+   }
+   .atypeshii{
+    font-family: 'Lobster';
+    color: #979494 !important;
+   }
+   .burlixtype{
+    font-family: 'Playfair Display';
    }
 
   .headertop{
@@ -225,17 +231,18 @@
   
   .inputGroupDiv label {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     /* margin-bottom: 5px; */
     position: absolute;
     z-index: 1;
     background: none;
-    top: -11px;
+    top: -13px;
     left: 30px;
     pointer-events: none;
     transform: translateY(-50%);
     transition: 0.3s ease all;
-    color: #5c5b5b;
+    font-family: 'Lobster';
+    color: rgb(255, 255, 255) !important;
     font-weight: 550;
   }
   
@@ -247,7 +254,9 @@
     font-size: 14px;
     position: relative;
     outline: none;
-    /* background-color: rgba(80, 78, 78, 0.3) !important; */
+    opacity: 0.6 !important;
+    color: #000000 !important;
+    /* background-color: rgba(0, 0, 0, 0.3) !important; */
     /* background: rgba(0, 0, 0, 0.3) !important; */
   }
   .inputGroupDiv input:focus {
@@ -260,15 +269,20 @@
     margin-top: 60px;
   }
 
+  .welcomeBack{
+    font-size: 60px;
+  }
+
   .signup-btn {
-    width: 88.5%;
-    padding: 15px;
+    width: 87%;
+    padding: 20px;
     background-color: #4A00E0;
     color: #fff;
     border: none;
     border-radius: 15px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 25px;
   }
   
   .signup-illustration {
@@ -281,6 +295,7 @@
     /* background-color: #4267b2; */
     border-radius: 20px;
     position: relative;
+    font-family: "Playfair Display SC", serif;
     /* padding: 40px; */
   }
   
@@ -290,7 +305,7 @@
     margin: 6px;
     /* margin-bottom: 20px; */
     /* position: absolute !important; */
-    font-family: "Playfair Display SC", serif !important;
+    font-family: "Londrina Sketch", sans-serif;
   }
 
   .signup-illustration .replaceSpan{
@@ -313,7 +328,7 @@
       margin: 6px;
       /* margin-bottom: 20px; */
       /* position: absolute !important; */
-      font-family: "Playfair Display SC", serif !important;
+      font-family: "Londrina Sketch", sans-serif;
     }
   }
   @media (max-width : 1150px) {
@@ -327,7 +342,7 @@
       margin: 6px;
       /* margin-bottom: 20px; */
       /* position: absolute !important; */
-      font-family: "Playfair Display SC", serif !important;
+      font-family: "Londrina Sketch", sans-serif;
     }
   }
   @media (max-width : 1050px) {
@@ -341,7 +356,7 @@
       margin: 6px;
       /* margin-bottom: 20px; */
       /* position: absolute !important; */
-      font-family: "Playfair Display SC", serif !important;
+      font-family: "Londrina Sketch", sans-serif;
     }
   }
   .disvting{
@@ -388,7 +403,7 @@
      margin-top: 40px;
     }
     .signup-btn {
-      width: 80%;
+      width: 91%;
       padding: 15px;
       background-color: #4A00E0;
       color: #fff;

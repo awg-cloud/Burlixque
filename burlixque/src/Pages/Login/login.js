@@ -63,11 +63,11 @@ function LoginPage() {
                                     className="logo"
                                     variants={leftSlideIn}
                                 />
-                                <motion.p variants={leftSlideIn}>Burlixque</motion.p>
+                                <motion.p className='burlixtype' variants={leftSlideIn}>Burlixque</motion.p>
                             </motion.div>
-                            <motion.h2 variants={leftSlideIn}>WELCOME BACK</motion.h2>
-                            <motion.p variants={leftSlideIn}>
-                                Don't have an account? <a href="/sign_up">Sign up</a>
+                            <motion.h2 className='welcomeBack' variants={leftSlideIn}>WELCOME BACK</motion.h2>
+                            <motion.p className='atypeshii' variants={leftSlideIn}>
+                                Don't have an account? <a style={{color:'#ffffff'}} href="/sign_up">Sign up</a>
                             </motion.p>
                         </motion.div>
 
@@ -117,16 +117,16 @@ function LoginPage() {
                         <motion.img src={photoImg} alt="Illustration" variants={rightSlideIn} />
                         <motion.div className='disvting'>
                             <div className='replaceSpan'>
-                                <motion.p className='fonstSiveGroup' variants={rightSlideIn}>Smartest </motion.p>
-                                <motion.p variants={rightSlideIn}>way</motion.p>
+                                <motion.p className='fonstSiveGroup' variants={rightSlideIn}>SMARTEST </motion.p>
+                                <motion.p variants={rightSlideIn}>WAY</motion.p>
                             </div>
 
                             <div className='replaceSpan' style={{ marginLeft: '50px' }}>
-                                <motion.p variants={rightSlideIn}> to </motion.p>
-                                <motion.p className='fonstSiveGroup' variants={rightSlideIn}>Move</motion.p>
+                                <motion.p variants={rightSlideIn}> TO </motion.p>
+                                <motion.p className='fonstSiveGroup' variants={rightSlideIn}>MOVE</motion.p>
                             </div>
-                            <p style={{ textAlign: 'center', marginTop: '10%', fontWeight: 700 }}>
-                                Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30 }}>X</span>que
+                            <p style={{ textAlign: 'center', marginTop: '13%', fontWeight: 990 }}>
+                                BURLI<span style={{ color: '#4A00E0', fontSize: 80, marginTop: 30 }}>X</span>QUE
                             </p>
                         </motion.div>
                     </motion.div>
