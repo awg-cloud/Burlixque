@@ -1,0 +1,9 @@
+.toggleContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end !important; */
+    padding: 20px;
+    width: fit-content;
+    cursor: pointer;
+  }
+  

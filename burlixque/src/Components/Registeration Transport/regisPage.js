@@ -127,8 +127,7 @@ function RegisPage() {
               </div>
               <div className={classes.formGroup}>
                 <label htmlFor="Name">Socials</label>
-                <textarea rows={2} 
-                  type="text"
+                <textarea
                   id="name"
                   name="schoolName"
                   placeholder='Paste link to any of your social media account'

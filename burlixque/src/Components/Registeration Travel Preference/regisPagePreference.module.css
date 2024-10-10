@@ -57,13 +57,14 @@ a, link{
     margin-bottom: 5px;
     font-weight: normal; /* Removed boldness */
     text-align: left; /* Align text to the left */
-    font-size: 15px;
+    font-size: 14px;
+    margin-top: 10px;
   }
   
   .inputs {
     padding: 8px;
-    border: 1px solid gray;
-    border-radius: 4px;
+    border: 0.2px solid gray;
+    border-radius: 8px;
     background-color: #fff;
     width: 100%; /* Ensure input takes full width */
     box-sizing: border-box; /* Ensure padding and border are included in the width */
@@ -77,6 +78,8 @@ a, link{
     /* border: 1px solid gray; */
     /* border-radius: 4px; */
     background-color: #fff;
+    border: 0.2px solid gray !important;
+    border-radius: 8px !important;
     width: 100%; /* Ensure input takes full width */
     box-sizing: border-box; /* Ensure padding and border are included in the width */
     font-size: 14px; /* Optional: Adjust font size */
@@ -168,7 +171,7 @@ a, link{
     background-color: #0058ff;
     color: white;
     border-radius: 4px;
-    height: 42px;
+    padding: 15px;
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 600;

@@ -38,11 +38,6 @@ const RegisPageCheckoutPass = () => {
             </div>
           </div>
 
-          {/* <div className={styles.promoCode}>
-            <input type="checkbox" id="promo" />
-            <label htmlFor="promo">I’ve a promo code</label>
-          </div> */}
-
           <div className={styles.summary}>
             <div className={styles.summaryItem}>
               <span>Subtotal</span>
@@ -67,7 +62,6 @@ const RegisPageCheckoutPass = () => {
           <p className={styles.planText}>Subscribe and start saving your money today!</p>
           <div className={styles.planDetails}>
             <div className={styles.planIcon}>
-              {/* Placeholder for plan icon */}
               <img src={card} alt="Plan Icon" />
             </div>
             <div className={styles.planCost}>
@@ -75,13 +69,8 @@ const RegisPageCheckoutPass = () => {
               <p>₦4000 / month</p>
             </div>
           </div>
-          {/* <ul className={styles.features}>
-            <li>All features in basic included</li>
-            <li>Easy and flexible business with invoice management</li>
-            <li>Full time support</li>
-            <li>20 TB cloud storage</li>
-          </ul> */}
-          <a href="/register/transport_vehicle" className={styles.modifyPlan}>Modify plan</a>
+          
+          <a href="/register/preference" className={styles.modifyPlan}>Modify plan</a>
         </div>
       </div>
     </div>

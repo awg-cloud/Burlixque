@@ -12,7 +12,7 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
-    const handleNext = () => { navigate('/'); };
+    const handleNext = () => { navigate('/dashboard'); };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);

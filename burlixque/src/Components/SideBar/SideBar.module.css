@@ -1,3 +1,8 @@
+
+a{
+  text-decoration: none !important;
+}
+
 .imgSpace {
     background-color: #ebebeb;
     padding: 50px 20px 10px 40px; /* Adjust padding to include bottom padding */
@@ -7,12 +12,15 @@
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-right: 2px solid #f5f5f5; /* Extend border */
-    width: calc(24% + 22px); /* Adjust width to include margin and border */
+    width: 100%; /* Adjust width to include margin and border */
     min-height: 100vh; /* Ensure the shadow height covers the full screen */
     gap: 10px;
     justify-content: space-between; /* Distribute space between elements */
     overflow-y: hidden;
     /* height: auto; */
+  }
+  .newBigOvr{
+    width: calc(29% + 30px) !important;
   }
   
   .reg {
@@ -27,6 +35,7 @@
     position: relative;
     margin-top: 12px;
     height: 50px;
+    padding-right: 20px;
   }
   
   .personal {
@@ -80,11 +89,11 @@
     margin: 2px;
     font-size: 15px;
     color: #343a40;
-    transition: font-weight 0.3s ease-in-out, color 0.3s ease-in-out; /* Transition for bold and color effect */
+    transition: font-weight 0.7s ease-in-out, color 0.7s ease-in-out; /* Transition for bold and color effect */
   }
   
   .personalText:hover h5 {
-    font-weight: 900; /* Bold on hover */
+    /* font-weight: 900; Bold on hover */
     color: rgb(100, 100, 100); /* Change color to white on hover */ 
   }
   
@@ -150,9 +159,36 @@
   .imgSpaadfce {
     background-color: #f1f1f1 !important;
   }
+  .mobileMenu{
+    display: none;
+  }
+  .fixedMenu{
+    display: none;
+  }
+  .container{
+    width: fit-content;
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slideInLeft {
+    animation: slideInFromLeft .2s ease-out forwards;
+  }
   
   /* Display sidebar content for desktop view */
   @media (min-width: 800px) {
+   
+
     .imgSpace {
       display: block;
     }
@@ -166,9 +202,35 @@
     padding: 20px;
   }
   
+  
   @media (max-width: 880px) {
     .sidebarContainer {
       display: none; /* Hide sidebar container for mobile view */
+    }
+
+    .mobileMenu{
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      width: fit-content;
+      background-color: rgba(230, 229, 229, 0.9);
+      top: 0px;
+      padding: 20px;
+      padding-top: 0;
+      padding-left: 60px;
+    }
+
+    .fixedMenu{
+      display: block;
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      font-size: 30px;
+      z-index: 200;
+    }
+
+    .nodisplay{
+      display: none !important;
     }
   }
   

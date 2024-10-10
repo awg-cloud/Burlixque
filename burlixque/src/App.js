@@ -11,6 +11,8 @@ import RegisPagePreference from "./Components/Registeration Travel Preference/re
 import RegisPageCheckoutPass from "./Components/Registeration Passenger Checkout/regisPageCheckoutPass";
 import WelcomePage from "./Components/Welcome Page/welcome";
 import WelcomePageTransport from "./Components/Welcome Page Transport/welcomeTransport";
+import RideArrivedPage from "./Pages/HomePage/homePage";
+import Dashboard from "./Pages/Dashboard Pass/dashboardPass";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path='/register/preference' element={<RegisPagePreference />} />
         <Route path='/welcome_passenger' element={<WelcomePage />} />
         <Route path='/welcome_transport' element={<WelcomePageTransport />} />
+        <Route path='/home' element={<RideArrivedPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         {/* <Route path='/register/passenger' element={<RegisPage />} /> */}
       </Routes>
     </Router>
