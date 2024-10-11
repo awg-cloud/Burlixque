@@ -28,6 +28,17 @@
     width: 30%;
     /* height: ; */
   }
+
+  @media (max-width: 800px) {
+    .aboutGroupthings{
+      flex-direction: column;
+      gap: 0px;
+    }
+    .aboutGroupthings img{
+      width: 100%;
+      /* height: ; */
+    }
+  }
   .aboutGroupthings p{
     font-family: "Josefin Sans", sans-serif !important;
     /* color: gray; */

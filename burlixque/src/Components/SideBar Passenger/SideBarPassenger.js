@@ -132,9 +132,9 @@ const SidebarPass = ({ show, handleClose }) => {
       </div>
       <div className={classes.fixedMenu} onClick={handdleOpen}>{openMenu ? <IoMdClose /> : <MdOutlineMenu /> }</div>
       <div className={` ${openMenu ? classes.mobileMenu : classes.nodisplay} ${animate ? classes.slideInLeft : ''}`}>
-        <Link to='/register/passenger'><p>Personal Details <MdOutlineKeyboardDoubleArrowRight /></p> </Link>
-        <Link to='/register/preference'><p>Travel Preferences <MdOutlineKeyboardDoubleArrowRight /></p></Link>
-        <Link to='/register/passenger_checkout'><p>Checkout <MdOutlineKeyboardDoubleArrowRight /></p></Link>
+        <Link to='/register/passenger'><p style={{color: '#000000', textDecoration: 'none'}}>Personal Details <MdOutlineKeyboardDoubleArrowRight /></p> </Link>
+        <Link to='/register/preference'><p style={{color: '#000000', textDecoration: 'none'}}>Travel Preferences <MdOutlineKeyboardDoubleArrowRight /></p></Link>
+        <Link to='/register/passenger_checkout'><p style={{color: '#000000', textDecoration: 'none'}}>Checkout <MdOutlineKeyboardDoubleArrowRight /></p></Link>
       </div>
     </div>
 

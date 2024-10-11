@@ -88,60 +88,24 @@
     align-items: center;
     height: 100vh;
     padding: 0 5%;
-    background-color: #000000;
+    /* background-color: #000000; */
     background-image: url('./blackBg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 5 !important;
+    opacity: 1 !important;
     position: relative;
     overflow: hidden;
     color: white;
-}
-.flower-container{
-    position: relative;
-}
-
-
-@keyframes fall {
-    0% {
-        transform: translateY(-100vh);
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-/* Adding some variety */
-.flower:nth-child(1) {
-    left: 10%;
-    animation-duration: 6s;
-    animation-delay: 0s;
-}
-
-.flower:nth-child(2) {
-    left: 30%;
-    animation-duration: 7s;
-    animation-delay: 2s;
-}
-
-.flower:nth-child(3) {
-    left: 50%;
-    animation-duration: 5s;
-    animation-delay: 1s;
 }
 
   
   .signup-form {
     flex: 1;
     max-width: 550px;
-    padding-left: 40px;
-    transform-origin: center;
+    padding-left: 80px;
+    align-items: center;
+    transform: none;
   }
    .imgaeflex{
     display: flex;
@@ -162,7 +126,10 @@
    }
    .atypeshii{
     font-family: 'Lobster';
-    color: #979494 !important;
+    color: #979494 ;
+   }
+   .atypeshii a{
+    color: #ffffff !important;
    }
    .burlixtype{
     font-family: 'Playfair Display';
@@ -240,7 +207,7 @@
     left: 30px;
     pointer-events: none;
     transform: translateY(-50%);
-    transition: 0.3s ease all;
+    transition: 0.8s ease all;
     font-family: 'Lobster';
     color: rgb(255, 255, 255) !important;
     font-weight: 550;
@@ -263,7 +230,6 @@
    top: 10px;
    border: 0.1px solid #ccc;
    z-index: 20;
-   /* background-color: rgba(80, 78, 78, 0.3) !important; */
   }
   .signup-form form{
     margin-top: 60px;
@@ -376,6 +342,10 @@
 
 
 @media (max-width: 900px) {
+
+  .signup-container2{
+    justify-content: center;
+  }
   .signup-illustration {
       display: none;
   }
@@ -383,7 +353,7 @@
       display: none;
   }
   .headertop h2 {
-      font-size: 35px;
+      font-size: 55px;
       font-weight: 9000;
       margin-bottom: 10px;
       margin: 0;
@@ -398,9 +368,10 @@
       width: 100%;
       margin: auto;
       padding-left: 0px;
+    margin-top: 140px !important;
     }
   .signup-form form{
-     margin-top: 40px;
+     margin-top: 60px;
     }
     .signup-btn {
       width: 91%;

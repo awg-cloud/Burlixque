@@ -213,11 +213,17 @@ a{
       flex-direction: column;
       position: absolute;
       width: fit-content;
-      background-color: rgba(230, 229, 229, 0.9);
+      background-color: transparent;
       top: 0px;
       padding: 20px;
-      padding-top: 0;
-      padding-left: 60px;
+      padding-top: 50px;
+      color: #000000 !important;
+      /* padding-left: 20px; */
+    }
+  
+    .mobileMenu p, a{
+      color: #000000 !important;
+      font-weight: 600;
     }
 
     .fixedMenu{
