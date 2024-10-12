@@ -3,6 +3,8 @@
     justify-content: center;
     margin: 20px 0;
     flex-wrap: wrap;
+    position: relative;
+    margin-top: 150px;
   }
   
   .button {

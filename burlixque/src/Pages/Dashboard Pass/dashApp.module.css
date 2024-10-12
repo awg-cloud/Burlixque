@@ -2,9 +2,12 @@
 
 .appContainer {
     min-height: 100vh;
+    width: 100%;
+    /* margin: auto; */
     background-color: var(--background);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
   }
   
   :root {
@@ -19,13 +22,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: auto;
     gap: 100px;
     margin-top: -20px;
   }
   .aboutGroupthings img{
-    width: 30%;
+    width: 31%;
     /* height: ; */
   }
 
@@ -35,7 +38,7 @@
       gap: 0px;
     }
     .aboutGroupthings img{
-      width: 100%;
+      width: 95%;
       /* height: ; */
     }
   }
@@ -44,6 +47,7 @@
     /* color: gray; */
     opacity: 0.8;
     line-height: 1.6;
+    width: 95%;
   }
   
 
@@ -52,9 +56,11 @@
     align-items: center;
     /* flex-wrap: wrap; */
     gap: 2rem;
-    opacity: 1.7;
-    padding: 2rem;
+    opacity: 1;
+    /* padding: 2rem; */
     margin-top: -30px;
+    width: 90%;
+    margin: auto;
   }
   
   .formSectionings {
@@ -62,6 +68,7 @@
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: auto;
   }
   
   .imageSection {
@@ -70,6 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
   }
   
   .imageSection img {
@@ -179,8 +187,18 @@
     text-align: center;
     font-family: "Josefin Sans", sans-serif !important;
     margin-top: 70px;
+    margin-bottom: 20px;
   }
   
+  .toggloedropdown{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 101;
+    margin-right: 40px;
+  }
+
+
   @media (max-width: 868px) {
     .tivcontainer {
       flex-direction: column;
