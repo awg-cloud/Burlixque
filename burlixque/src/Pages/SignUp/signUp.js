@@ -6,7 +6,7 @@ import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import logo from './newlogo.svg';
-import photoImg from './darkSunset3.jpg';
+// import photoImg from './darkSunset3.jpg';
 import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
@@ -255,8 +255,8 @@ function SignUpPage() {
                             <p style={{ textAlign: 'center', marginTop: '13%', fontWeight: 900 }}>Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30, }}>X</span>que</p>
                         </motion.div>
                     </motion.div> */}
-                    <motion.div className="car-3d-section" variants={rightSlideIn}>
-                        <Car3D variants={rightSlideIn}/>
+                    <motion.div className="car-3d-section" variants={leftSlideIn}>
+                        <Car3D variants={leftSlideIn}/>
                     </motion.div>
 
                 </motion.div>

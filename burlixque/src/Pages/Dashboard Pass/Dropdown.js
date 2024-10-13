@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Dropdown.css'; // Ensure this CSS is handling the hover state
-import profile from '../../Assets/pfp.png'
+// import profile from '../../Assets/pfp.png'
 import { useNavigate } from 'react-router-dom';
 
 

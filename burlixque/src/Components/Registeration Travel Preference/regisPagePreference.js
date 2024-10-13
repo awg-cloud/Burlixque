@@ -24,7 +24,6 @@ function RegisPagePreference() {
 
 
         <div >
-          <h6 style={{ textAlign: 'left', paddingLeft: '50px' }}></h6>
           <div className={classes.formContainer}>
             <br />
             <form className={classes.form}>

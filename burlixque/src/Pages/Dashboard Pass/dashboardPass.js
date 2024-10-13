@@ -11,7 +11,6 @@ import Dropdown from './Dropdown';
 import profile from '../../Assets/pfp.png'
 import logo from '../../Assets/newlogo.svg'
 import Modal from 'react-modal'
-import { Select } from "@react-three/drei";
 
 const Marker = ({ text }) => (
   <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
@@ -42,7 +41,7 @@ function Dashboard() {
   const [userLocation, setUserLocation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isForSelf, setIsForSelf] = useState(true);
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     date: '',
     time: '',
     destination: '',
@@ -53,20 +52,20 @@ function Dashboard() {
     setIsDarkMode(!isDarkMode);
   };
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  // const handleInputChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -268,7 +267,7 @@ function Dashboard() {
             <div className={styles.checkboxers}>
               <input type="checkbox" id="privacyPolicy" />
               <label htmlFor="privacyPolicy">
-                I agree to our friendly <a href="#">privacy policy</a>
+                I agree to our friendly <a href="/dashboard">privacy policy</a>
               </label>
             </div>
             <button type="submit" className={styles.submitButtoners}>Send Message</button>

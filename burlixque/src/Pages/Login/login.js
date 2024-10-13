@@ -5,7 +5,7 @@ import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import logo from './newlogo.svg';
-import photoImg from './darkSunset3.jpg';
+// import photoImg from './darkSunset3.jpg';
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
 
