@@ -9,6 +9,7 @@ import logo from './newlogo.svg';
 import photoImg from './darkSunset3.jpg';
 import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
+import Car3D from './Car3d';
 
 
 const Starfield = () => {
@@ -25,7 +26,7 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.5, 1.7);
+            const r = random(0.5, 1.3);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
@@ -40,8 +41,8 @@ const Starfield = () => {
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.08, 0.10);
-            const speedY = random(-0.09, 0.10);
+            const speedX = random(-0.05, 0.03);
+            const speedY = random(-0.01, 0.05);
 
             function move() {
                 xPos += speedX;
@@ -105,11 +106,11 @@ function SignUpPage() {
 
     // Define a common animation for all items (images, text, inputs, etc.)
     const leftSlideIn = {
-        hidden: { opacity: 0, x: 200 }, // Start off-screen (right)
+        hidden: { opacity: 0, x: 300 }, // Start off-screen (right)
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.4 }
+            transition: { duration: 2.0 }
         }
     };
 
@@ -118,7 +119,7 @@ function SignUpPage() {
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.9 }
+            transition: { duration: 1.5 }
         }
     };
 
@@ -239,7 +240,7 @@ function SignUpPage() {
                         </form>
                     </motion.div>
 
-                    <motion.div className="signup-illustration" variants={leftSlideIn}>
+                    {/* <motion.div className="signup-illustration" variants={leftSlideIn}>
                         <motion.img src={photoImg} alt="Illustration" variants={leftSlideIn} />
                         <motion.div className='disvting'>
                             <div className='replaceSpan'>
@@ -253,6 +254,9 @@ function SignUpPage() {
                             </div>
                             <p style={{ textAlign: 'center', marginTop: '13%', fontWeight: 900 }}>Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30, }}>X</span>que</p>
                         </motion.div>
+                    </motion.div> */}
+                    <motion.div className="car-3d-section" variants={rightSlideIn}>
+                        <Car3D variants={rightSlideIn}/>
                     </motion.div>
 
                 </motion.div>

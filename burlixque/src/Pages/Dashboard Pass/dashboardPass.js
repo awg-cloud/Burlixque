@@ -11,6 +11,7 @@ import Dropdown from './Dropdown';
 import profile from '../../Assets/pfp.png'
 import logo from '../../Assets/newlogo.svg'
 import Modal from 'react-modal'
+import { Select } from "@react-three/drei";
 
 const Marker = ({ text }) => (
   <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
@@ -193,6 +194,10 @@ function Dashboard() {
                   <label className={modalStyles.label} htmlFor="destination">Destination</label>
                   <input className={modalStyles.input} type="text" id="destination" placeholder="Enter destination" required />
                 </div>
+                {/* <div>
+                  <label className={modalStyles.label} htmlFor="destination">Destination</label>
+                  <input className={modalStyles.input} type="text" id="destination" placeholder="Enter destination" required />
+                </div> */}
               </>
             ) : (
               <>

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from './newlogo.svg';
 import photoImg from './darkSunset3.jpg';
 import { RiUser3Line } from "react-icons/ri";
+import Car3D from './Car3d';
 
 // Starfield Component
 const Starfield = () => {
@@ -23,8 +24,8 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.5, 1.7);
-        
+            const r = random(0.5, 1.3);
+
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
             star.setAttribute("cy", cy);
@@ -33,13 +34,13 @@ const Starfield = () => {
             svg.appendChild(star);
             return star;
         }
-        
+
 
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.08, 0.10);
-            const speedY = random(-0.09, 0.10);
+            const speedX = random(-0.05, 0.03);
+            const speedY = random(-0.01, 0.05);
 
             function move() {
                 xPos += speedX;
@@ -88,16 +89,16 @@ function LoginPage() {
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.4 }
+            transition: { duration: 1.5 }
         }
     };
 
     const rightSlideIn = {
-        hidden: { opacity: 0, x: -200 },
+        hidden: { opacity: 0, x: -300 },
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.8 }
+            transition: { duration: 2.0 }
         }
     };
 
@@ -135,7 +136,7 @@ function LoginPage() {
                             </motion.div>
                             <motion.h2 className='welcomeBack' variants={leftSlideIn}>WELCOME BACK</motion.h2>
                             <motion.p className='atypeshii' variants={leftSlideIn}>
-                                Don't have an account? <a style={{color:'#ffffff'}} href="/sign_up">Sign up</a>
+                                Don't have an account? <a style={{ color: '#ffffff' }} href="/sign_up">Sign up</a>
                             </motion.p>
                         </motion.div>
 
@@ -181,7 +182,7 @@ function LoginPage() {
                         </form>
                     </motion.div>
 
-                    <motion.div className="signup-illustration" variants={rightSlideIn}>
+                    {/* <motion.div className="signup-illustration" variants={rightSlideIn}>
                         <motion.img src={photoImg} alt="Illustration" variants={rightSlideIn} />
                         <motion.div className='disvting'>
                             <div className='replaceSpan'>
@@ -197,6 +198,9 @@ function LoginPage() {
                                 BURLI<span style={{ color: '#4A00E0', fontSize: 80, marginTop: 30 }}>X</span>QUE
                             </p>
                         </motion.div>
+                    </motion.div> */}
+                    <motion.div className="car-3d-section" variants={rightSlideIn}>
+                        <Car3D variants={rightSlideIn}/>
                     </motion.div>
 
                 </motion.div>
