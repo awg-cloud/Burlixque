@@ -253,7 +253,7 @@ a, link{
     margin: auto;
   }
   
-  @media (max-width: 767px) {
+  @media (max-width: 807px) {
     .container {
       flex-direction: column;
     }
@@ -268,7 +268,7 @@ a, link{
       margin-top: 20px;
       margin-bottom: 20px;
       width: 100%;
-      padding: 20px;
+      padding: 0px;
       margin: auto;
       /* border: 1px solid #ccc; */
       border-radius: 8px;
@@ -287,10 +287,13 @@ a, link{
     .newDiv{
       display: flex!important;
       justify-content: center;
-      width: 90%;
+      width: 100%;
        padding-left:0px!important;
        padding: 0;
        margin: auto;
+    }
+    .heading h3 {
+      line-height: 1.1;
     }
   }
   

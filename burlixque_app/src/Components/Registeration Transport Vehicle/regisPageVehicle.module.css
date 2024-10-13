@@ -288,10 +288,13 @@ a, link{
     .newDiv{
       display: flex!important;
       justify-content: center;
-      width: 90%;
+      width: 100%;
        padding-left:0px!important;
        padding: 0;
        margin: auto;
+    }
+    .heading h3 {
+      line-height: 1.1;
     }
   }
   

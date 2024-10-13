@@ -6,5 +6,7 @@
     width: fit-content;
     cursor: pointer;
     z-index: 101;
+    /* width: 80px; */
+    font-size: 13px;
   }
   

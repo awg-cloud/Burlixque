@@ -7,7 +7,7 @@
     margin-top: 150px;
   }
   
-  .button {
+  .buttondd {
     /* background-color: #000; */
     /* color: #fff; */
     font-weight: 600;
@@ -18,7 +18,7 @@
     transition: background-color 0.3s;
   }
   
-  .button:hover {
+  .buttondd:hover {
     background-color: #555 !important;
   }
   
@@ -27,8 +27,9 @@
       flex-direction: column;
     }
   
-    .button {
-      margin: 10px 0;
+    .buttondd {
+      margin: auto;
+      width: 50%;
     }
   }
   

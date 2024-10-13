@@ -143,7 +143,7 @@ function Dashboard() {
       {/* Action buttons */}
       <div className={buttonStyles.buttonContainer}>
 
-        <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.button} onClick={handleModalToggle}>Schedule a Ride</button>
+        <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.buttondd} onClick={handleModalToggle}>Schedule a Ride</button>
       </div>
 
       <Modal

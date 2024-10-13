@@ -163,7 +163,7 @@ a, link{
   
   .btn {
     display: block;
-    width: 63%;
+    width: 63% !important;
     cursor: pointer;
     background-color: #0058ff;
     color: white;
@@ -284,10 +284,13 @@ a, link{
     .newDiv{
       display: flex!important;
       justify-content: center;
-      width: 90%;
+      width: 100%;
        padding-left:0px!important;
        padding: 0;
        margin: auto;
+    }
+    .heading h3 {
+      line-height: 1.1;
     }
   }
   
