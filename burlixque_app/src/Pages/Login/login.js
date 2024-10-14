@@ -13,7 +13,7 @@ import Car3D from './Car3d';
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 300;
+        const numStars = 250;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -39,8 +39,8 @@ const Starfield = () => {
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.07, 0.04);
-            const speedY = random(-0.02, 0.09);
+            const speedX = random(-0.14, 0.08);
+            const speedY = random(-0.03, 0.18);
 
             function move() {
                 xPos += speedX;
@@ -70,7 +70,7 @@ const Starfield = () => {
     }, []);
 
     return (
-        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} preserveAspectRatio="none"></svg>
+        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, backgroundImage: '../../Assets/darkblue.jpg' }} preserveAspectRatio="none"></svg>
     );
 };
 

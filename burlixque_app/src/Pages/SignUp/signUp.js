@@ -15,7 +15,7 @@ import Car3D from './Car3d';
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 300;
+        const numStars = 250;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -41,8 +41,8 @@ const Starfield = () => {
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.07, 0.04);
-            const speedY = random(-0.02, 0.09);
+            const speedX = random(-0.14, 0.08);
+            const speedY = random(-0.03, 0.18);
 
             function move() {
                 xPos += speedX;
@@ -81,7 +81,7 @@ function SignUpPage() {
 
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
-    const [selectedRole, setSelectedRole] = useState('passenger');
+    // const [selectedRole, setSelectedRole] = useState('passenger');
     const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
@@ -91,17 +91,17 @@ function SignUpPage() {
         setShowPassword2(!showPassword2);
     };
 
-    const handleRoleChange = (role) => {
-        setSelectedRole(role);
-    };
+    // const handleRoleChange = (role) => {
+    //     setSelectedRole(role);
+    // };
 
     const handleNext = (e) => {
-        e.preventDefault();  // Prevent form from submitting
-        if (selectedRole === 'organizer') {
-            navigate('/register/transport_organizer');
-        } else {
+        e.preventDefault(); 
+        // if (selectedRole === 'organizer') {
+        //     navigate('/register/transport_organizer');
+        // } else {
             navigate('/register/passenger');
-        }
+        // }
     };
 
     // Define a common animation for all items (images, text, inputs, etc.)
@@ -220,14 +220,14 @@ function SignUpPage() {
                                 </motion.p>
                             </motion.div>
 
-                            <motion.div className="role-toggle-container">
+                            {/* <motion.div className="role-toggle-container">
                                 <motion.label variants={rightSlideIn} className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
                                     Student Passenger
                                 </motion.label>
                                 <motion.label variants={rightSlideIn} className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
                                     Transport Organizer
                                 </motion.label>
-                            </motion.div>
+                            </motion.div> */}
 
                             <motion.button
                                 type="submit"

@@ -28,12 +28,12 @@ function RegisPagePass() {
             <br />
             <form className={classes.form}>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">First Name</label>
+                <label htmlFor="name">Full Name</label>
                 <input
-                  type="text"
+                  type="name"
                   id="name"
-                  name="schoolName"
-                  placeholder='John'
+                  name="fullName"
+                  placeholder='John Doe'
                   required
                   className={classes.inputs}
                 />
@@ -44,6 +44,17 @@ function RegisPagePass() {
                   type="date"
                   name="degree"
                   placeholder='Doe'
+                  required
+                  className={classes.inputs}
+                />
+              </div>
+              <div className={classes.formGroup}>
+                <label htmlFor="Name">School</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="schoolName"
+                  placeholder='Olabisi Onabanjo University'
                   required
                   className={classes.inputs}
                 />
@@ -120,7 +131,7 @@ function RegisPagePass() {
                   type="text"
                   id="name"
                   name="schoolName"
-                  placeholder='Computer Science'
+                  placeholder='08147645851'
                   required
                   className={classes.inputs}
                 />

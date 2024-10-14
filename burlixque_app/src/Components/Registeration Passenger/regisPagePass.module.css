@@ -51,6 +51,9 @@ a, link{
     flex-direction: column;
     margin-bottom: 3px;
   }
+  .formGroup textarea{
+    width: 100%;
+  }
   
   .formGroup label {
     margin-bottom: 5px;
