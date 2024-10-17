@@ -14,6 +14,7 @@ import WelcomePageTransport from "./Components/Welcome Page Transport/welcomeTra
 import RideArrivedPage from "./Pages/HomePage/homePage";
 import Dashboard from "./Pages/Dashboard Pass/dashboardPass";
 import ProfilePage from "./Pages/Profile/profilePage";
+import CheckAvailableRides from "./Pages/Check Available/available";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/home' element={<RideArrivedPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/check_rides' element={<CheckAvailableRides />} />
         {/* <Route path='/register/passenger' element={<RegisPage />} /> */}
       </Routes>
     </Router>

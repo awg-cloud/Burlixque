@@ -200,6 +200,13 @@
     z-index: 101;
     margin-right: 40px;
   }
+  .typewriteThings{
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+
 
 
   @media (max-width: 868px) {
@@ -213,6 +220,13 @@
     }
     .logoGroup h1{
       font-size: 15px;
+    }
+    .typewriteThings{
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      /* max-width: 30%; */
+      margin: 0;
     }
   }
   

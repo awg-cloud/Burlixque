@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import GoogleMapReact from 'google-map-react';
 import Switch from "react-switch";
+import './slideInsection.css'
 import styles from './dashApp.module.css';
 import headerStyles from './Header.module.css';
 import mapStyles from './Map.module.css';
@@ -12,6 +14,8 @@ import profile from '../../Assets/pfp.png'
 import logo from '../../Assets/newlogo.svg'
 import Modal from 'react-modal'
 import Select from 'react-select';
+import Typewriter from "typewriter-effect";
+// import { useInView } from 'react-intersection-observer';
 
 const Marker = ({ text }) => (
   <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
@@ -78,7 +82,7 @@ function Dashboard() {
     { value: 'zamfara', label: 'Zamfara' },
     { value: 'fct', label: 'Federal Capital Territory (FCT)' }
   ];
-  
+
 
 
   const localGovernments = {
@@ -124,17 +128,17 @@ function Dashboard() {
 
 
 
-const handleStateChange = (selectedOption) => {
-      setSelectedState(selectedOption);
-      setSelectedLgas(null);
+  const handleStateChange = (selectedOption) => {
+    setSelectedState(selectedOption);
+    setSelectedLgas(null);
 
 
-      const lgas = localGovernments[selectedOption?.value] || [];
-      setLocalGovernmentOptions(lgas.map(lga => ({ value: lga, label: lga })));
+    const lgas = localGovernments[selectedOption?.value] || [];
+    setLocalGovernmentOptions(lgas.map(lga => ({ value: lga, label: lga })));
 
-      setOrigin(selectedOption?.value);
-    };
-  
+    setOrigin(selectedOption?.value);
+  };
+
 
   const handlGovChange = (selectedOption) => {
     setSelectedLgas(selectedOption);
@@ -145,11 +149,13 @@ const handleStateChange = (selectedOption) => {
   const [userLocation, setUserLocation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isForSelf, setIsForSelf] = useState(true);
-  const [localGov,setLocalGov] = useState("");
+  const [localGov, setLocalGov] = useState("");
   const [selectedState, setSelectedState] = useState(null);
   const [selectedLgas, setSelectedLgas] = useState(null);
   const [localGovernmentOptions, setLocalGovernmentOptions] = useState([]);
-  const [origin,setOrigin] = useState("")
+  const [origin, setOrigin] = useState("");
+  const navigate = useNavigate();
+
   const [formData] = useState({
     date: '',
     time: '',
@@ -184,14 +190,15 @@ const handleStateChange = (selectedOption) => {
     setIsForSelf(e.target.value === "self");
   };
 
-  const handleSearchSubmit  = (e) => {
+  const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
     // Submit the form data to the server or handle the logic here.
     setIsModalOpen(false); // Close the modal after submission
+    navigate('/check_rides')
   };
 
-  
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -208,12 +215,29 @@ const handleStateChange = (selectedOption) => {
     }
   }, []);
 
+
+
+
+
   return (
     <div className={styles.appContainer} style={isDarkMode ? darkTheme : lightTheme}>
       <header className={headerStyles.header}>
         <div className={styles.logoGroup}>
           <img src={logo} alt="" />
-          <h1>Burlixque</h1>
+          <div className={styles.typewriteThings}>
+            <Typewriter
+
+              options={{
+                strings: [
+                  "Burlixque",
+                  "Welcome Back John",
+                ],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 50,
+              }}
+            />
+          </div>
 
         </div>
         <div className={styles.toggloedropdown}>
@@ -229,7 +253,7 @@ const handleStateChange = (selectedOption) => {
               uncheckedIcon={false}
             />
           </div>
-          <Dropdown openModal={handleModalToggle}/>
+          <Dropdown openModal={handleModalToggle} />
         </div>
 
 
@@ -292,22 +316,22 @@ const handleStateChange = (selectedOption) => {
               <>
                 <div>
                   <label className={modalStyles.label} htmlFor="date">Date</label>
-                  <input className={modalStyles.input} type="date" id="date" required />
+                  <input className={modalStyles.input} type="date" id="date" />
                 </div>
                 <div>
                   <label className={modalStyles.label} htmlFor="time">Time</label>
-                  <input className={modalStyles.input} type="time" id="time" required />
+                  <input className={modalStyles.input} type="time" id="time" />
                 </div>
 
 
                 <p className="bold flex-flex">Destination</p>
                 <div>
 
-                  
+
                   <label className={modalStyles.label} htmlFor="destination">Select State</label>
                   {/* <input className={modalStyles.input} type="text" id="destination" placeholder="Enter destination" required /> */}
                   <Select
-                  id="destination"
+                    id="destination"
                     value={selectedState}
                     onChange={handleStateChange}
                     options={nigerianStates}
@@ -319,15 +343,15 @@ const handleStateChange = (selectedOption) => {
                 <div>
                   <label className={modalStyles.label} htmlFor="stop">Select Bus-stop</label>
                   <Select
-                    id= "stop"
+                    id="stop"
                     value={selectedLgas}
                     onChange={handlGovChange}
                     options={localGovernmentOptions}
                     placeholder="Select a bus-stop"
                     isSearchable
                     className={modalStyles.selecters}
-                  />                
-                  </div>
+                  />
+                </div>
               </>
             ) : (
               <>
@@ -358,7 +382,8 @@ const handleStateChange = (selectedOption) => {
       </Modal>
 
 
-            <div style={{height: '50px'}} id="about-us" />
+      <div style={{ height: '80px' }} id="about-us" />
+
       <h4 className={styles.aboutmeh4} >About Us</h4>
       <div className={styles.aboutGroupthings} id="About">
         <img src={profile} alt="" />
@@ -366,7 +391,8 @@ const handleStateChange = (selectedOption) => {
       </div>
 
 
-      <div style={{height: '50px'}} id="contact-us" />
+
+      <div style={{ height: '50px' }} id="contact-us" />
       <h4 className={styles.aboutmeh4}>Contact Us</h4>
       <div className={styles.tivcontainer} id="Contact">
         <div className={styles.formSectionings}>
@@ -398,7 +424,7 @@ const handleStateChange = (selectedOption) => {
             <div className={styles.checkboxers}>
               <input type="checkbox" id="privacyPolicy" />
               <label htmlFor="privacyPolicy">
-                I agree to our friendly <a style={{color: 'blue'}} href="/dashboard">privacy policy</a>
+                I agree to our friendly <a style={{ color: 'blue' }} href="/dashboard">privacy policy</a>
               </label>
             </div>
             <button type="submit" className={styles.submitButtoners}>Send Message</button>
@@ -410,11 +436,11 @@ const handleStateChange = (selectedOption) => {
           <div className={styles.contactDetails}>
             <div className={styles.contactInfo}>
               <span className={styles.icon}>📧</span>
-              <p>Email: <a style={{color: 'blue'}} href="mailto:techteam@kawruh.com">techteam@kawruh.com</a></p>
+              <p>Email: <a style={{ color: 'blue' }} href="mailto:techteam@kawruh.com">techteam@kawruh.com</a></p>
             </div>
             <div className={styles.contactInfo}>
               <span className={styles.icon}>📞</span>
-              <p>Phone:<a style={{color: 'blue'}} href="tel: 08147645851"> 08147645851 </a> </p>
+              <p>Phone:<a style={{ color: 'blue' }} href="tel: 08147645851"> 08147645851 </a> </p>
             </div>
           </div>
         </div>

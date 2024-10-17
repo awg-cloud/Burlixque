@@ -6,7 +6,7 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(pfp);
   const [profileInfo, setProfileInfo] = useState({
-    image: {profile},
+    imageFile: null,
     matricNumber: "202100001",
     email: "johndoe@example.com",
     phoneNumber: "+234 123 456 7890",
@@ -30,24 +30,24 @@ const ProfilePage = () => {
   };
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];  // Get the selected file
+    const file = e.target.files[0]; // Get the selected file
     if (file) {
       // Check if it's a valid image type (jpeg, png, jpg, gif)
-      const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+      const validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
       if (validImageTypes.includes(file.type)) {
         const reader = new FileReader();
         reader.onloadend = () => {
-          setProfile(reader.result);  // This is for showing the image preview
+          setProfile(reader.result); // This is for showing the image preview
         };
         reader.readAsDataURL(file);
 
-        // Store the file itself in the 'personal' state to send it to the API
+        // Store the file itself in profileInfo to send to API
         setProfileInfo((prev) => ({
           ...prev,
-          imageFile: file,  // Store the file itself (not a string or URL)
+          imageFile: file, // Store the file for future API usage
         }));
       } else {
-        alert('Please upload a valid image (jpeg, png, jpg, gif)');
+        alert("Please upload a valid image (jpeg, png, jpg, gif)");
       }
     }
   };
@@ -58,15 +58,21 @@ const ProfilePage = () => {
         <div className={styles.header}>
           <div className={styles.flexImg}>
             <img
-              // src={pfp}
-              src={profileInfo.imageFile ? URL.createObjectURL(profileInfo.imageFile) : profileInfo.image}
+              src={profileInfo.imageFile ? URL.createObjectURL(profileInfo.imageFile) : profile}
               alt="Profile"
               className={styles.profileImage}
             />
             <div className={styles.uploadImg}>
               <p>Change Photo</p>
-              <input type="file" id="fileInput" accept="image/jpeg, image/png, image/jpg, image/gif" onChange={handleImageChange} style={{ display: 'none' }} />
-              <button type="button" onClick={() => document.getElementById('fileInput').click()}>Upload Image</button>
+              <input
+                type="file"
+                id="fileInput"
+                accept="image/jpeg, image/png, image/jpg, image/gif"
+                onChange={handleImageChange}
+                style={{ display: "none" }}
+              /> <button type="button" onClick={() => document.getElementById("fileInput").click()}>
+                Upload Image
+              </button>
             </div>
           </div>
 
@@ -144,6 +150,22 @@ const ProfilePage = () => {
                   onChange={handleChange}
                   className={styles.editInput}
                 />
+                <label htmlFor="fullName" >School</label>
+                <input
+                  type="text"
+                  name="school"
+                  value={profileInfo.school}
+                  onChange={handleChange}
+                  className={styles.editInput}
+                />
+                <label htmlFor="fullName" >Home Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={profileInfo.address}
+                  onChange={handleChange}
+                  className={styles.editInput}
+                />
               </>
             ) : (
               <>
@@ -154,6 +176,8 @@ const ProfilePage = () => {
                 <p>Email: <span> {profileInfo.email} </span></p>
                 <p>Phone: <span> {profileInfo.phoneNumber}</span></p>
                 <p>Username: <span> @{profileInfo.username}</span></p>
+                <p>School: <span> @{profileInfo.school}</span></p>
+                <p>Address: <span> @{profileInfo.address}</span></p>
 
               </>
             )}
