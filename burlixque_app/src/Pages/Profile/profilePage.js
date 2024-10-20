@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styles from "./ProfilePage.module.css";
 import pfp from '../../Assets/pfp.png';
+import Modal from 'react-modal'
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(pfp);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRide, setSelectedRide] = useState(null);
   const [profileInfo, setProfileInfo] = useState({
     imageFile: null,
     matricNumber: "202100001",
@@ -52,6 +55,44 @@ const ProfilePage = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedRide(null);
+  };
+
+  const openModal = (ride) => {
+    setSelectedRide(ride);
+    setIsModalOpen(true);
+  };
+
+  const ridesData = [
+    {
+      from: 'Lagos',
+      to: 'Illorin',
+      date: '11-08-2024',
+      time: '11:00 AM',
+      organizerName: 'John Doe',
+      organizerPhone: '08012345678',
+      vehicleType: 'SUV',
+      price: '₦5000',
+      pickUpTime: '10:30 AM',
+      totalTime: '4 hours',
+    },
+    {
+      from: 'Ibadan',
+      to: 'Osogbo',
+      date: '24-08-2024',
+      time: '01:00 PM',
+      organizerName: 'Jane Smith',
+      organizerPhone: '08087654321',
+      vehicleType: 'Sedan',
+      price: '₦4000',
+      pickUpTime: '01:30 PM',
+      totalTime: '3.5 hours',
+    },
+  ];
+
+
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileCard}>
@@ -84,15 +125,6 @@ const ProfilePage = () => {
           </button>
           <button className={styles.shareButton}>Share Profile</button>
         </div>
-
-        {/* <div className={styles.skills}>
-          <h3>Skills</h3>
-          <div className={styles.skillsList}>
-            <span className={styles.skill}>Public Speaking</span>
-            <span className={styles.skill}>Time Management</span>
-            <span className={styles.skill}>Teamwork</span>
-          </div>
-        </div> */}
 
         <div className={styles.associatedPeople}>
           <div className={styles.profileDetails}>
@@ -176,14 +208,75 @@ const ProfilePage = () => {
                 <p>Email: <span> {profileInfo.email} </span></p>
                 <p>Phone: <span> {profileInfo.phoneNumber}</span></p>
                 <p>Username: <span> @{profileInfo.username}</span></p>
-                <p>School: <span> @{profileInfo.school}</span></p>
-                <p>Address: <span> @{profileInfo.address}</span></p>
+                <p>School: <span> {profileInfo.school}</span></p>
+                <p>Address: <span> {profileInfo.address}</span></p>
 
               </>
             )}
 
           </div>
         </div>
+
+        <div className={styles.recentRidesGroup}>
+          <div className={styles.recentRides}>
+            <h5>Recent Rides</h5>
+            <button>View All</button>
+          </div>
+          <div className={styles.tableContainer}>
+            <table className={styles.ridesTableers}>
+              <thead>
+                <tr>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {ridesData.map((ride, index) => (
+                  <tr key={index}>
+                    <td>{ride.from}</td>
+                    <td>{ride.to}</td>
+                    <td>{ride.date}</td>
+                    <td>{ride.time}</td>
+                    <td
+                      title="View details"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => openModal(ride)}
+                    >
+                      ...
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {selectedRide && (
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={handleCloseModal}
+            overlayClassName={styles.modalOverlay}
+            className={styles.modalContent}
+          >
+            <h2 className={styles.modalContenth2}>Ride Details</h2>
+            <p onClick={handleCloseModal} className={styles.absolutePP11}>X</p>
+            <p><strong>From:</strong> {selectedRide.from}</p>
+            <p><strong>To:</strong> {selectedRide.to}</p>
+            <p><strong>Date:</strong> {selectedRide.date}</p>
+            <p><strong>Time:</strong> {selectedRide.time}</p>
+            <p><strong>Organizer Name:</strong> {selectedRide.organizerName}</p>
+            <p><strong>Organizer Phone:</strong> {selectedRide.organizerPhone}</p>
+            <p><strong>Vehicle Type:</strong> {selectedRide.vehicleType}</p>
+            <p><strong>Price:</strong> {selectedRide.price}</p>
+            <p><strong>Pick Up Time:</strong> {selectedRide.pickUpTime}</p>
+            <p><strong>Total Journey Time:</strong> {selectedRide.totalTime}</p>
+            
+          </Modal>
+        )}
       </div>
     </div>
   );

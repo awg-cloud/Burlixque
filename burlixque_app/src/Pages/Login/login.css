@@ -128,7 +128,7 @@
     font-family: 'Lobster';
     color: #979494 ;
    }
-   .atypeshii a{
+   .atypeshii p{
     color: #ffffff !important;
    }
    .burlixtype{
@@ -145,14 +145,14 @@
   }
   
   .headertop h2 {
-    font-size: 58px;
+    font-size: 53px;
     font-weight: 9000;
     margin-bottom: 10px;
     margin: 0;
     margin-top: 40px;
     font-family: 'Lobster' !important;
   }
-  
+
   .headertop p {
     font-size: 16px;
     margin: 0;
@@ -251,6 +251,10 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 25px;
+  }
+  .signup-btn:hover {
+    background-color: #460bbb;
+    
   }
   
   .signup-illustration {
@@ -355,7 +359,7 @@
       display: none;
   }
   .headertop h2 {
-      font-size: 55px;
+    font-size: 35px;
       font-weight: 9000;
       margin-bottom: 10px;
       margin: 0;

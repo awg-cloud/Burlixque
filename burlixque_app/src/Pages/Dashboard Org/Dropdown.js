@@ -19,6 +19,10 @@ const Dropdown = ({openModal}) => {
     navigate('/profile');
   }
 
+  const handleMonitor = () => {
+    navigate('/check_myrides')
+  }
+
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about-us');
     if (aboutSection) {
@@ -49,8 +53,8 @@ const Dropdown = ({openModal}) => {
       {isOpen && (
         <div className="dropdown-content">
           <button className="dropdown-item" onClick={handleProfile}>Profile</button>
-          <button className="dropdown-item" onClick={openModal}>Schedule a ride</button>
-          {/* <button className="dropdown-item">Monitor your Ride</button> */}
+          <button className="dropdown-item" onClick={openModal}>Create a Ride</button>
+          <button className="dropdown-item" onClick={handleMonitor}>Monitor your Ride</button>
           <button className="dropdown-item" onClick={scrollToAbout}>About Us</button>
           <button className="dropdown-item" onClick={scrollToContact}>Contact Us</button>
           <button onClick={handlePay} className="dropdown-item">Pay Now</button>

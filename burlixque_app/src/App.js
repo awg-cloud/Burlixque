@@ -15,6 +15,8 @@ import RideArrivedPage from "./Pages/HomePage/homePage";
 import Dashboard from "./Pages/Dashboard Pass/dashboardPass";
 import ProfilePage from "./Pages/Profile/profilePage";
 import CheckAvailableRides from "./Pages/Check Available/available";
+import DashboardOrg from "./Pages/Dashboard Org/dashboardPass";
+import MyRides from "./Pages/My Rides/available";
 
 
 function App() {
@@ -33,9 +35,10 @@ function App() {
         <Route path='/welcome_transport' element={<WelcomePageTransport />} />
         <Route path='/home' element={<RideArrivedPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard_org' element={<DashboardOrg />} />
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/check_rides' element={<CheckAvailableRides />} />
-        {/* <Route path='/register/passenger' element={<RegisPage />} /> */}
+        <Route path='/check_myrides' element={<MyRides />} />
       </Routes>
     </Router>
   );

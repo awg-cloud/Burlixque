@@ -1,21 +1,21 @@
-// LoginPage.js
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './signUp.css';
 import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from './newlogo.svg';
-// import photoImg from './darkSunset3.jpg';
 import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
+import Modal from 'react-modal'
 
-
+// Starfield Effect (Unchanged)
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 250;
+        const numStars = 100;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -37,12 +37,11 @@ const Starfield = () => {
             return star;
         }
 
-
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.14, 0.08);
-            const speedY = random(-0.03, 0.18);
+            const speedX = random(-0.34, 0.18);
+            const speedY = random(-0.06, 0.28);
 
             function move() {
                 xPos += speedX;
@@ -76,12 +75,12 @@ const Starfield = () => {
     );
 };
 
-
 function SignUpPage() {
-
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
-    // const [selectedRole, setSelectedRole] = useState('passenger');
+    const [isModalOpen, setIsModalOpen] = useState(false);  // Control the modal state
+    const [selectedRole, setSelectedRole] = useState(null);  // Role selection
+    const [clickable, setClickable] = useState(false);
     const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
@@ -91,36 +90,35 @@ function SignUpPage() {
         setShowPassword2(!showPassword2);
     };
 
-    // const handleRoleChange = (role) => {
-    //     setSelectedRole(role);
-    // };
-
-    const handleNext = (e) => {
-        e.preventDefault(); 
-        // if (selectedRole === 'organizer') {
-        //     navigate('/register/transport_organizer');
-        // } else {
-            navigate('/register/passenger');
-        // }
+    // Handle opening the modal when "Sign Up" is clicked
+    const handleSignUpClick = (e) => {
+        e.preventDefault();  // Prevent form submission
+        setIsModalOpen(true); // Open the modal
     };
 
-    // Define a common animation for all items (images, text, inputs, etc.)
-    const leftSlideIn = {
-        hidden: { opacity: 0, x: 300 }, // Start off-screen (right)
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 2.0 }
+    // Handle role selection and navigation
+    const handleRoleSelection = (role) => {
+        setSelectedRole(role);  // Store the selected role
+        setClickable(true);
+    };
+
+    // Handle confirmation and navigate based on role
+    const handleConfirmRole = () => {
+        if (selectedRole === 'organizer') {
+            navigate('/register/transport_organizer');
+        } else if (selectedRole === 'passenger') {
+            navigate('/register/passenger');
         }
+        setIsModalOpen(false);  // Close the modal
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);  // Close the modal
     };
 
     const rightSlideIn = {
-        hidden: { opacity: 0, x: -200 }, // Start off-screen (left)
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1.5 }
-        }
+        hidden: { opacity: 0, x: -200 },
+        visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
     };
 
     return (
@@ -134,17 +132,16 @@ function SignUpPage() {
 
             <Starfield />
 
-
             <motion.div
                 className="login-container"
                 initial="hidden"
                 animate="visible"
-                transition={{ staggerChildren: 0.2 }}  // Stagger the appearance of the form fields
+                transition={{ staggerChildren: 0.2 }}
             >
                 <motion.div className="signup-container22">
                     <motion.div
                         className="signup-forms"
-                        variants={rightSlideIn}  // Apply the animation to this block
+                        variants={rightSlideIn}
                     >
                         <motion.div className="headertop" variants={rightSlideIn} >
                             <motion.div className='imgaeflex' variants={rightSlideIn} >
@@ -158,21 +155,19 @@ function SignUpPage() {
                             </motion.div>
                             <motion.h2 className='h222' variants={rightSlideIn}>GET STARTED</motion.h2>
                             <motion.p className='atypeshii' variants={rightSlideIn}>
-                                Already have an account? <a style={{ color: '#ffffff' }} href="/">Log In</a>
+                                Already have an account? <Link to='/'><a style={{ color: '#ffffff' }}>Log In</a> </Link>
                             </motion.p>
                         </motion.div>
 
-
-                        <form action=''>
+                        <form>
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="name">Full Name</motion.label>
+                                <motion.label htmlFor="fullName">Full Name</motion.label>
                                 <motion.input
                                     type="text"
-                                    id="name"
+                                    id="fullName"
                                     placeholder="Enter your full name"
                                     required
                                 />
-                                {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><RiUser3Line /></p>
                             </motion.div>
 
@@ -184,15 +179,14 @@ function SignUpPage() {
                                     placeholder="Enter your email"
                                     required
                                 />
-                                {/* <motion.img src={name} alt='' variants={rightSlideIn} /> */}
                                 <p className='imgRep22'><CiMail /></p>
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="password1">Password</motion.label>
+                                <motion.label htmlFor="password">Password</motion.label>
                                 <motion.input
                                     type={showPassword1 ? 'text' : 'password'}
-                                    id="password1"
+                                    id="password"
                                     placeholder="Enter your password"
                                     required
                                 />
@@ -209,7 +203,7 @@ function SignUpPage() {
                                 <motion.input
                                     type={showPassword2 ? 'text' : 'password'}
                                     id="password"
-                                    placeholder="Enter your password"
+                                    placeholder="Confirm your password"
                                     required
                                 />
                                 <motion.p
@@ -220,19 +214,11 @@ function SignUpPage() {
                                 </motion.p>
                             </motion.div>
 
-                            {/* <motion.div className="role-toggle-container">
-                                <motion.label variants={rightSlideIn} className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`} onClick={() => handleRoleChange('passenger')}>
-                                    Student Passenger
-                                </motion.label>
-                                <motion.label variants={rightSlideIn} className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`} onClick={() => handleRoleChange('organizer')}>
-                                    Transport Organizer
-                                </motion.label>
-                            </motion.div> */}
-
+                            {/* Sign Up Button */}
                             <motion.button
-                                type="submit"
+                                type="button"
                                 className="signup-btn"
-                                onClick={handleNext}
+                                onClick={handleSignUpClick} // Open the modal
                                 variants={rightSlideIn}
                             >
                                 Sign Up
@@ -240,28 +226,49 @@ function SignUpPage() {
                         </form>
                     </motion.div>
 
-                    {/* <motion.div className="signup-illustration" variants={leftSlideIn}>
-                        <motion.img src={photoImg} alt="Illustration" variants={leftSlideIn} />
-                        <motion.div className='disvting'>
-                            <div className='replaceSpan'>
-                                <motion.p className='fonstSiveGroup'>SMARTEST </motion.p>
-                                <motion.p>WAY</motion.p>
-                            </div>
-
-                            <div className='replaceSpan' style={{ marginLeft: '50px' }}>
-                                <motion.p> TO
-                                </motion.p><motion.p className='fonstSiveGroup'>MOVE</motion.p>
-                            </div>
-                            <p style={{ textAlign: 'center', marginTop: '13%', fontWeight: 900 }}>Burli<span style={{ color: '#4A00E0', fontSize: 70, marginTop: 30, }}>X</span>que</p>
-                        </motion.div>
-                    </motion.div> */}
-                    <motion.div className="car-3d-section" variants={leftSlideIn}>
-                        <Car3D variants={leftSlideIn}/>
+                    <motion.div className="car-3d-section" variants={rightSlideIn}>
+                        <Car3D variants={rightSlideIn} />
                     </motion.div>
 
                 </motion.div>
             </motion.div>
-        </motion.div >
+
+            {/* Modal for Role Selection */}
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={handleCloseModal}
+                className="modalContent"
+                overlayClassName="modalOverlay"
+            >
+                <div>
+                    <h2>Select Your Role</h2>
+                    <div className="role-toggle-container">
+                    <label
+                        className={`role-toggle ${selectedRole === 'passenger' ? 'selected' : ''}`}
+                        onClick={() => handleRoleSelection('passenger')}
+                    >
+                        Student Passenger
+                    </label>
+                    <label
+                        className={`role-toggle ${selectedRole === 'organizer' ? 'selected' : ''}`}
+                        onClick={() => handleRoleSelection('organizer')}
+                    >
+                        Transport Organizer
+                    </label>
+
+                    </div>
+                    <div className="modal-actions">
+                        <button onClick={handleConfirmRole} disabled={!clickable} className="modal-confirm-btn">
+                            Confirm
+                        </button>
+                        <button onClick={handleCloseModal} className="modal-cancel-btn">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </Modal>
+
+        </motion.div>
     );
 }
 

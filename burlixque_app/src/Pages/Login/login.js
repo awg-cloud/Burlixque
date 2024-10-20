@@ -5,6 +5,7 @@ import { GoEyeClosed } from "react-icons/go";
 import { RxEyeOpen } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import logo from './newlogo.svg';
+import { Link } from 'react-router-dom';
 // import photoImg from './darkSunset3.jpg';
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
@@ -13,7 +14,7 @@ import Car3D from './Car3d';
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 250;
+        const numStars = 100;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -39,8 +40,8 @@ const Starfield = () => {
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.14, 0.08);
-            const speedY = random(-0.03, 0.18);
+            const speedX = random(-0.34, 0.18);
+            const speedY = random(-0.06, 0.28);
 
             function move() {
                 xPos += speedX;
@@ -136,7 +137,7 @@ function LoginPage() {
                             </motion.div>
                             <motion.h2 className='welcomeBack' variants={leftSlideIn}>WELCOME BACK</motion.h2>
                             <motion.p className='atypeshii' variants={leftSlideIn}>
-                                Don't have an account? <a style={{ color: '#ffffff' }} href="/sign_up">Sign up</a>
+                                Don't have an account? <Link to='/sign_up'><a href='#' style={{ color: '#ffffff' }}>Sign up</a> </Link>
                             </motion.p>
                         </motion.div>
 

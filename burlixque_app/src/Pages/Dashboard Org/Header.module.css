@@ -1,6 +1,5 @@
 .header {
-  padding-left: 3%;
-  padding-right: 5%;
+  padding: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
@@ -9,7 +8,7 @@
   background: #000;
   color: #fff;
   position: fixed !important;
-  width: 97% !important;
+  width: 100% !important;
   z-index: 100;
 }
 
@@ -17,8 +16,6 @@
   .header {
     padding: 10px;
     padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
   }
 
 }

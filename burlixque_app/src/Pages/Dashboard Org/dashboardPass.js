@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import GoogleMapReact from 'google-map-react';
 import Switch from "react-switch";
@@ -41,7 +43,7 @@ const defaultCenter = {
 
 const defaultZoom = 11;
 
-function Dashboard() {
+function DashboardOrg() {
 
   const nigerianStates = [
     { value: 'abia', label: 'Abia' },
@@ -195,7 +197,7 @@ function Dashboard() {
     console.log("Form Data:", formData);
     // Submit the form data to the server or handle the logic here.
     setIsModalOpen(false); // Close the modal after submission
-    navigate('/check_rides')
+    toast.success('Ride Created Succesfully');
   };
 
 
@@ -277,7 +279,7 @@ function Dashboard() {
       {/* Action buttons */}
       <div className={buttonStyles.buttonContainer}>
 
-        <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.buttondd} onClick={handleModalToggle}>Schedule a Ride</button>
+        <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.buttondd} onClick={handleModalToggle}>Create a Ride</button>
       </div>
 
       <Modal
@@ -286,41 +288,22 @@ function Dashboard() {
         overlayClassName={modalStyles.modalOverlay}
         className={modalStyles.modalContent}
       >
-        <div className={modalStyles.modalHeader}>Schedule a Ride</div>
+        <div className={modalStyles.modalHeader}>Create a Ride</div>
         <p className={modalStyles.absolutePP} onClick={handleCloseModal}>X</p>
         <form onSubmit={handleSearchSubmit}>
           <div className={modalStyles.formGroup}>
-            <div className={modalStyles.radioGroup}>
-              <label className={modalStyles.radioLabel}>
-                <input
-                  type="radio"
-                  value="self"
-                  checked={isForSelf}
-                  onChange={handleBookingTypeChange}
-                />{" "}
-                For Self
-              </label>
-              <label className={modalStyles.radioLabel}>
-                <input
-                  type="radio"
-                  value="someoneElse"
-                  checked={!isForSelf}
-                  onChange={handleBookingTypeChange}
-                />{" "}
-                For Someone Else
-              </label>
-            </div>
-
-            {/* Conditional Form Fields */}
-            {isForSelf ? (
               <>
                 <div>
                   <label className={modalStyles.label} htmlFor="date">Date</label>
-                  <input className={modalStyles.input} type="date" id="date" />
+                  <input className={modalStyles.input} type="date" id="date" required/>
                 </div>
                 <div>
                   <label className={modalStyles.label} htmlFor="time">Time</label>
-                  <input className={modalStyles.input} type="time" id="time" />
+                  <input className={modalStyles.input} type="time" id="time" required/>
+                </div>
+                <div>
+                  <label className={modalStyles.label} htmlFor="price">Price</label>
+                  <input className={modalStyles.input} type="text" id="price" required/>
                 </div>
 
 
@@ -338,69 +321,28 @@ function Dashboard() {
                     placeholder="Select a state"
                     isSearchable
                     className={modalStyles.selecters}
+                    required
                   />
                 </div>
                 <div>
-                  <label className={modalStyles.label} htmlFor="stop">Select Bus-stop</label>
+                  <label className={modalStyles.label} htmlFor="stop">Select Stops</label>
                   <Select
                     id="stop"
                     value={selectedLgas}
                     onChange={handlGovChange}
                     options={localGovernmentOptions}
-                    placeholder="Select a bus-stop"
+                    placeholder="Select Stops"
                     isSearchable
                     className={modalStyles.selecters}
+                    required
                   />
                 </div>
               </>
-            ) : (
-              <>
-                <div>
-                  <label className={modalStyles.label} htmlFor="location">Location</label>
-                  <input className={modalStyles.input} type="text" id="location" placeholder="Enter location" required />
-                </div>
-                <div>
-                  <label className={modalStyles.label} htmlFor="date">Date</label>
-                  <input className={modalStyles.input} type="date" id="date" required />
-                </div>
-                <div>
-                  <label className={modalStyles.label} htmlFor="time">Time</label>
-                  <input className={modalStyles.input} type="time" id="time" required />
-                </div>
-                <p className="bold flex-flex">Destination</p>
-                <div>
-
-
-                  <label className={modalStyles.label} htmlFor="destination">Select State</label>
-                  {/* <input className={modalStyles.input} type="text" id="destination" placeholder="Enter destination" required /> */}
-                  <Select
-                    id="destination"
-                    value={selectedState}
-                    onChange={handleStateChange}
-                    options={nigerianStates}
-                    placeholder="Select a state"
-                    isSearchable
-                    className={modalStyles.selecters}
-                  />
-                </div>
-                <div>
-                  <label className={modalStyles.label} htmlFor="stop">Select Bus-stop</label>
-                  <Select
-                    id="stop"
-                    value={selectedLgas}
-                    onChange={handlGovChange}
-                    options={localGovernmentOptions}
-                    placeholder="Select a bus-stop"
-                    isSearchable
-                    className={modalStyles.selecters}
-                  />
-                </div>
-              </>
-            )}
+           
           </div>
 
           <div className={modalStyles.modalFooter}>
-            <button type="submit" className={modalStyles.submitButton}>Search</button>
+            <button type="submit" className={modalStyles.submitButton}>Create</button>
           </div>
         </form>
       </Modal>
@@ -409,7 +351,7 @@ function Dashboard() {
       <div style={{ height: '80px' }} id="about-us" />
 
       <h4 className={styles.aboutmeh4} >About Us</h4>
-      <div className={styles.aboutGroupthings}>
+      <div className={styles.aboutGroupthings} id="About">
         <img src={profile} alt="" />
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
       </div>
@@ -418,7 +360,7 @@ function Dashboard() {
 
       <div style={{ height: '50px' }} id="contact-us" />
       <h4 className={styles.aboutmeh4}>Contact Us</h4>
-      <div className={styles.tivcontainer}>
+      <div className={styles.tivcontainer} id="Contact">
         <div className={styles.formSectionings}>
           <h3 className={styles.bigh3}>Get in Touch</h3>
           <h1>Let's Chat, Reach Out to Us</h1>
@@ -469,9 +411,9 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
+      <ToastContainer />
     </div>
   );
 }
 
-export default Dashboard;
+export default DashboardOrg;

@@ -213,6 +213,8 @@ a, link{
     position: absolute;
     width: fit-content;
     background-color: transparent;
+    gap: 10px;
+    backdrop-filter: blur(1px);
     top: 0px;
     padding: 20px;
     padding-top: 50px;

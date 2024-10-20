@@ -72,7 +72,7 @@ const RegisPageCheckout = () => {
               </div>
             </div>
             
-            <a href="/register/transport_vehicle" className={styles.modifyPlan}>Modify plan</a>
+            {/* <a href="/register/transport_vehicle" className={styles.modifyPlan}>Modify plan</a> */}
           </div>
         </div>
       </div>
