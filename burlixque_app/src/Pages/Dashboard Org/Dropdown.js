@@ -9,7 +9,7 @@ const Dropdown = ({openModal}) => {
   const navigate = useNavigate();
 
   const handlePay = () => {
-    navigate('/register/passenger_checkout');
+    navigate('/register/transport_checkout');
   };
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -37,7 +37,7 @@ const Dropdown = ({openModal}) => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+    
   
 
 
