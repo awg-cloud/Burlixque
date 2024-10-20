@@ -22,7 +22,6 @@ const MyRides = () => {
         <table className={styles.ridesTables}>
           <thead>
             <tr>
-              {/* <th>Name</th> */}
               <th>ID</th>
               <th>Vehicle</th>
               <th>Price</th>
