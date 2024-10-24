@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #00C7BE;
-  position: fixed;
+  /* position: fixed; */
   color: #fff;
   width: 100%;
   max-width: 100% !important;

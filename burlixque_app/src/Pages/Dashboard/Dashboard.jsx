@@ -8,6 +8,7 @@ import fifth from '../Dashboard/fifth.png';
 import seventh from '../Dashboard/seventh12.png'
 import { Link } from 'react-router-dom';
 import headerStyles from './Header.module.css';
+import avart from './avatarType.png';
 import mapStyles from './Map.module.css';
 import styles from './dashApp.module.css';
 import Dropdown from './Dropdown';
@@ -168,9 +169,9 @@ const NewDashboard = () => {
     const handleSearchOrgSubmit = (e) => {
         e.preventDefault();
         console.log("Form Data:", formData);
-        setIsModalOrgOpen(false); 
+        setIsModalOrgOpen(false);
         toast.success('Ride Created Succesfully');
-      };
+    };
 
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [userLocation, setUserLocation] = useState(null);
@@ -256,7 +257,7 @@ const NewDashboard = () => {
 
 
             </header>
-            <div className={mapStyles.mapContainer}>
+            {/* <div className={mapStyles.mapContainer}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyASUh5H7MeQ1j_lYTeAQm-sAFZ7-ukvQSE" }}
                     defaultCenter={defaultCenter}
@@ -267,6 +268,15 @@ const NewDashboard = () => {
                         <Marker lat={userLocation.lat} lng={userLocation.lng} />
                     )}
                 </GoogleMapReact>
+            </div> */}
+
+            <div className={classes.top}>
+                <img src={avart} alt="Avatar" />
+                <div className={classes.text}>
+                    <h6>Welcome</h6>
+                    <h3>John Doe</h3>
+                    <p>Smartest and easiest way to move</p>
+                </div>
             </div>
 
             <div className={classes.tabs}>
@@ -280,22 +290,22 @@ const NewDashboard = () => {
                     </div>
                 </Link>
                 {/* <Link to='/check_rides'> */}
-                    <div className={classes.first} onClick={handleModalToggle}>
-                        <img src={first} alt="First Tab" />
-                        <div className={classes.tabtext}>
-                            <p>Book a ride</p>
-                            <p>Book an already scheduled ride to your destination</p>
-                        </div>
+                <div className={classes.first} onClick={handleModalToggle}>
+                    <img src={first} alt="First Tab" />
+                    <div className={classes.tabtext}>
+                        <p>Book a ride</p>
+                        <p>Book an already scheduled ride to your destination</p>
                     </div>
+                </div>
                 {/* </Link> */}
                 {/* <Link to='/appraisal'> */}
-                    <div className={classes.first} onClick={handleModalOrgToggle}>
-                        <img src={second} alt="First Tab" />
-                        <div className={classes.tabtext}>
-                            <p>Organize a ride</p>
-                            <p>Organize a ride to a specific location</p>
-                        </div>
+                <div className={classes.first} onClick={handleModalOrgToggle}>
+                    <img src={second} alt="First Tab" />
+                    <div className={classes.tabtext}>
+                        <p>Organize a ride</p>
+                        <p>Organize a ride to a specific location</p>
                     </div>
+                </div>
                 {/* </Link> */}
                 <Link to='/check_myrides'>
                     <div className={classes.first}>

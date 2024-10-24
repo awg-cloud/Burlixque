@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import {Brows}
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import LoginPage from "./Pages/Login/login";
 import SignUpPage from "./Pages/SignUp/signUp";
 import RegisPage from "./Components/Registeration Transport/regisPage";
@@ -21,11 +21,22 @@ import MyRides from "./Pages/My Rides/available";
 import OTP from "./Pages/OTP/OTPpage";
 import LandingPage from "./Pages/Landing/landing";
 import NewDashboard from "./Pages/Dashboard/Dashboard";
+// import { useEffect } from 'react';
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginPage />} />
