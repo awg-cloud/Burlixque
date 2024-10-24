@@ -123,7 +123,7 @@ const SidebarPass = ({ show, handleClose }) => {
 
         </p>
 
-        <Link to='/dashboard'><div className={classes.signIn}>
+        <Link to='/new_dashboard'><div className={classes.signIn}>
           <BiLeftArrowAlt className={classes.arrowIcon} />
           <span><p>Home</p></span>
         </div>

@@ -1,0 +1,16 @@
+.mapContainer {
+  height: 50vh;
+  width: 95%;
+  margin-left: 2.5%;
+  /* margin-top: 80px; */
+  position: relative;
+  top: 75px;
+  margin-bottom: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .mapContainer {
+    height: 50vh;
+    top: 60px;
+  }
+}

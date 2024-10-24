@@ -50,7 +50,7 @@ function OTP() {
     };
 
     const handleContinue = () => {
-        navigate('/welcome');
+        navigate('/register/passenger');
     }
 
 

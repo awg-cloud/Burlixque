@@ -168,20 +168,9 @@ function Dashboard() {
     setIsDarkMode(!isDarkMode);
   };
 
-  // const handleInputChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
-
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
-
-  // const handleOpenModal = () => {
-  //   setIsModalOpen(true);
-  // };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);

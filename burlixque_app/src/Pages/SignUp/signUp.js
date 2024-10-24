@@ -26,13 +26,13 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.5, 1.3);
+            const r = random(0.3, 1.5);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
             star.setAttribute("cy", cy);
             star.setAttribute("r", r);
-            star.setAttribute("fill", "white");
+            star.setAttribute("fill", "#b9dbff");
             svg.appendChild(star);
             return star;
         }
@@ -93,7 +93,8 @@ function SignUpPage() {
     // Handle opening the modal when "Sign Up" is clicked
     const handleSignUpClick = (e) => {
         e.preventDefault();  // Prevent form submission
-        setIsModalOpen(true); // Open the modal
+        navigate('/mail_verification')
+        // setIsModalOpen(true); // Open the modal
     };
 
     // Handle role selection and navigation
@@ -103,24 +104,36 @@ function SignUpPage() {
     };
 
     // Handle confirmation and navigate based on role
-    const handleConfirmRole = (e) => {
-        if (selectedRole === 'organizer') {
-            navigate('/register/transport_organizer');
-        } else if (selectedRole === 'passenger') {
-            navigate('/register/passenger');
-        }
-        setIsModalOpen(false);  // Close the modal
-    };
+    // const handleConfirmRole = (e) => {
+    //     if (selectedRole === 'organizer') {
+    //         navigate('/register/transport_organizer');
+    //     } else if (selectedRole === 'passenger') {
+    //         navigate('/register/passenger');
+    //     }
+    //     setIsModalOpen(false);  // Close the modal
+    // };
 
     const handleCloseModal = () => {
         setIsModalOpen(false);  // Close the modal
     };
 
-    const rightSlideIn = {
-        hidden: { opacity: 0, x: -200 },
-        visible: { opacity: 1, x: 0, transition: { duration: 1.5 } }
+    const leftSlideIn = {
+        hidden: { opacity: 0, x: 400 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1.5 }
+        }
     };
 
+    const rightSlideIn = {
+        hidden: { opacity: 0, x: -300 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 2.0 }
+        }
+    };
     return (
         <motion.div
             className="login-page"
@@ -155,7 +168,7 @@ function SignUpPage() {
                             </motion.div>
                             <motion.h2 className='h222' variants={rightSlideIn}>GET STARTED</motion.h2>
                             <motion.p className='atypeshii' variants={rightSlideIn}>
-                                Already have an account? <Link to='/login'><a style={{ color: '#ffffff' }}>Log In</a> </Link>
+                                Already have an account? <Link to='/login'><span style={{ color: '#ffffff' }}>Log In</span> </Link>
                             </motion.p>
                         </motion.div>
 
@@ -226,14 +239,14 @@ function SignUpPage() {
                         </form>
                     </motion.div>
 
-                    <motion.div className="car-3d-section" variants={rightSlideIn}>
-                        <Car3D variants={rightSlideIn} />
+                    <motion.div className="car-3d-section" variants={leftSlideIn}>
+                        <Car3D variants={leftSlideIn} />
                     </motion.div>
 
                 </motion.div>
             </motion.div>
 
-            {/* Modal for Role Selection */}
+            {/* Modal for Role Selection
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={handleCloseModal}
@@ -266,7 +279,7 @@ function SignUpPage() {
                         </button>
                     </div>
                 </div>
-            </Modal>
+            </Modal> */}
 
         </motion.div>
     );

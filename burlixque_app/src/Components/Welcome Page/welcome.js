@@ -8,7 +8,7 @@ const WelcomePage = () => {
 
     const navigate = useNavigate();
     const handleNext = () => {
-        navigate('/dashboard');
+        navigate('/new_dashboard');
     }
     return (
         <div className={styles.container}>

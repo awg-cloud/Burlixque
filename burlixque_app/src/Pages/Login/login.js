@@ -25,13 +25,13 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.5, 1.3);
+            const r = random(0.3, 1.5);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
             star.setAttribute("cy", cy);
             star.setAttribute("r", r);
-            star.setAttribute("fill", "white");
+            star.setAttribute("fill", "#b9dbff");
             svg.appendChild(star);
             return star;
         }
@@ -79,7 +79,7 @@ function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
-    const handleNext = () => { navigate('/dashboard'); };
+    const handleNext = () => { navigate('/new_dashboard'); };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -137,7 +137,7 @@ function LoginPage() {
                             </motion.div>
                             <motion.h2 className='welcomeBack' variants={leftSlideIn}>WELCOME BACK</motion.h2>
                             <motion.p className='atypeshii' variants={leftSlideIn}>
-                                Don't have an account? <Link to='/sign_up'><a href='#' style={{ color: '#ffffff' }}>Sign up</a> </Link>
+                                Don't have an account? <Link to='/sign_up'><span style={{ color: '#ffffff' }}>Sign up</span> </Link>
                             </motion.p>
                         </motion.div>
 

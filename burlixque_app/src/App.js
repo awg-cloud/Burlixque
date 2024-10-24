@@ -20,6 +20,7 @@ import MyRides from "./Pages/My Rides/available";
 // import OTPPage from "./Pages/OTP/OTPpage";
 import OTP from "./Pages/OTP/OTPpage";
 import LandingPage from "./Pages/Landing/landing";
+import NewDashboard from "./Pages/Dashboard/Dashboard";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path='/check_rides' element={<CheckAvailableRides />} />
         <Route path='/check_myrides' element={<MyRides />} />
         <Route path='/mail_verification' element={<OTP />} />
+        <Route path='/new_dashboard' element={<NewDashboard />} />
       </Routes>
     </Router>
   );

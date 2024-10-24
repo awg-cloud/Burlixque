@@ -9,7 +9,7 @@ const WelcomePageTransport = () => {
 
     const navigate = useNavigate();
   const handleNext = () => {
-    navigate('/dashboard_org');
+    navigate('/new_dashboard');
   } 
   return (
     <div className={styles.container}>

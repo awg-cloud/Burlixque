@@ -157,7 +157,7 @@
 .servicesSection {
     scroll-snap-type: y mandatory !important; 
     scroll-snap-align: start;
-    height: 80vh;
+    height: 60vh;
     padding: 100px 50px;
     background-color: #000000;
 }
@@ -180,6 +180,9 @@
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2, 1fr);
+}
+.carouselWrapper{
+    width: 55%;
 }
 
 .serviceCard {

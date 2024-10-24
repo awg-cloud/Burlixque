@@ -4,11 +4,31 @@ import { Link } from 'react-router-dom'; // Assuming you're using react-router
 import heroImg from '../../Assets/OfficeWelcome.jpg';
 import profile from '../../Assets/pfp.png';
 import logo from '../../Assets/newlogo.svg'
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
 function LandingPage() {
     const [active, setActive] = useState('home');
     const sections = useRef({}); // To store section refs
+
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3 
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2 
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1
+        }
+    }
 
     // Scroll functions to scroll into view
     const scrollToSection = (sectionId) => {
@@ -103,8 +123,21 @@ function LandingPage() {
                         <h6 className={styles.flexServH6}>Effortless Transport </h6>
                         <p className={styles.flexServP}>Discover a range of services designed to make your travel smooth, convenient, and reliable.</p>
                     </div>
-                    <div className={styles.serviceCards}>
-                        <div className={styles.serviceCard}>
+                    
+                    <div className={` ${styles.carouselWrapper}`}>
+                        <Carousel
+                            showArrows={false}
+                            autoPlay={true}
+                            infiniteLoop={true}
+                            showThumbs={false}
+                            showStatus={false}
+                            responsive={responsive}
+                            ssr={true}
+                            infinite={true}
+                            transitionDuration={300}
+                            autoPlaySpeed={1000}
+                        >
+                             <div className={styles.serviceCard}>
                             <h3>Carpooling</h3>
                             <p>Share a ride and reduce your carbon footprint.</p>
                         </div>
@@ -120,6 +153,7 @@ function LandingPage() {
                             <h3>Cashless Payments</h3>
                             <p>Safe and convinient payment options.</p>
                         </div>
+                        </Carousel>
                     </div>
                 </div>
             </section>
