@@ -42,7 +42,7 @@ const RegisPageCheckout = () => {
             <div className={styles.summary}>
               <div className={styles.summaryItem}>
                 <span>Subtotal</span>
-                <span>₦4000</span>
+                <span>₦1000</span>
               </div>
               <div className={styles.summaryItem}>
                 <span>Additional Fee</span>
@@ -50,7 +50,7 @@ const RegisPageCheckout = () => {
               </div>
               <div className={styles.summaryTotal}>
                 <span>Total Amount</span>
-                <span>₦4000</span>
+                <span>₦1000</span>
               </div>
             </div>
 
@@ -60,7 +60,7 @@ const RegisPageCheckout = () => {
 
         <div className={styles.subscriptionDetails}>
           <div className={styles.planInfo}>
-            <p className={styles.planText}>Subscribe and start saving your money today!</p>
+            <p className={styles.planText}>Subscribe and make your transportation easier!</p>
             <div className={styles.planDetails}>
               <div className={styles.planIcon}>
                 
@@ -68,7 +68,7 @@ const RegisPageCheckout = () => {
               </div>
               <div className={styles.planCost}>
                 <h3>Monthly Plan</h3>
-                <p>₦4000 / month</p>
+                <p>₦1000 / month</p>
               </div>
             </div>
             

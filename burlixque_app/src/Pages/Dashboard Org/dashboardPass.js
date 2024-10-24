@@ -25,7 +25,7 @@ const Marker = ({ text }) => (
   </div>
 );
 
-// Basic theme logic
+
 const lightTheme = {
   "--background": "var(--background-light)",
   "--text-color": "var(--text-color-light)",
@@ -195,8 +195,7 @@ function DashboardOrg() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    // Submit the form data to the server or handle the logic here.
-    setIsModalOpen(false); // Close the modal after submission
+    setIsModalOpen(false); 
     toast.success('Ride Created Succesfully');
   };
 
@@ -209,11 +208,11 @@ function DashboardOrg() {
           setUserLocation({ lat: latitude, lng: longitude });
         },
         (error) => {
-          console.error("Error getting location:", error);
+          toast.error("Error getting location");
         }
       );
     } else {
-      console.error("Geolocation is not supported by this browser.");
+      toast.error("Geolocation is not supported by this browser.");
     }
   }, []);
 
@@ -261,22 +260,19 @@ function DashboardOrg() {
 
       </header>
 
-      {/* Google Map */}
       <div className={mapStyles.mapContainer}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyASUh5H7MeQ1j_lYTeAQm-sAFZ7-ukvQSE" }}
           defaultCenter={defaultCenter}
           defaultZoom={defaultZoom}
-          center={userLocation || defaultCenter} // Center the map on user's location if available
+          center={userLocation || defaultCenter} 
         >
-          {/* Display Marker if user's location is available */}
           {userLocation && (
             <Marker lat={userLocation.lat} lng={userLocation.lng} />
           )}
         </GoogleMapReact>
       </div>
 
-      {/* Action buttons */}
       <div className={buttonStyles.buttonContainer}>
 
         <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.buttondd} onClick={handleModalToggle}>Create a Ride</button>
@@ -407,6 +403,10 @@ function DashboardOrg() {
             <div className={styles.contactInfo}>
               <span className={styles.icon}>📞</span>
               <p>Phone:<a style={{ color: 'blue' }} href="tel: 08147645851"> 08147645851 </a> </p>
+            </div>
+            <div className={styles.contactInfo}>
+              <span className={styles.icon}>🗨</span>
+              <p>Whatsapp:<a style={{ color: 'blue' }} href="https://wa.me/+2348147645851"> Customer Care </a> </p>
             </div>
           </div>
         </div>

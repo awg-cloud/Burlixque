@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import GoogleMapReact from 'google-map-react';
 import Switch from "react-switch";
@@ -23,7 +24,7 @@ const Marker = ({ text }) => (
   </div>
 );
 
-// Basic theme logic
+
 const lightTheme = {
   "--background": "var(--background-light)",
   "--text-color": "var(--text-color-light)",
@@ -193,8 +194,7 @@ function Dashboard() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    // Submit the form data to the server or handle the logic here.
-    setIsModalOpen(false); // Close the modal after submission
+    setIsModalOpen(false); 
     navigate('/check_rides')
   };
 
@@ -207,11 +207,11 @@ function Dashboard() {
           setUserLocation({ lat: latitude, lng: longitude });
         },
         (error) => {
-          console.error("Error getting location:", error);
+          toast.error("Error getting location:", error);
         }
       );
     } else {
-      console.error("Geolocation is not supported by this browser.");
+      toast.error("Geolocation is not supported by this browser.");
     }
   }, []);
 
@@ -265,16 +265,14 @@ function Dashboard() {
           bootstrapURLKeys={{ key: "AIzaSyASUh5H7MeQ1j_lYTeAQm-sAFZ7-ukvQSE" }}
           defaultCenter={defaultCenter}
           defaultZoom={defaultZoom}
-          center={userLocation || defaultCenter} // Center the map on user's location if available
+          center={userLocation || defaultCenter} 
         >
-          {/* Display Marker if user's location is available */}
           {userLocation && (
             <Marker lat={userLocation.lat} lng={userLocation.lng} />
           )}
         </GoogleMapReact>
       </div>
 
-      {/* Action buttons */}
       <div className={buttonStyles.buttonContainer}>
 
         <button style={isDarkMode ? { backgroundColor: '#ffffff', color: '#000000' } : { backgroundColor: '#000000', color: '#ffffff' }} className={buttonStyles.buttondd} onClick={handleModalToggle}>Schedule a Ride</button>
@@ -311,7 +309,6 @@ function Dashboard() {
               </label>
             </div>
 
-            {/* Conditional Form Fields */}
             {isForSelf ? (
               <>
                 <div>
@@ -466,9 +463,14 @@ function Dashboard() {
               <span className={styles.icon}>📞</span>
               <p>Phone:<a style={{ color: 'blue' }} href="tel: 08147645851"> 08147645851 </a> </p>
             </div>
+            <div className={styles.contactInfo}>
+              <span className={styles.icon}>🗨</span>
+              <p>Whatsapp:<a style={{ color: 'blue' }} href="https://wa.me/+2348147645851"> Customer Care </a> </p>
+            </div>
           </div>
         </div>
       </div>
+      <ToastContainer />
 
     </div>
   );

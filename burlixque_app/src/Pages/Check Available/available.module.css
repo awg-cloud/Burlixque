@@ -63,6 +63,7 @@ button{
     padding: 12px 20px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+
   }
   
   .ridesTables th {
@@ -72,6 +73,7 @@ button{
   
   .ridesTables td {
     color: #6b6a6a;
+    text-wrap: nowrap;
   }
   
   .bookNow {

@@ -103,7 +103,7 @@ function SignUpPage() {
     };
 
     // Handle confirmation and navigate based on role
-    const handleConfirmRole = () => {
+    const handleConfirmRole = (e) => {
         if (selectedRole === 'organizer') {
             navigate('/register/transport_organizer');
         } else if (selectedRole === 'passenger') {
@@ -155,7 +155,7 @@ function SignUpPage() {
                             </motion.div>
                             <motion.h2 className='h222' variants={rightSlideIn}>GET STARTED</motion.h2>
                             <motion.p className='atypeshii' variants={rightSlideIn}>
-                                Already have an account? <Link to='/'><a style={{ color: '#ffffff' }}>Log In</a> </Link>
+                                Already have an account? <Link to='/login'><a style={{ color: '#ffffff' }}>Log In</a> </Link>
                             </motion.p>
                         </motion.div>
 

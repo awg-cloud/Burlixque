@@ -39,20 +39,20 @@ function RegisPagePass() {
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="lastName">Date of Birth</label>
+                <label htmlFor="dob">Date of Birth</label>
                 <input
                   type="date"
-                  name="degree"
-                  placeholder='Doe'
+                  name="dob"
+                  id="dob"
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">School</label>
+                <label htmlFor="school">School</label>
                 <input
                   type="text"
-                  id="name"
+                  id="school"
                   name="schoolName"
                   placeholder='Olabisi Onabanjo University'
                   required
@@ -60,87 +60,87 @@ function RegisPagePass() {
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">School Registration Number</label>
+                <label htmlFor="regNum">School Registration Number</label>
                 <input
                   type="text"
-                  id="name"
-                  name="schoolName"
-                  placeholder='105898HI'
+                  id="regNum"
+                  name="RegNum"
+                  placeholder='10995898HI'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Matriculation Number</label>
+                <label htmlFor="matric">Matriculation Number</label>
                 <input
                   type="text"
-                  id="name"
-                  name="schoolName"
+                  id="matric"
+                  name="matric"
                   placeholder='SCI/22/23/999'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Preferred Username</label>
+                <label htmlFor="username">Preferred Username</label>
                 <input
                   type="text"
-                  id="name"
-                  name="schoolName"
-                  placeholder='John_Doe'
+                  id="username"
+                  name="username"
+                  placeholder='John_21'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Home Address</label>
+                <label htmlFor="address">Home Address</label>
                 <textarea rows={1}
-                  type="text"
-                  id="name"
-                  name="schoolName"
+                  type="address"
+                  id="address"
+                  name="address"
                   placeholder='Lekki, Phase 1, 2 Onikolo street'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Course</label>
+                <label htmlFor="course">Course</label>
                 <input 
                   type="text"
-                  id="name"
-                  name="schoolName"
+                  id="course"
+                  name="course"
                   placeholder='Computer Science'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Department</label>
+                <label htmlFor="dept">Department</label>
                 <input
                   type="text"
-                  id="name"
-                  name="schoolName"
+                  id="dept"
+                  name="dept"
                   placeholder='Computer Science'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Phone Number</label>
+                <label htmlFor="phone">Phone Number</label>
                 <input 
-                  type="text"
-                  id="name"
-                  name="schoolName"
+                  type="phone"
+                  id="phone"
+                  name="phone"
                   placeholder='08147645851'
                   required
                   className={classes.inputs}
                 />
               </div>
               <div className={classes.formGroup}>
-                <label htmlFor="Name">Socials</label>
+                <label htmlFor="socials">Socials</label>
                 <textarea
-                  id="name"
-                  name="schoolName"
+                  id="socials"
+                  name="socials"
                   placeholder='Paste link to any of your social media account'
                   className={classes.inputs}
                 />

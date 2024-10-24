@@ -118,15 +118,15 @@ const SidebarOrg = ({ show, handleClose }) => {
             </div>
             <div className={classes.personalText}>
               <h5 className={activeSection === 'Address' ? classes.activeText : ''}>Checkout</h5>
-              <div className={classes.personal}>Monthly/ Weekly subscrition</div>
+              <div className={classes.personal}>Monthly subscrition</div>
             </div>
           </div>
 
         </p>
 
-        <Link to='/dashboard'><div className={classes.signIn}>
+        <Link to='/dashboard_org'><div className={classes.signIn}>
           <BiLeftArrowAlt className={classes.arrowIcon} />
-          <span><a href='/'>Home</a></span>
+          <span><a href='#'>Home</a></span>
         </div>
         </Link>
 

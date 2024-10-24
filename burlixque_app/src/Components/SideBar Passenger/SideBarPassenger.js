@@ -117,7 +117,7 @@ const SidebarPass = ({ show, handleClose }) => {
             </div>
             <div className={classes.personalText}>
               <h5 className={activeSection === 'Address' ? classes.activeText : ''}>Checkout</h5>
-              <div className={classes.personal}>Monthly/ Weekly subscription</div>
+              <div className={classes.personal}>Monthly subscription</div>
             </div>
           </div>
 

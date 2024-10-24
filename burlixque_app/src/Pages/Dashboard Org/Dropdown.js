@@ -48,7 +48,6 @@ const Dropdown = ({openModal}) => {
         >
           Menu
         </button>
-        {/* <p style={{margin: 0, fontSize: 16}}>\/</p> */}
       </div>
       {isOpen && (
         <div className="dropdown-content">
@@ -58,7 +57,6 @@ const Dropdown = ({openModal}) => {
           <button className="dropdown-item" onClick={scrollToAbout}>About Us</button>
           <button className="dropdown-item" onClick={scrollToContact}>Contact Us</button>
           <button onClick={handlePay} className="dropdown-item">Pay Now</button>
-          {/* <button className="dropdown-item">Patner with Us</button> */}
         </div>
       )}
     </div>

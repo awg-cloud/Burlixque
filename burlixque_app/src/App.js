@@ -17,13 +17,17 @@ import ProfilePage from "./Pages/Profile/profilePage";
 import CheckAvailableRides from "./Pages/Check Available/available";
 import DashboardOrg from "./Pages/Dashboard Org/dashboardPass";
 import MyRides from "./Pages/My Rides/available";
+// import OTPPage from "./Pages/OTP/OTPpage";
+import OTP from "./Pages/OTP/OTPpage";
+import LandingPage from "./Pages/Landing/landing";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<LoginPage />} />
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/sign_up' element={<SignUpPage />} />
         <Route path='/register/transport_organizer' element={<RegisPage />} />
         <Route path='/register/transport_vehicle' element={<RegisPageVehicle />} />
@@ -39,6 +43,7 @@ function App() {
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/check_rides' element={<CheckAvailableRides />} />
         <Route path='/check_myrides' element={<MyRides />} />
+        <Route path='/mail_verification' element={<OTP />} />
       </Routes>
     </Router>
   );
