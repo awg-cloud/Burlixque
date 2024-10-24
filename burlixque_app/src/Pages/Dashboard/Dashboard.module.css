@@ -251,3 +251,8 @@ a {
     font-weight: 500;
     color: #666666;
 }
+.logoutthings{
+    color: rgb(143, 235, 143);
+    border: 1px solid rgb(143, 235, 143);
+    padding: 30px;
+}

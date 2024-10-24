@@ -4,7 +4,7 @@ import classes from './Dashboard.module.css';
 import first from '../Dashboard/first.png';
 import second from '../Dashboard/second.png';
 import third from '../Dashboard/third.png';
-import fifth from '../Dashboard/fifth.png';
+import fifth from '../Dashboard/fifth5.png';
 import seventh from '../Dashboard/seventh12.png'
 import { Link } from 'react-router-dom';
 import headerStyles from './Header.module.css';
@@ -337,7 +337,7 @@ const NewDashboard = () => {
                 </Link>
                 <Link to='/login'>
                     <div className={classes.first}>
-                        <img src={seventh} alt="First Tab" />
+                        <img src={fifth} alt="First Tab" />
                         <div className={classes.tabtext}>
                             <p>Log Out</p>
                         </div>
