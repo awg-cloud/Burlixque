@@ -282,7 +282,7 @@ const NewDashboard = () => {
             <div className={classes.tabs}>
                 <Link to='/profile'>
                     <div className={classes.first}>
-                        <img src={fifth} alt="First Tab" />
+                        <img src={seventh} alt="First Tab" />
                         <div className={classes.tabtext}>
                             <p>Profile</p>
                             <p>View and Manage your profile</p>
