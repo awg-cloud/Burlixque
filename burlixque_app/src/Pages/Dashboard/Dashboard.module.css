@@ -84,15 +84,6 @@
     padding-bottom: 50px;
 }
 
-@media (max-width: 800px) {
-    .tabs {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        width: 95%;
-        gap: auto;
-        padding-bottom: 50px;
-    }
-}
 
 .first {
     border: 1px solid rgb(143, 235, 143);
@@ -255,4 +246,23 @@ a {
     color: rgb(143, 235, 143);
     border: 1px solid rgb(143, 235, 143);
     padding: 30px;
+}
+
+@media (max-width: 800px) {
+    .tabs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 95%;
+        gap: auto;
+        padding-bottom: 50px;
+    }
+    .top{
+        flex-direction: column;
+        height: fit-content;
+        width: 98%;
+        margin: 40px auto;
+    }
+    .top img{
+        width: 100%;
+    }
 }
