@@ -382,6 +382,10 @@ const NewDashboard = () => {
                         {isForSelf ? (
                             <>
                                 <div>
+                                    <label className={modalStyles.label} htmlFor="location">Location</label>
+                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location"  />
+                                </div>
+                                <div>
                                     <label className={modalStyles.label} htmlFor="date">Date</label>
                                     <input className={modalStyles.input} type="date" id="date" />
                                 </div>
@@ -424,15 +428,15 @@ const NewDashboard = () => {
                             <>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="location">Location</label>
-                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location" required />
+                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location"  />
                                 </div>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="date">Date</label>
-                                    <input className={modalStyles.input} type="date" id="date" required />
+                                    <input className={modalStyles.input} type="date" id="date"  />
                                 </div>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="time">Time</label>
-                                    <input className={modalStyles.input} type="time" id="time" required />
+                                    <input className={modalStyles.input} type="time" id="time"  />
                                 </div>
                                 <p className="bold flex-flex">Destination</p>
                                 <div>

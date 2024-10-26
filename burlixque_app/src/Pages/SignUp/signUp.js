@@ -9,6 +9,7 @@ import logo from './newlogo.svg';
 import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
+import Earth3D from '../Login/RealEarth';
 import Modal from 'react-modal'
 
 // Starfield Effect (Unchanged)
@@ -26,7 +27,7 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.3, 1.5);
+            const r = random(0.3, 1.2);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
@@ -37,11 +38,12 @@ const Starfield = () => {
             return star;
         }
 
+
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.34, 0.18);
-            const speedY = random(-0.06, 0.28);
+            const speedX = random(-0.94, 0.78);
+            const speedY = random(-0.06, 0.58);
 
             function move() {
                 xPos += speedX;
@@ -240,7 +242,8 @@ function SignUpPage() {
                     </motion.div>
 
                     <motion.div className="car-3d-section" variants={leftSlideIn}>
-                        <Car3D variants={leftSlideIn} />
+                        {/* <Car3D variants={leftSlideIn} /> */}
+                        <Earth3D variants={leftSlideIn} />
                     </motion.div>
 
                 </motion.div>

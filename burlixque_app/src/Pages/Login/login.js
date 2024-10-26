@@ -9,12 +9,14 @@ import { Link } from 'react-router-dom';
 // import photoImg from './darkSunset3.jpg';
 import { RiUser3Line } from "react-icons/ri";
 import Car3D from './Car3d';
+import Earth3D from './RealEarth';
+// import EarthCanvas from './Earth';
 
 // Starfield Component
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 100;
+        const numStars = 150;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -25,7 +27,7 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.3, 1.5);
+            const r = random(0.3, 1.2);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
@@ -40,8 +42,8 @@ const Starfield = () => {
         function animateStar(star) {
             let xPos = parseFloat(star.getAttribute("cx"));
             let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.34, 0.18);
-            const speedY = random(-0.06, 0.28);
+            const speedX = random(-0.94, 0.78);
+            const speedY = random(-0.06, 0.58);
 
             function move() {
                 xPos += speedX;
@@ -71,7 +73,7 @@ const Starfield = () => {
     }, []);
 
     return (
-        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, backgroundImage: '../../Assets/darkblue.jpg' }} preserveAspectRatio="none"></svg>
+        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, }} preserveAspectRatio="none"></svg>
     );
 };
 
@@ -201,7 +203,8 @@ function LoginPage() {
                         </motion.div>
                     </motion.div> */}
                     <motion.div className="car-3d-section" variants={rightSlideIn}>
-                        <Car3D variants={rightSlideIn}/>
+                        {/* <Car3D variants={rightSlideIn}/> */}
+                        <Earth3D variants={rightSlideIn}/>
                     </motion.div>
 
                 </motion.div>
