@@ -40,7 +40,7 @@
       width: 100%;
       max-width: 500px;
       height: 523px;
-      border-radius: 20px;
+      border-radius: 5px;
       margin-right: 7em;
       
   
@@ -191,7 +191,7 @@
       width: 100%;
       max-width: 500px;
       height: 523px;
-      border-radius: 20px;
+      /* border-radius: 20px; */
       display: flex;
       /* justify-content: rig   ht; */
       align-items: center;
@@ -339,70 +339,42 @@
 
 
   
-    @media (max-width: 800px) {
-      .background {
-        /* background-image: url('../../assets/promix/Loginback.jpg'); */
-        background-size: cover; /* Cover the entire container */
-        width: 100%;
-        background-position:center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
-        height: 100vh; /* 100% of the viewport height */
-        /* overflow: hidden; */
-        display: block;
-        /* justify-content: right; */
-        /* align-items: center; */
-        padding-right: 4rem;
-      } 
-      .chartcontain, .chartcontainrt, .chartssss, .chartssss1{
-        display: none;
-        display: hidden;
-      }
-  
-      .endcont {
-        display: none;
-        display: hidden;
-      }
-      .mainContainerx {
-        width: 100%;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-      }
-  
-      .thecntnt{
-        display: flex;
-        flex-direction: column;
-        color: #ffffff;
-        /* gap: 10px; */
-        width: 100%;
-      }
-  
-      .SignUptxtsub1211 {
-        background-color: rgba(255, 0, 0, 0) !important;
-        color: white;
-        width: 300px;
-      }
-  
-      .formGroup {
-        margin-left: 20px;
-      }
-      .snupbtn {
-        /* background-color: #2D995F; */
-        color: black;
-        margin-top: 32px;
-        font-size: 14px;
-        font-weight: 400;
-        font-family: 'inter';
-        padding: 12px;
-        background-color: white !important;
-        width: 230px;
-      }
-  
-      .head{
-        text-align: center;
-        margin-left: 60px;
-      }
-  
+    @media (max-width: 700px) {
+     .mainContainerx{
+      max-width: 100% ;
+      width: 100%;
+      height: 100vh;
+      margin: auto;
+      margin-right: 0 !important;
+      flex-direction: column;
+      padding: 0;
+     }
+     .thecntnt{
+      width: 98%;
+      max-width: 98%;
+      padding: 5px !important;
+     }
+     .background{
+      flex-direction: column;
+     }
+     .head{
+      max-width: 100%;
+     }
+     .SignUptxtsub1{
+      text-wrap: wrap;
+      max-width: 100%;
+     }
+     .otpGroup{
+      width: 100% !important;
+     }
+     .otpInputs{
+      gap: 10px;
+     }
+     .otpInput{
+      width: 100% !important;
+     }
+
+     .snupbtn{
+      width: 80%;
+     }
     }

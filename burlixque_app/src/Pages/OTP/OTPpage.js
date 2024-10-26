@@ -99,7 +99,7 @@ function OTP() {
                     <Button onClick={handleContinue} variant="success" className={classes.snupbtn} >
                         Confirm OTP
                     </Button>
-                    {/* <p className={classes.lgin}>Don't have an account? <Link to={'/signup'} style={{ textDecoration: 'none' }}><span>Sign Up</span></Link></p> */}
+                    
                 </div>
             </div>
         </div>

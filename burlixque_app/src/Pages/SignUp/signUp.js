@@ -27,13 +27,13 @@ const Starfield = () => {
         function createStar() {
             const cx = random(0, width);
             const cy = random(0, height);
-            const r = random(0.3, 1.2);
+            const r = random(0.3, 1.0);
 
             const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             star.setAttribute("cx", cx);
             star.setAttribute("cy", cy);
             star.setAttribute("r", r);
-            star.setAttribute("fill", "#b9dbff");
+            star.setAttribute("fill", "#ffffff");
             svg.appendChild(star);
             return star;
         }
