@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './landing.module.css'; // Using CSS modules
-import { Link } from 'react-router-dom'; // Assuming you're using react-router
+import styles from './landing.module.css'; 
+import { Link } from 'react-router-dom'; 
 import heroImg from '../../Assets/OfficeWelcome.jpg';
 import profile from '../../Assets/pfp.png';
 import logo from '../../Assets/newlogo.svg'
@@ -42,7 +42,7 @@ function LandingPage() {
     // Hook for intersection observer to animate and set active section
     useEffect(() => {
         const options = {
-            threshold: 0.30, // Trigger when 30% of the section is visible
+            threshold: 0.25,
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -96,7 +96,7 @@ function LandingPage() {
                     <Link to="/sign_up" className={styles.signupBtn}>Sign Up</Link>
                 </div>
 
-                {/* Dropdown menu for the mobile view */}
+                
                 <div className={styles.mobile}>
                     <div className={styles.dropdown}>
                         <div className={styles.dropdownGroo}>

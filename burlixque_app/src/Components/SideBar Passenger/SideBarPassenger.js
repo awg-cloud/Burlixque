@@ -82,7 +82,7 @@ const SidebarPass = ({ show, handleClose }) => {
             </div>
             <div className={classes.personalText}>
               <h5 className={activeSection === 'personal' ? classes.activeText : ''}>Personal Details</h5>
-              <div className={classes.personal}>Enter Personal Details</div>
+              <div className={classes.personal}>Enter your Personal Details</div>
             </div>
           </div>
 
@@ -99,8 +99,8 @@ const SidebarPass = ({ show, handleClose }) => {
               />
             </div>
             <div className={classes.personalText}>
-              <h5 className={activeSection === 'organization' ? classes.activeText : ''}>Travel & Destination Preferences</h5>
-              <div className={classes.personal}>Enter your travel preferences</div>
+              <h5 className={activeSection === 'organization' ? classes.activeText : ''}>Bank Details</h5>
+              <div className={classes.personal}>Enter your bank details</div>
             </div>
           </div>
           <div
@@ -133,7 +133,7 @@ const SidebarPass = ({ show, handleClose }) => {
       <div className={classes.fixedMenu} onClick={handdleOpen}>{openMenu ? <IoMdClose /> : <MdOutlineMenu /> }</div>
       <div className={` ${openMenu ? classes.mobileMenu : classes.nodisplay} ${animate ? classes.slideInLeft : ''}`}>
         <Link to='/register/passenger'><p style={{color: '#000000', textDecoration: 'none'}}>Personal Details <MdOutlineKeyboardDoubleArrowRight /></p> </Link>
-        <Link to='/register/preference'><p style={{color: '#000000', textDecoration: 'none'}}>Travel Preferences <MdOutlineKeyboardDoubleArrowRight /></p></Link>
+        <Link to='/register/preference'><p style={{color: '#000000', textDecoration: 'none'}}>Bank Details <MdOutlineKeyboardDoubleArrowRight /></p></Link>
         <Link to='/register/passenger_checkout'><p style={{color: '#000000', textDecoration: 'none'}}>Checkout <MdOutlineKeyboardDoubleArrowRight /></p></Link>
       </div>
     </div>

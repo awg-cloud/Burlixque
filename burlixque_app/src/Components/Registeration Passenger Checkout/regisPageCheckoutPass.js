@@ -11,7 +11,7 @@ const RegisPageCheckoutPass = () => {
     navigate('/welcome_transport');
   } 
   return (
-    <div  className={styles.container}>
+    <div  className={styles.containerCheck}>
       <SidebarPass />
     <div className={styles.paymentContainer}>
       <div className={styles.paymentDetails}>

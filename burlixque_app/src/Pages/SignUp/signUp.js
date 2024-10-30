@@ -8,15 +8,15 @@ import { Link } from 'react-router-dom';
 import logo from './newlogo.svg';
 import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
-import Car3D from './Car3d';
-import Earth3D from '../Login/RealEarth';
+// import Car3D from './Car3d';
+import Earth3D from '../SignUp/RealEarth';
 import Modal from 'react-modal'
 
 // Starfield Effect (Unchanged)
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 100;
+        const numStars = 150;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -120,20 +120,20 @@ function SignUpPage() {
     };
 
     const leftSlideIn = {
-        hidden: { opacity: 0, x: 400 },
+        hidden: { opacity: 0, x: +400 },
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.5 }
+            transition: { duration: 1.2 }
         }
     };
 
     const rightSlideIn = {
-        hidden: { opacity: 0, x: -300 },
+        hidden: { opacity: 0, x: -400 },
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 2.0 }
+            transition: { duration: 1.2 }
         }
     };
     return (

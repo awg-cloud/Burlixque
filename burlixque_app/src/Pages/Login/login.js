@@ -8,7 +8,7 @@ import logo from './newlogo.svg';
 import { Link } from 'react-router-dom';
 // import photoImg from './darkSunset3.jpg';
 import { RiUser3Line } from "react-icons/ri";
-import Car3D from './Car3d';
+// import Car3D from './Car3d';
 import Earth3D from './RealEarth';
 // import EarthCanvas from './Earth';
 
@@ -16,7 +16,7 @@ import Earth3D from './RealEarth';
 const Starfield = () => {
     useEffect(() => {
         const svg = document.getElementById("starfield");
-        const numStars = 150;
+        const numStars = 170;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -88,20 +88,20 @@ function LoginPage() {
     };
 
     const leftSlideIn = {
-        hidden: { opacity: 0, x: 200 },
+        hidden: { opacity: 0, x: +400 },
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 1.5 }
+            transition: { duration: 1.2 }
         }
     };
 
     const rightSlideIn = {
-        hidden: { opacity: 0, x: -300 },
+        hidden: { opacity: 0, x: -400 },
         visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 2.0 }
+            transition: { duration: 1.2 }
         }
     };
 

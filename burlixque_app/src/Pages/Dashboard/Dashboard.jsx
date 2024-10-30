@@ -9,31 +9,31 @@ import seventh from '../Dashboard/seventh12.png'
 import { Link } from 'react-router-dom';
 import headerStyles from './Header.module.css';
 import avart from './avatarType.png';
-import mapStyles from './Map.module.css';
+// import mapStyles from './Map.module.css';
 import styles from './dashApp.module.css';
 import Dropdown from './Dropdown';
 import Typewriter from "typewriter-effect";
 import logo from '../../Assets/newlogo.svg'
 import notification from '../../Assets/notification.png';
 import { ToastContainer, toast } from 'react-toastify';
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import modalStyles from './Modal.module.css';
 
 
-const Marker = ({ text }) => (
-    <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
-        📍 {text}
-    </div>
-);
+// const Marker = ({ text }) => (
+//     <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
+//         📍 {text}
+//     </div>
+// );
 
-const defaultCenter = {
-    lat: 6.5244,  // Latitude for Lagos, Nigeria
-    lng: 3.3792,  // Longitude for Lagos, Nigeria
-};
+// const defaultCenter = {
+//     lat: 6.5244,  // Latitude for Lagos, Nigeria
+//     lng: 3.3792,  // Longitude for Lagos, Nigeria
+// };
 
-const defaultZoom = 11;
+// const defaultZoom = 11;
 
 const NewDashboard = () => {
 
@@ -192,9 +192,9 @@ const NewDashboard = () => {
         location: ''
     });
 
-    const handleThemeToggle = () => {
-        setIsDarkMode(!isDarkMode);
-    };
+    // const handleThemeToggle = () => {
+    //     setIsDarkMode(!isDarkMode);
+    // };
 
     const handleModalToggle = () => {
         setIsModalOpen(!isModalOpen);
@@ -239,19 +239,7 @@ const NewDashboard = () => {
 
                 </div>
                 <div className={styles.toggloedropdown}>
-                    {/* <div className={toggleStyles.toggleContainer}>
-                        <label htmlFor="theme">{isDarkMode ? 'Light Theme' : 'Dark Theme'}</label>
-                        <Switch
-                            id="theme"
-                            onChange={handleThemeToggle}
-                            checked={isDarkMode}
-                            onColor="#ccc"
-                            offColor="#ccc"
-                            checkedIcon={false}
-                            uncheckedIcon={false}
-                        />
-                    </div> */}
-                    <img src={notification} alt='' />
+                    <img src={notification} alt='' title='2 new notifications'/>
                     <Dropdown openModal={handleModalToggle} openOrgModal={handleModalOrgToggle} />
                 </div>
 
@@ -289,7 +277,7 @@ const NewDashboard = () => {
                         </div>
                     </div>
                 </Link>
-                {/* <Link to='/check_rides'> */}
+                
                 <div className={classes.first} onClick={handleModalToggle}>
                     <img src={first} alt="First Tab" />
                     <div className={classes.tabtext}>
@@ -297,8 +285,7 @@ const NewDashboard = () => {
                         <p>Book an already scheduled ride to your destination</p>
                     </div>
                 </div>
-                {/* </Link> */}
-                {/* <Link to='/appraisal'> */}
+               
                 <div className={classes.first} onClick={handleModalOrgToggle}>
                     <img src={second} alt="First Tab" />
                     <div className={classes.tabtext}>
@@ -306,7 +293,7 @@ const NewDashboard = () => {
                         <p>Organize a ride to a specific location</p>
                     </div>
                 </div>
-                {/* </Link> */}
+               
                 <Link to='/check_myrides'>
                     <div className={classes.first}>
                         <img src={second} alt="First Tab" />

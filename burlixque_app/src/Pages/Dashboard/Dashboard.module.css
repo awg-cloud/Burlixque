@@ -232,6 +232,7 @@ a {
 
 .tabtext p:first-of-type {
     /* font-size: 20px; */
+    color: #000;
     font-weight: 600;
     margin-bottom: 8px;
     /* Space between title and text */
@@ -248,13 +249,14 @@ a {
     padding: 30px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .tabs {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
         width: 95%;
         gap: auto;
         padding-bottom: 50px;
+        margin-top: -30px;
     }
     .top{
         flex-direction: column;
@@ -264,5 +266,9 @@ a {
     }
     .top img{
         width: 100%;
+        margin-top: 10px;
+    }
+    .text{
+        display: none;
     }
 }

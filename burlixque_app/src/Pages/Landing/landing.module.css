@@ -4,6 +4,7 @@
     background-color: #000000;
     max-width: 100% !important;
     overflow-x: hidden !important;
+    scroll-behavior: smooth;
 }
 
 .headerland {
@@ -486,13 +487,6 @@
     overflow: hidden;
 }
 
-.sectionHidden2 {
-    opacity: 0.01;
-    transform: translateX(+300px);
-    transition: opacity 1s ease-out, transform 1.5s ease-out;
-    overflow: hidden;
-}
-
 .sectionVisible {
     opacity: 1;
     transform: translateX(0);
@@ -569,7 +563,7 @@
     display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
     .sectionHidden {
       opacity: 0; /* Ensure that the section is hidden but doesn't affect the layout */
       transform: translateX(-100px); /* Optional: Adjust the slide-in for mobile */

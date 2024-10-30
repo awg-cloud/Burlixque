@@ -1,5 +1,5 @@
 
-.container {
+.containerCheck {
   display: flex;
   height: 100vh;
   overflow-y: hidden;
@@ -8,17 +8,17 @@
 .paymentContainer {
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fc;
-  padding: 10%;
+  /* background-color: #f8f9fc; */
+  /* padding: 10%; */
+  padding: 10% 8% 10% 15%;
   padding-top: 30px;
   border-radius: 12px;
-  width: 50%;
+  width: 65.5%;
   margin: 0 auto;
   margin-top: 20px;
   overflow-y: auto;
 
 }
-
 .paymentDetails {
   flex: 1;
   padding: 20px;
