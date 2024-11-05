@@ -73,7 +73,7 @@ const Earth3D = () => {
       <CarModel />
 
       {/* Camera Controls */}
-      <OrbitControls />
+      <OrbitControls enableZoom={false}/>
     </Canvas>
   );
 };
