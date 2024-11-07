@@ -171,6 +171,7 @@ const NewDashboard = () => {
         console.log("Form Data:", formData);
         setIsModalOrgOpen(false);
         toast.success('Ride Created Succesfully');
+        // navigate('/check_myrides');
     };
 
     const [isDarkMode, setIsDarkMode] = useState(false);
