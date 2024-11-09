@@ -212,6 +212,10 @@
     .toggloedropdown{
       margin-right: 15px;
     }
+
+    .toggloedropdown img{
+      width: 40px;
+    }
   }
   .typewriteThings{
     font-size: 30px;

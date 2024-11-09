@@ -15,60 +15,79 @@ import Modal from 'react-modal'
 // Starfield Effect (Unchanged)
 const Starfield = () => {
     useEffect(() => {
-        const svg = document.getElementById("starfield");
-        const numStars = 150;
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const initializeStars = () => {
+            const svg = document.getElementById("starfield");
 
-        function random(min, max) {
-            return Math.random() * (max - min) + min;
-        }
+            // If svg is not available, exit the function early
+            if (!svg) return;
 
-        function createStar() {
-            const cx = random(0, width);
-            const cy = random(0, height);
-            const r = random(0.3, 1.0);
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const numStars = Math.floor((width * height) / 4000); // Adjust density as desired
 
-            const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-            star.setAttribute("cx", cx);
-            star.setAttribute("cy", cy);
-            star.setAttribute("r", r);
-            star.setAttribute("fill", "#ffffff");
-            svg.appendChild(star);
-            return star;
-        }
+            svg.innerHTML = ''; // Clear existing stars
 
-
-        function animateStar(star) {
-            let xPos = parseFloat(star.getAttribute("cx"));
-            let yPos = parseFloat(star.getAttribute("cy"));
-            const speedX = random(-0.94, 0.78);
-            const speedY = random(-0.06, 0.58);
-
-            function move() {
-                xPos += speedX;
-                yPos += speedY;
-
-                if (xPos < 0) xPos = width;
-                if (xPos > width) xPos = 0;
-                if (yPos < 0) yPos = height;
-                if (yPos > height) yPos = 0;
-
-                star.setAttribute("cx", xPos);
-                star.setAttribute("cy", yPos);
-
-                requestAnimationFrame(move);
+            function random(min, max) {
+                return Math.random() * (max - min) + min;
             }
-            move();
-        }
 
-        for (let i = 0; i < numStars; i++) {
-            const star = createStar();
-            animateStar(star);
-        }
+            function createStar() {
+                const cx = random(0, width);
+                const cy = random(0, height);
+                const r = random(0.3, 0.9);
+
+                const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                star.setAttribute("cx", cx);
+                star.setAttribute("cy", cy);
+                star.setAttribute("r", r);
+                star.setAttribute("fill", "#ffffff");
+                svg.appendChild(star);
+                return star;
+            }
+
+            function animateStar(star) {
+                let xPos = parseFloat(star.getAttribute("cx"));
+                let yPos = parseFloat(star.getAttribute("cy"));
+                const speedX = random(-0.94, 0.78);
+                const speedY = random(-0.06, 0.58);
+
+                function move() {
+                    xPos += speedX;
+                    yPos += speedY;
+
+                    if (xPos < 0) xPos = width;
+                    if (xPos > width) xPos = 0;
+                    if (yPos < 0) yPos = height;
+                    if (yPos > height) yPos = 0;
+
+                    star.setAttribute("cx", xPos);
+                    star.setAttribute("cy", yPos);
+
+                    requestAnimationFrame(move);
+                }
+                move();
+            }
+
+            for (let i = 0; i < numStars; i++) {
+                const star = createStar();
+                animateStar(star);
+            }
+        };
+
+        // Initialize stars when component mounts
+        initializeStars();
+
+        // Re-initialize stars on resize
+        const handleResize = () => {
+            initializeStars();
+        };
+
+        window.addEventListener('resize', handleResize);
 
         return () => {
-            svg.innerHTML = ''; // Clean up when component unmounts
+            const svg = document.getElementById("starfield");
+            if (svg) svg.innerHTML = ''; // Clean up on component unmount
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 

@@ -12,6 +12,7 @@ button{
     background-image: url('../../Assets/herobg.png');
     background-repeat: repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
   
   .headerers {

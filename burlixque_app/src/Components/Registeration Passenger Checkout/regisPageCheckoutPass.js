@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisPageCheckoutPass = () => {
   const navigate = useNavigate();
   const handleNext = () => {
-    navigate('/welcome_transport');
+    navigate('/welcome_passenger');
   } 
   return (
     <div  className={styles.containerCheck}>
