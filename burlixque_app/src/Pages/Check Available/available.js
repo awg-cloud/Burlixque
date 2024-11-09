@@ -1,11 +1,21 @@
 import React from 'react';
 import styles from './available.module.css';
-// import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
 const CheckAvailableRides = () => {
-
   const navigate = useNavigate();
+
+  const handleBookNow = (ride) => {
+    navigate('/payment', { state: { ride } });
+  };
+
+  const rides = [
+    { name: 'John Doe', vehicle: 'Sedan', price: 4000, seats: 3, destination: 'Abeokuta', from: 'Ibadan', date: '3rd, Nov', time: '10:00 AM' },
+    { name: 'James Murray', vehicle: 'Corolla', price: 5000, seats: 4, destination: 'Sango Ota', from: 'Ibadan', date: '4th, Nov', time: '11:00 AM' },
+    { name: 'Daniel Jane', vehicle: 'Sienna', price: 10000, seats: 3, destination: 'Illorin', from: 'Abeokuta', date: '4th, Nov', time: '03:00 PM' },
+    { name: 'James Cici', vehicle: 'Coaster', price: 7000, seats: 7, destination: 'Lagos', from: 'Port Harcort', date: '4th, Nov', time: '09:00 AM' },
+    
+  ];
 
   return (
     <div className={styles.containerers}>
@@ -14,9 +24,9 @@ const CheckAvailableRides = () => {
         <button className={styles.downloadButton} onClick={() => navigate(-1)}>Home</button>
       </header>
       <div className={styles.bottomHeaders}>
-      <p>Available Rides: 42</p>
-      <button>View All</button>
-      <input type='search' placeholder='Search' />
+        <p>Available Rides: {rides.length}</p>
+        <button>View All</button>
+        <input type="search" placeholder="Search" />
       </div>
       <div className={styles.tableContainer}>
         <table className={styles.ridesTables}>
@@ -34,50 +44,26 @@ const CheckAvailableRides = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>Sedan</td>
-              <td>₦3000</td>
-              <td>3</td>
-              <td>Abeokuta</td>
-              <td>Ibadan</td>
-              <td>3rd, Nov</td>
-              <td>10:00 AM</td>
-              <td><button className={styles.bookNow}>Book Now</button></td>
-            </tr>
-            <tr>
-              <td>James Murray</td>
-              <td>Corrolla</td>
-              <td>₦5000</td>
-              <td>7</td>
-              <td>Sango Ota</td>
-              <td>Ibadan</td>
-              <td>4th, Nov</td>
-              <td>11:00 AM</td>
-              <td><button className={styles.bookNow}>Book Now</button></td>
-            </tr>
-            <tr>
-              <td>Ali Tyson</td>
-              <td>Coaster Bus</td>
-              <td>₦2500</td>
-              <td>9</td>
-              <td>Lagos</td>
-              <td>Illorin</td>
-              <td>4th, Nov</td>
-              <td>2:00 PM</td>
-              <td><button className={styles.bookNow}>Book Now</button></td>
-            </tr>
-            <tr>
-              <td>Daniel Jane</td>
-              <td>Sienna</td>
-              <td>₦5000</td>
-              <td>2</td>
-              <td>Lagos</td>
-              <td>Osogbo</td>
-              <td>4th, Nov</td>
-              <td>11:00 AM</td>
-              <td><button className={styles.bookNow}>Book Now</button></td>
-            </tr>
+            {rides.map((ride, index) => (
+              <tr key={index}>
+                <td>{ride.name}</td>
+                <td>{ride.vehicle}</td>
+                <td>₦{ride.price}</td>
+                <td>{ride.seats}</td>
+                <td>{ride.destination}</td>
+                <td>{ride.from}</td>
+                <td>{ride.date}</td>
+                <td>{ride.time}</td>
+                <td>
+                  <button
+                    className={styles.bookNow}
+                    onClick={() => handleBookNow(ride)}
+                  >
+                    Book Now
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
