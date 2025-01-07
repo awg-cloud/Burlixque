@@ -15,8 +15,6 @@ def SignUP(user:schemas.SignUp, db: Session = Depends(get_db)):
   user.password = hashed_password
 
   users = user.dict()
-  users.pop('confirm_password')
-
   new_user = models.Users(**users)
   db.add(new_user)
   db.commit()
