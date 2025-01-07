@@ -5,13 +5,6 @@ from typing import Optional
 class SignUp(BaseModel):
   email: EmailStr
   password: str
-  confirm_password: str
-
-  @field_validator("confirm_password")
-  def passwords_match(cls, v: str, info: ValidationInfo) -> str:
-    if "password" in info.data and v != info.data["password"]:
-        raise ValueError("passwords do not match")
-    return v
 
 class SignupResponse(BaseModel):
   email: EmailStr
