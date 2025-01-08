@@ -14,10 +14,13 @@ def SignUP(user:schemas.SignUp, db: Session = Depends(get_db)):
   hashed_password = utils.hash(user.password)
   user.password = hashed_password
 
-  users = user.dict()
-  users.pop('confirm_password')
+  user_data = user.dict()
+  
+  existing_user_count = db.query(models.Users).filter(models.Users.email == user.email).count()
+  if existing_user_count > 0:
+    raise HTTPException(status_code=409, detail="User already exist")
 
-  new_user = models.Users(**users)
+  new_user = models.Users(**user_data)
   db.add(new_user)
   db.commit()
   db.refresh(new_user)
@@ -46,7 +49,7 @@ def get_user_profile(db: Session = Depends(get_db), current_user:
 
   profile = db.query(models.UserPofile).filter(models.UserPofile.user_id == current_user.id).first()
 
-  if profile == None:
+  if profile is None:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User profile does not exist")
   
   return profile 
@@ -58,7 +61,7 @@ def update_profile(user_profile: schemas.Profile, db: Session = Depends(get_db),
   query = db.query(models.UserPofile).filter(models.UserPofile.user_id == current_user.id)
   
 
-  if query.first() == None:
+  if query.first() is None:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User does not have a profile yet")
   
   query.update(user_profile.dict(), synchronize_session=False)
@@ -70,6 +73,11 @@ def update_profile(user_profile: schemas.Profile, db: Session = Depends(get_db),
 def create_bankdetails(user: schemas.BankDetails, db: Session = Depends(get_db), current_user:
                     int = Depends(get_current_user)):
   
+  existing_bank_details = db.query(models.BankDetails).filter(models.BankDetails.user_id == current_user.id).first()
+  
+  if existing_bank_details:
+    raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Bank details already exist")
+
   bank_details = models.BankDetails(user_id=current_user.id, **user.dict())
   db.add(bank_details)
   db.commit()
