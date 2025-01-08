@@ -14,10 +14,13 @@ def SignUP(user:schemas.SignUp, db: Session = Depends(get_db)):
   hashed_password = utils.hash(user.password)
   user.password = hashed_password
 
-  users = user.dict()
-  users.pop('confirm_password')
+  user_data = user.dict()
+  
+  existing_user_count = db.query(models.Users).filter(models.Users.email == user.email).count()
+  if existing_user_count > 0:
+    raise HTTPException(status_code=409, detail="User already exist")
 
-  new_user = models.Users(**users)
+  new_user = models.Users(**user_data)
   db.add(new_user)
   db.commit()
   db.refresh(new_user)
@@ -38,7 +41,7 @@ def create_profile(user: schemas.Profile, db: Session = Depends(get_db), current
   db.commit()
   db.refresh(profile)
 
-  return HTTPException(status_code=status.HTTP_201_CREATED, detail="User profile created successfully")
+  return profile
 
 @router.get("/profile/", response_model=schemas.Profile)
 def get_user_profile(db: Session = Depends(get_db), current_user:
@@ -51,7 +54,7 @@ def get_user_profile(db: Session = Depends(get_db), current_user:
   
   return profile 
 
-@router.put("/profile/")
+@router.put("/profile/", status_code=status.HTTP_200_OK, response_model=schemas.Profile)
 def update_profile(user_profile: schemas.Profile, db: Session = Depends(get_db), current_user:
                     int = Depends(get_current_user)):
   
@@ -75,12 +78,12 @@ def create_bankdetails(user: schemas.BankDetails, db: Session = Depends(get_db),
   db.commit()
   db.refresh(bank_details)
 
-  return HTTPException(status_code=status.HTTP_201_CREATED,detail="Details Saved!!!")
+  return bank_details
 
 @router.put("/bankdetails/")
-def update_bankdetails(details:schemas.BankDetails, db: Session = Depends(get_db), current_user:
-                    int = Depends(get_current_user)):
-  query = db.query(models.BankDetails).filter(models.BankDetails.user.id == current_user.id)
+def update_bankdetails(details:schemas.BankDetails, db: Session = Depends(get_db),  current_user:int = Depends(get_current_user)):
+  
+  query = db.query(models.BankDetails).filter(models.BankDetails.user_id == current_user.id)
 
   if query.first() == None:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User does not have bank details saved")
@@ -91,13 +94,13 @@ def update_bankdetails(details:schemas.BankDetails, db: Session = Depends(get_db
 
   return query.first()
 
-@router.get("/bankdetails/", response_model=schemas.Profile)
+@router.get("/bankdetails/", response_model=schemas.BankDetails)
 def get_bankdetails(db: Session = Depends(get_db), current_user:
                     int = Depends(get_current_user)):
 
   details = db.query(models.BankDetails).filter(models.BankDetails.user_id == current_user.id).first()
 
-  if details == None:
+  if details is None:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User bank details does not exist")
   
   return details 
