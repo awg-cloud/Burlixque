@@ -14,13 +14,10 @@ def SignUP(user:schemas.SignUp, db: Session = Depends(get_db)):
   hashed_password = utils.hash(user.password)
   user.password = hashed_password
 
-  user_data = user.dict()
-  
-  existing_user_count = db.query(models.Users).filter(models.Users.email == user.email).count()
-  if existing_user_count > 0:
-    raise HTTPException(status_code=409, detail="User already exist")
+  users = user.dict()
+  users.pop('confirm_password')
 
-  new_user = models.Users(**user_data)
+  new_user = models.Users(**users)
   db.add(new_user)
   db.commit()
   db.refresh(new_user)
