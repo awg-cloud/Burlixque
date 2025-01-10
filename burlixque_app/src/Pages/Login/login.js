@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import './login.css';
 import { GoEyeClosed } from "react-icons/go";
@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { RiUser3Line } from "react-icons/ri";
 // import Car3D from './Car3d';
 import Earth3D from './RealEarth';
+import { AuthContext } from '../authContext';
 // import EarthCanvas from './Earth';
 
 // Starfield Component
@@ -97,10 +98,38 @@ const Starfield = () => {
 };
 
 function LoginPage() {
+    const { setEmail, email, password, setPassword, LoginAction, loading, errEmail, setErrEmail, errPassword, setErrPassword } = useContext(AuthContext);
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        setErrEmail("");
+    };
+    
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+        setErrPassword("");
+    };
+
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
-    const handleNext = () => { navigate('/new_dashboard'); };
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+        const success = await LoginAction();
+        if (success) {
+            navigate('/new_dashboard');
+        }
+    };
+
+    const handleKeyDown = async (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const success = await LoginAction();
+            if (success) {
+                navigate('/new_dashboard');
+            }
+        }
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -162,7 +191,7 @@ function LoginPage() {
                             </motion.p>
                         </motion.div>
 
-                        <form action=''>
+                        <form onSubmit={handleSignIn} action=''>
                             <motion.div className="inputGroupDiv" variants={leftSlideIn}>
                                 <motion.label htmlFor="email" variants={leftSlideIn}>Email</motion.label>
                                 <motion.input
@@ -171,6 +200,9 @@ function LoginPage() {
                                     placeholder="Enter your email"
                                     required
                                     variants={leftSlideIn}
+                                    onChange={handleEmail} // Updates state with user input
+                                    value={email} // Reflects state in the input field
+                                    onKeyDown={handleKeyDown}
                                 />
                                 <p className='imgRep22'><RiUser3Line /></p>
                             </motion.div>
@@ -183,6 +215,9 @@ function LoginPage() {
                                     placeholder="Enter your password"
                                     required
                                     variants={leftSlideIn}
+                                    onChange={handlePassword}
+                                    value={password}
+                                    onKeyDown={handleKeyDown}
                                 />
                                 <motion.p
                                     className='imgRep22'
@@ -196,10 +231,10 @@ function LoginPage() {
                             <motion.button
                                 type="submit"
                                 className="signup-btn"
-                                onClick={handleNext}
                                 variants={leftSlideIn}
+                                disabled={loading}
                             >
-                                Log In
+                                {loading ? 'Pls wait...' : 'Sign In'}
                             </motion.button>
                         </form>
                     </motion.div>
@@ -223,7 +258,7 @@ function LoginPage() {
                     </motion.div> */}
                     <motion.div className="car-3d-section" variants={rightSlideIn}>
                         {/* <Car3D variants={rightSlideIn}/> */}
-                        <Earth3D variants={rightSlideIn}/>
+                        <Earth3D variants={rightSlideIn} />
                     </motion.div>
 
                 </motion.div>

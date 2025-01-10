@@ -170,7 +170,7 @@ a, link{
   
   .btn {
     display: block;
-    width: 63% !important;
+    width: 100% !important;
     cursor: pointer;
     background-color: #0058ff;
     color: white;
@@ -253,8 +253,9 @@ a, link{
     height: 43px !important;
     border-radius: 4px;
     /* padding-left: 20px !important; */
-    width: 70%;
-    margin: auto;
+    width: 100%;
+    margin-left: 50%;
+    margin-top: 10px;
   }
   
   @media (max-width: 880px) {

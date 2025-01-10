@@ -21,6 +21,7 @@ import MyRides from "./Pages/My Rides/available";
 import OTP from "./Pages/OTP/OTPpage";
 import LandingPage from "./Pages/Landing/landing";
 import NewDashboard from "./Pages/Dashboard/Dashboard";
+import { AuthContext } from "./Pages/authContext";
 // import { useEffect } from 'react';
 
 function ScrollToTop() {

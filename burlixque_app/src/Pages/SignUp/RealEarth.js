@@ -32,12 +32,6 @@ function CarModel() {
   const carRef = useRef();
   const { scene } = useGLTF('/planet/scene.gltf'); // Path to your car model
 
-  // Log mesh names to the console
-  scene.traverse((child) => {
-    if (child.isMesh) {
-      console.log(child.name); // Log each mesh name
-    }
-  });
 
   // Apply colors: gradient for the car body, black for tires
   scene.traverse((child) => {

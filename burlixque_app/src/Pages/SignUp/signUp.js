@@ -10,7 +10,10 @@ import { CiMail } from "react-icons/ci";
 import { RiUser3Line } from "react-icons/ri";
 // import Car3D from './Car3d';
 import Earth3D from '../SignUp/RealEarth';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // Starfield Effect (Unchanged)
 const Starfield = () => {
@@ -103,6 +106,56 @@ function SignUpPage() {
     const [selectedRole, setSelectedRole] = useState(null);  // Role selection
     const [clickable, setClickable] = useState(false);
     const navigate = useNavigate();
+    const [password1, setPassword1] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [errPass, setErPass] = useState('')
+
+    const leftSlideIn = {
+        hidden: { opacity: 0, x: +400 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1.2 }
+        }
+    };
+
+    const rightSlideIn = {
+        hidden: { opacity: 0, x: -400 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1.2 }
+        }
+    };
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    };
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+        validatePasswords(e.target.value, password1);
+    };
+    
+    const handlePassword1 = (e) => {
+        setPassword1(e.target.value);
+        validatePasswords(password, e.target.value);
+    };
+
+    const validatePasswords = (pass, confirmPass) => {
+        if (pass !== confirmPass) {
+            setErPass('Passwords do not match.');
+        } else {
+            setErPass('');
+        }
+    };
+
+    const EmailValidation = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword1(!showPassword1);
@@ -112,11 +165,55 @@ function SignUpPage() {
     };
 
     // Handle opening the modal when "Sign Up" is clicked
-    const handleSignUpClick = (e) => {
-        e.preventDefault();  // Prevent form submission
-        navigate('/mail_verification')
-        // setIsModalOpen(true); // Open the modal
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+        const confirm_password = password1
+        if (
+            email &&
+            EmailValidation(email) &&
+            password1 &&
+            password &&
+            password.length >= 6
+        ) {
+            try {
+                setLoading(true);
+                const response = await fetch("https://burlixque.onrender.com/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                        confirm_password
+                    }),
+                });
+
+                const data = await response.json();
+                console.log(data);
+
+                if (response.status === 201) {
+                    console.log(response)
+                    toast.success("Sign up Successfull")
+                    navigate('/login');
+                    
+                    setEmail("");
+                    setPassword("");
+                    setLoading(false);
+                } else {
+                    console.error(data.error);
+                    toast.error(data.error)
+                    toast.error(data)
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                toast.error("Network Error. Please Check your internet connection")
+                setLoading(false);
+            }
+        }
     };
+
 
     // Handle role selection and navigation
     const handleRoleSelection = (role) => {
@@ -138,23 +235,6 @@ function SignUpPage() {
         setIsModalOpen(false);  // Close the modal
     };
 
-    const leftSlideIn = {
-        hidden: { opacity: 0, x: +400 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1.2 }
-        }
-    };
-
-    const rightSlideIn = {
-        hidden: { opacity: 0, x: -400 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1.2 }
-        }
-    };
     return (
         <motion.div
             className="login-page"
@@ -173,6 +253,7 @@ function SignUpPage() {
                 transition={{ staggerChildren: 0.2 }}
             >
                 <motion.div className="signup-container22">
+                    <ToastContainer />
                     <motion.div
                         className="signup-forms"
                         variants={rightSlideIn}
@@ -194,20 +275,12 @@ function SignUpPage() {
                         </motion.div>
 
                         <form>
-                            <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="fullName">Full Name</motion.label>
-                                <motion.input
-                                    type="text"
-                                    id="fullName"
-                                    placeholder="Enter your full name"
-                                    required
-                                />
-                                <p className='imgRep22'><RiUser3Line /></p>
-                            </motion.div>
-
+                            
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
                                 <motion.label htmlFor="email">Email</motion.label>
                                 <motion.input
+                                    onChange={handleEmail}
+                                    value={email}
                                     type="email"
                                     id="email"
                                     placeholder="Enter your email"
@@ -219,6 +292,8 @@ function SignUpPage() {
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
                                 <motion.label htmlFor="password">Password</motion.label>
                                 <motion.input
+                                    onChange={handlePassword}
+                                    value={password}
                                     type={showPassword1 ? 'text' : 'password'}
                                     id="password"
                                     placeholder="Enter your password"
@@ -233,10 +308,12 @@ function SignUpPage() {
                             </motion.div>
 
                             <motion.div className="inputGroupDivSign" variants={rightSlideIn}>
-                                <motion.label htmlFor="password">Confirm Password</motion.label>
+                                <motion.label htmlFor="password1">Confirm Password</motion.label>
                                 <motion.input
+                                    onChange={handlePassword1}
+                                    value={password1}
                                     type={showPassword2 ? 'text' : 'password'}
-                                    id="password"
+                                    id="password1"
                                     placeholder="Confirm your password"
                                     required
                                 />
@@ -247,15 +324,17 @@ function SignUpPage() {
                                     {showPassword2 ? <GoEyeClosed /> : <RxEyeOpen />}
                                 </motion.p>
                             </motion.div>
+                            <p style={{color: 'red', fontSize: 13, fontFamily: 'Lobster', marginLeft: 20}}>{errPass}</p>
 
                             {/* Sign Up Button */}
                             <motion.button
                                 type="button"
+                                disabled={loading}
                                 className="signup-btn"
-                                onClick={handleSignUpClick} // Open the modal
+                                onClick={handleSignUp} // Open the modal
                                 variants={rightSlideIn}
                             >
-                                Sign Up
+                                {loading? 'Creating Account...' : 'Sign Up'}
                             </motion.button>
                         </form>
                     </motion.div>
