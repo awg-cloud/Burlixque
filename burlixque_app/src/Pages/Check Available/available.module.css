@@ -13,6 +13,7 @@ button{
     background-repeat: repeat;
     background-size: cover;
     background-attachment: fixed;
+    font-family: "Josefin Sans", sans-serif !important;
   }
   
   .headerers {

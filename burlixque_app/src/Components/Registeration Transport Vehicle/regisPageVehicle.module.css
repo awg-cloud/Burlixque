@@ -6,6 +6,7 @@ a, link{
     display: flex;
     height: 100vh;
     overflow-y: hidden;
+    font-family: "Josefin Sans", sans-serif !important;
   }
   .newDivCntSe{
     width: 85%;
@@ -173,7 +174,6 @@ a, link{
     border-radius: 4px;
     /* height: 42px; */
     padding: 15px;
-    font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 600;
   }

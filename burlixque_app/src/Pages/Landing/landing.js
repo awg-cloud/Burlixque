@@ -132,7 +132,7 @@ function LandingPage() {
                 </div>
             </section>
 
-            <section id="about" className={`${styles.aboutSection} ${styles.sectionHidden}`}>
+            <section id="about" className={`${styles.aboutSection} ${styles.sectionHidden1}`}>
                 <div className={styles.aboutContent}>
                     <h2 className={styles.sectionTitle}>About Us</h2>
                     <div className={styles.aboutGroupthings}>
@@ -189,7 +189,7 @@ function LandingPage() {
                 </div>
             </section>
 
-            <section id="contact" className={`${styles.contactSection} ${styles.sectionHidden}`}>
+            <section id="contact" className={`${styles.contactSection} ${styles.sectionHidden1}`}>
                 <h2 className={styles.sectionTitle}>Contact Us</h2>
                 <div className={styles.tivcontainer}>
                     <div className={styles.formSectionings}>
@@ -221,7 +221,7 @@ function LandingPage() {
                             <div className={styles.checkboxers}>
                                 <input type="checkbox" id="privacyPolicy" />
                                 <label htmlFor="privacyPolicy">
-                                    I agree to our friendly <a style={{ color: 'blue' }} href="/dashboard">privacy policy</a>
+                                    I agree to our friendly <a style={{ color: 'blue' }} href="/new_dashboard">privacy policy</a>
                                 </label>
                             </div>
                             <button type="submit" className={styles.submitButtoners}>Send Message</button>

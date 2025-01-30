@@ -17,12 +17,10 @@ import ProfilePage from "./Pages/Profile/profilePage";
 import CheckAvailableRides from "./Pages/Check Available/available";
 import DashboardOrg from "./Pages/Dashboard Org/dashboardPass";
 import MyRides from "./Pages/My Rides/available";
-// import OTPPage from "./Pages/OTP/OTPpage";
 import OTP from "./Pages/OTP/OTPpage";
 import LandingPage from "./Pages/Landing/landing";
 import NewDashboard from "./Pages/Dashboard/Dashboard";
 import { AuthContext } from "./Pages/authContext";
-// import { useEffect } from 'react';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -51,8 +49,8 @@ function App() {
         <Route path='/welcome_passenger' element={<WelcomePage />} />
         <Route path='/welcome_transport' element={<WelcomePageTransport />} />
         <Route path='/home' element={<RideArrivedPage />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/dashboard_org' element={<DashboardOrg />} />
+        {/* <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard_org' element={<DashboardOrg />} /> */}
         <Route path='/profile' element={<ProfilePage />} />
         <Route path='/check_rides' element={<CheckAvailableRides />} />
         <Route path='/check_myrides' element={<MyRides />} />

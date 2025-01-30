@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classes from './Dashboard.module.css';
 import first from '../Dashboard/first.png';
@@ -20,6 +20,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import modalStyles from './Modal.module.css';
+import { AuthContext } from '../authContext';
+import { FaRegBell } from "react-icons/fa";
 
 
 // const Marker = ({ text }) => (
@@ -36,6 +38,13 @@ import modalStyles from './Modal.module.css';
 // const defaultZoom = 11;
 
 const NewDashboard = () => {
+
+    const { logOut } = useContext(AuthContext);
+
+    const handleLogOut = async () => {
+        await logOut();
+        navigate('/login');
+    }
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -240,7 +249,8 @@ const NewDashboard = () => {
 
                 </div>
                 <div className={styles.toggloedropdown}>
-                    <img src={notification} alt='' title='2 new notifications'/>
+                    {/* <img src={notification} alt='' title='2 new notifications' /> */}
+                    <FaRegBell style={{fontSize: 26}} title='2 new notifications' />
                     <Dropdown openModal={handleModalToggle} openOrgModal={handleModalOrgToggle} />
                 </div>
 
@@ -260,12 +270,21 @@ const NewDashboard = () => {
             </div> */}
 
             <div className={classes.top}>
-                <img src={avart} alt="Avatar" />
-                <div className={classes.text}>
-                    <h6>Welcome</h6>
-                    <h3>John Doe</h3>
-                    <p>Smartest and easiest way to move</p>
+                <div className={classes.topCard}>
+                    <div className={classes.firstCardtype}>
+                        <div>
+                            <h6>Data Analytics</h6>
+                            <p>Gain valuable insights from real-time data to drive informed decisions. Track key metrics, identify trends, and optimize performance with powerful analytics.</p>
+                        </div>
+                    </div>
+                    <div className={classes.firstCardtype}>
+                        <div>
+                            <h6>Recent activities</h6>
+                            <p>Stay updated with the latest actions and interactions. Monitor recent changes, track progress, and stay informed on important updates in real time.</p>
+                        </div>
+                    </div>
                 </div>
+                {/* <img src={avart} alt="Avatar" /> */}
             </div>
 
             <div className={classes.tabs}>
@@ -278,7 +297,7 @@ const NewDashboard = () => {
                         </div>
                     </div>
                 </Link>
-                
+
                 <div className={classes.first} onClick={handleModalToggle}>
                     <img src={first} alt="First Tab" />
                     <div className={classes.tabtext}>
@@ -286,7 +305,7 @@ const NewDashboard = () => {
                         <p>Book an already scheduled ride to your destination</p>
                     </div>
                 </div>
-               
+
                 <div className={classes.first} onClick={handleModalOrgToggle}>
                     <img src={second} alt="First Tab" />
                     <div className={classes.tabtext}>
@@ -294,7 +313,7 @@ const NewDashboard = () => {
                         <p>Organize a ride to a specific location</p>
                     </div>
                 </div>
-               
+
                 <Link to='/check_myrides'>
                     <div className={classes.first}>
                         <img src={second} alt="First Tab" />
@@ -323,14 +342,14 @@ const NewDashboard = () => {
                         </div>
                     </div>
                 </Link>
-                <Link to='/login'>
-                    <div className={classes.first}>
-                        <img src={fifth} alt="First Tab" />
-                        <div className={classes.tabtext}>
-                            <p>Log Out</p>
-                        </div>
+                {/* <Link to='/login'> */}
+                <div className={classes.first} onClick={handleLogOut}>
+                    <img src={fifth} alt="First Tab" />
+                    <div className={classes.tabtext}>
+                        <p>Log Out</p>
                     </div>
-                </Link>
+                </div>
+                {/* </Link> */}
 
 
             </div>
@@ -371,7 +390,7 @@ const NewDashboard = () => {
                             <>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="location">Location</label>
-                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location"  />
+                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location" />
                                 </div>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="date">Date</label>
@@ -416,20 +435,18 @@ const NewDashboard = () => {
                             <>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="location">Location</label>
-                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location"  />
+                                    <input className={modalStyles.input} type="text" id="location" placeholder="Enter location" />
                                 </div>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="date">Date</label>
-                                    <input className={modalStyles.input} type="date" id="date"  />
+                                    <input className={modalStyles.input} type="date" id="date" />
                                 </div>
                                 <div>
                                     <label className={modalStyles.label} htmlFor="time">Time</label>
-                                    <input className={modalStyles.input} type="time" id="time"  />
+                                    <input className={modalStyles.input} type="time" id="time" />
                                 </div>
                                 <p className="bold flex-flex">Destination</p>
                                 <div>
-
-
                                     <label className={modalStyles.label} htmlFor="destination">Select State</label>
                                     {/* <input className={modalStyles.input} type="text" id="destination" placeholder="Enter destination" required /> */}
                                     <Select

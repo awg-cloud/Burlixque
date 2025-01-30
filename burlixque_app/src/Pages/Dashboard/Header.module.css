@@ -3,12 +3,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #00C7BE;
+  /* background-image: url("../../Assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+  background-color: #110e22;
   /* position: fixed; */
   color: #fff;
   width: 100%;
   max-width: 100% !important;
   z-index: 100;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 
 @media (max-width: 800px) {

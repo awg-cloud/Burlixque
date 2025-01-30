@@ -6,6 +6,7 @@ a, link{
     display: flex;
     height: 100vh;
     overflow-y: hidden;
+    font-family: "Josefin Sans", sans-serif !important;
   }
   .newDivCnt{
     width: 85%;

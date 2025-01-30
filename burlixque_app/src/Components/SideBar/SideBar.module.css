@@ -22,6 +22,7 @@ a {
   justify-content: space-between;
   /* Distribute space between elements */
   overflow-y: hidden;
+  font-family: "Josefin Sans", sans-serif !important;
   /* height: auto; */
 }
 

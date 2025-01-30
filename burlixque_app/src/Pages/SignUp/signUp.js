@@ -20,15 +20,13 @@ const Starfield = () => {
     useEffect(() => {
         const initializeStars = () => {
             const svg = document.getElementById("starfield");
-
-            // If svg is not available, exit the function early
             if (!svg) return;
 
             const width = window.innerWidth;
             const height = window.innerHeight;
-            const numStars = Math.floor((width * height) / 4000); // Adjust density as desired
+            const numStars = Math.floor((width * height) / 4000);
 
-            svg.innerHTML = ''; // Clear existing stars
+            svg.innerHTML = '';
 
             function random(min, max) {
                 return Math.random() * (max - min) + min;
@@ -37,22 +35,25 @@ const Starfield = () => {
             function createStar() {
                 const cx = random(0, width);
                 const cy = random(0, height);
-                const r = random(0.3, 0.9);
+                const r = random(0.6, 1.3); // Increase size for glow effect
 
                 const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 star.setAttribute("cx", cx);
                 star.setAttribute("cy", cy);
                 star.setAttribute("r", r);
-                star.setAttribute("fill", "#ffffff");
+                star.setAttribute("fill", "white"); // Set the star color
+                star.setAttribute("opacity", random(0.3, 1)); // Vary brightness
+                star.setAttribute("filter", "url(#glowFilter)"); // Apply glow effect
                 svg.appendChild(star);
+
                 return star;
             }
 
             function animateStar(star) {
                 let xPos = parseFloat(star.getAttribute("cx"));
                 let yPos = parseFloat(star.getAttribute("cy"));
-                const speedX = random(-0.94, 0.78);
-                const speedY = random(-0.06, 0.58);
+                const speedX = random(-0.3, 0.6);
+                const speedY = random(-0.4, 0.2);
 
                 function move() {
                     xPos += speedX;
@@ -77,25 +78,38 @@ const Starfield = () => {
             }
         };
 
-        // Initialize stars when component mounts
         initializeStars();
 
-        // Re-initialize stars on resize
         const handleResize = () => {
             initializeStars();
         };
 
         window.addEventListener('resize', handleResize);
-
         return () => {
             const svg = document.getElementById("starfield");
-            if (svg) svg.innerHTML = ''; // Clean up on component unmount
+            if (svg) svg.innerHTML = '';
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
     return (
-        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} preserveAspectRatio="none"></svg>
+        <svg id="starfield" width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} preserveAspectRatio="none">
+            <defs>
+                <filter id="glowFilter">
+                    <feGaussianBlur stdDeviation="6" result="blurred"/>
+                    <feColorMatrix 
+                        type="matrix"
+                        values="1 0 0 0  0
+                                0 1 0 0  0
+                                0 0 1 0  0
+                                0 0 0 3  0" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
     );
 };
 
@@ -202,7 +216,7 @@ function SignUpPage() {
                     setLoading(false);
                 } else {
                     console.error(data.error);
-                    toast.error(data.error)
+                    toast.error(data.detail)
                     toast.error(data)
                     setLoading(false);
                 }
@@ -241,7 +255,14 @@ function SignUpPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3.5 }}
-            style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}
+            style={{
+                position: 'relative',
+                height: '100vh',
+                overflow: 'hidden',
+                backgroundImage: `url(${require('../../Assets/bg.png')})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}
         >
 
             <Starfield />

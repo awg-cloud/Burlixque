@@ -66,7 +66,8 @@ const Earth3D = () => {
       <CarModel />
 
       {/* Camera Controls */}
-      <OrbitControls enableZoom={false} />
+      <OrbitControls enableZoom={false} minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
+
     </Canvas>
   );
 };

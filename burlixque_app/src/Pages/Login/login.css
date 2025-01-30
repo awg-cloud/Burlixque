@@ -88,11 +88,6 @@
     align-items: center;
     height: 100vh;
     padding: 0 5%;
-    /* background-color: #000000; */
-    /* background-image: url('./blackBg.jpg'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     opacity: 1 !important;
     position: relative;
     overflow: hidden;
@@ -408,7 +403,7 @@
   width: 100%;
   height: 100%;
   /* background-image: url('../../Assets/darkcloud.jpg'); */
-  background: #000000 !important;
+  /* background: #000000 !important; */
 }
 
 .car-3d-section {

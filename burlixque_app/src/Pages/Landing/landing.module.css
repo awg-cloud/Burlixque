@@ -1,5 +1,5 @@
 .landingPage {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Josefin Sans", sans-serif !important;
     color: #fff;
     background-color: #000000;
     max-width: 100% !important;
@@ -8,7 +8,7 @@
     background: url(../../Assets/bg.png);
     background-position: center;
     background-size: cover;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .servicesSection {
-    height: 60vh;
+    min-height: 60vh;
     padding: 100px 50px;
     /* background-color: #000000; */
 }
@@ -191,13 +191,26 @@
 }
 
 .carouselWrapper {
+    position: relative;
     width: 55%;
+}
+
+.carouselWrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../../Assets/services.webp) center/cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
 }
 
 .serviceCard {
     flex: 1;
     margin: 0;
-    background-color: #121212;
+    /* background-color: #121212; */
     padding: 20px;
     padding-bottom: 50px;
     /* border-radius: 8px; */
@@ -495,6 +508,12 @@
 .sectionHidden {
     opacity: 0.01;
     transform: translateX(-300px);
+    transition: opacity 1s ease-out, transform 1.5s ease-out;
+    overflow: hidden;
+}
+.sectionHidden1 {
+    opacity: 0.01;
+    transform: translateX(+300px);
     transition: opacity 1s ease-out, transform 1.5s ease-out;
     overflow: hidden;
 }

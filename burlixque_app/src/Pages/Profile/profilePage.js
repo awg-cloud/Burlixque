@@ -159,12 +159,6 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.profileContainer}>
-      {loading ? (
-        <p style={{ color: 'white' }}>Loading user details...</p>
-      ) : error ? (
-        <p style={{ color: 'white' }}>{error}</p>
-      ) : (
-        <>
           <div className={styles.profileCard}>
             <div className={styles.header}>
               <div className={styles.flexImg}>
@@ -205,7 +199,7 @@ const ProfilePage = () => {
                       id="fullName"
                       type="text"
                       name="fullName"
-                      value={userDetails?.full_name}
+                      value={userDetails?.full_name || "John Doe"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -224,7 +218,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="matricNumber"
-                      value={userDetails?.matric_number}
+                      value={userDetails?.matric_number || "SCI/23/24/0311"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -232,7 +226,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="email"
-                      value={userDetails?.email}
+                      value={userDetails?.email || "johndoe@gmail.com"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -240,7 +234,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="phoneNumber"
-                      value={userDetails?.phone_number}
+                      value={userDetails?.phone_number || "08147645851"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -248,7 +242,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="username"
-                      value={userDetails?.username}
+                      value={userDetails?.username || "John_doe"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -256,7 +250,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="school"
-                      value={userDetails?.school}
+                      value={userDetails?.school || "Olabisi Onabanjo University"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -264,7 +258,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="address"
-                      value={userDetails?.home_address}
+                      value={userDetails?.home_address || "room 3, Zara hall, Mini campus"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -272,7 +266,7 @@ const ProfilePage = () => {
                     <input
                       type="text"
                       name="address"
-                      value={userDetails?.date_of_birth}
+                      value={userDetails?.date_of_birth || "11/12/2002"}
                       onChange={handleChange}
                       className={styles.editInput}
                     />
@@ -280,15 +274,15 @@ const ProfilePage = () => {
                 ) : (
                   <>
 
-                    <h2>{userDetails?.fullName}</h2>
+                    <h2>{userDetails?.fullName || "John Doe"}</h2>
                     {/* <p>User type: <span> {userDetails.user}</span></p> */}
-                    <p>Matric / Reg num: <span> {userDetails?.matric_number} </span></p>
-                    <p>Email: <span> {userDetails?.email} </span></p>
-                    <p>Phone: <span> {userDetails?.phone_number}</span></p>
-                    <p>Username: <span> @{userDetails?.username}</span></p>
-                    <p>School: <span> {userDetails?.school}</span></p>
-                    <p>Address: <span> {userDetails?.home_address}</span></p>
-                    <p>Date of Birth: <span> {userDetails?.date_of_birth}</span></p>
+                    <p>Matric / Reg num: <span> {userDetails?.matric_number || "SCI/23/24/0311"} </span></p>
+                    <p>Email: <span> {userDetails?.email || "johndoe@gmail.com"} </span></p>
+                    <p>Phone: <span> {userDetails?.phone_number || "08147645851"}</span></p>
+                    <p>Username: <span> @{userDetails?.username || "John_doe"}</span></p>
+                    <p>School: <span> {userDetails?.school || "Olabisi Onabanjo University"}</span></p>
+                    <p>Address: <span> {userDetails?.home_address || "room 3, Zara hall, Mini campus"}</span></p>
+                    <p>Date of Birth: <span> {userDetails?.date_of_birth || "11/12/2002"}</span></p>
 
                   </>
                 )}
@@ -357,7 +351,6 @@ const ProfilePage = () => {
               </Modal>
             )}
           </div>
-        </>)}
     </div>
   );
 };

@@ -3,6 +3,7 @@
   display: flex;
   height: 100vh;
   overflow-y: hidden;
+  font-family: "Josefin Sans", sans-serif !important;
 }
 
 .paymentContainer {
@@ -28,7 +29,6 @@
 }
 
 .title {
-  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -39,7 +39,6 @@
 }
 
 .inputGroupings label {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 5px;
@@ -76,7 +75,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
 }
 
@@ -95,7 +93,6 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin-top: 20px;
@@ -119,7 +116,6 @@
 }
 
 .planText {
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -138,14 +134,12 @@
 }
 
 .planCost h3 {
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
   margin: 0 10px 0 10px;
   font-weight: 600;
 }
 
 .planCost p {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   margin: 0;
 }
@@ -153,7 +147,6 @@
 .features {
   list-style-type: none;
   padding: 0;
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
 }
 
@@ -164,7 +157,6 @@
 }
 
 .modifyPlan {
-  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #0058ff;
   text-decoration: none;
