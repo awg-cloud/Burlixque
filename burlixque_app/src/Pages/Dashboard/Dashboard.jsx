@@ -254,7 +254,6 @@ const NewDashboard = () => {
                     <Dropdown openModal={handleModalToggle} openOrgModal={handleModalOrgToggle} />
                 </div>
 
-
             </header>
             {/* <div className={mapStyles.mapContainer}>
                 <GoogleMapReact
