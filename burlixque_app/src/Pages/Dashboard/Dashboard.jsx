@@ -22,7 +22,7 @@ import Select from 'react-select';
 import modalStyles from './Modal.module.css';
 import { AuthContext } from '../authContext';
 import { FaRegBell } from "react-icons/fa";
-
+import burLogo from '../../Assets/burLogo.webp'
 
 // const Marker = ({ text }) => (
 //     <div style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
@@ -231,7 +231,7 @@ const NewDashboard = () => {
             <ToastContainer />
             <header className={headerStyles.header}>
                 <div className={styles.logoGroup}>
-                    <img src={logo} alt="" />
+                    <img src={burLogo} alt="" />
                     <div className={styles.typewriteThings}>
                         <Typewriter
 
